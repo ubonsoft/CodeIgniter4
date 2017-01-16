@@ -1061,7 +1061,7 @@ difference, here is <tt class="docutils literal"><span class="pre">set()</span><
 parameter.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;field&#39;</span><span class="p">,</span> <span class="s1">&#39;field+1&#39;</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">);</span>
 <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
-<span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">();</span> <span class="c1">// gives UPDATE mytable SET field = field+1 WHERE id = 2</span>
+<span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">();</span> <span class="c1">// gives UPDATE mytable SET field = field+1 WHERE `id` = 2</span>
 
 <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;field&#39;</span><span class="p">,</span> <span class="s1">&#39;field+1&#39;</span><span class="p">);</span>
 <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
@@ -2482,7 +2482,7 @@ a DELETE statement will be used instead.</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014 - 2017, British Columbia Institute of Technology.
-       Last updated on Jan 09, 2017.
+       Last updated on Jan 16, 2017.
     </p>
   </div>
 
