@@ -168,6 +168,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
 </ul>
@@ -340,6 +341,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
 </ul>
@@ -479,7 +481,7 @@ looking for.</p>
 </div>
 <div class="section" id="retrieve-field-metadata">
 <h3>Retrieve Field Metadata<a class="headerlink" href="#retrieve-field-metadata" title="Permalink to this headline">¶</a></h3>
-<p><strong>$db-&gt;fieldData()</strong></p>
+<p><strong>$db-&gt;getFieldData()</strong></p>
 <p>Returns an array of objects containing field information.</p>
 <p>Sometimes it&#8217;s helpful to gather the field names or other metadata, like
 the column type, max length, etc.</p>
@@ -514,6 +516,11 @@ database:</p>
 <li>type - the type of the column</li>
 </ul>
 </div>
+<div class="section" id="list-the-indexes-in-a-table">
+<h3>List the Indexes in a Table<a class="headerlink" href="#list-the-indexes-in-a-table" title="Permalink to this headline">¶</a></h3>
+<p><strong>$db-&gt;getIndexData()</strong></p>
+<p>please write this, someone...</p>
+</div>
 </div>
 </div>
 
@@ -536,7 +543,7 @@ database:</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014 - 2017, British Columbia Institute of Technology.
-       Last updated on Jan 03, 2017.
+       Last updated on Feb 07, 2017.
     </p>
   </div>
 
