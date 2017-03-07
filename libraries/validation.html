@@ -168,6 +168,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
 </ul>
@@ -340,6 +341,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
 </ul>
@@ -421,27 +423,32 @@ helps minimize the amount of code you&#8217;ll write.</p>
 </li>
 <li><a class="reference internal" href="#saving-sets-of-validation-rules-to-the-config-file" id="id14">Saving Sets of Validation Rules to the Config File</a><ul>
 <li><a class="reference internal" href="#how-to-save-your-rules" id="id15">How to save your rules</a></li>
+<li><a class="reference internal" href="#getting-setting-rule-groups" id="id16">Getting &amp; Setting Rule Groups</a><ul>
+<li><a class="reference internal" href="#get-rule-group" id="id17">Get Rule Group</a></li>
+<li><a class="reference internal" href="#set-rule-group" id="id18">Set Rule Group</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#working-with-errors" id="id16">Working With Errors</a><ul>
-<li><a class="reference internal" href="#setting-custom-error-messages" id="id17">Setting Custom Error Messages</a></li>
-<li><a class="reference internal" href="#getting-all-errors" id="id18">Getting All Errors</a></li>
-<li><a class="reference internal" href="#getting-a-single-error" id="id19">Getting a Single Error</a></li>
-<li><a class="reference internal" href="#check-if-error-exists" id="id20">Check If Error Exists</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#customizing-error-display" id="id21">Customizing Error Display</a><ul>
-<li><a class="reference internal" href="#creating-the-views" id="id22">Creating the Views</a></li>
-<li><a class="reference internal" href="#configuration" id="id23">Configuration</a></li>
-<li><a class="reference internal" href="#specifying-the-template" id="id24">Specifying the Template</a></li>
+<li><a class="reference internal" href="#working-with-errors" id="id19">Working With Errors</a><ul>
+<li><a class="reference internal" href="#setting-custom-error-messages" id="id20">Setting Custom Error Messages</a></li>
+<li><a class="reference internal" href="#getting-all-errors" id="id21">Getting All Errors</a></li>
+<li><a class="reference internal" href="#getting-a-single-error" id="id22">Getting a Single Error</a></li>
+<li><a class="reference internal" href="#check-if-error-exists" id="id23">Check If Error Exists</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#creating-custom-rules" id="id25">Creating Custom Rules</a><ul>
-<li><a class="reference internal" href="#allowing-parameters" id="id26">Allowing Parameters</a></li>
+<li><a class="reference internal" href="#customizing-error-display" id="id24">Customizing Error Display</a><ul>
+<li><a class="reference internal" href="#creating-the-views" id="id25">Creating the Views</a></li>
+<li><a class="reference internal" href="#configuration" id="id26">Configuration</a></li>
+<li><a class="reference internal" href="#specifying-the-template" id="id27">Specifying the Template</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#available-rules" id="id27">Available Rules</a><ul>
-<li><a class="reference internal" href="#rules-for-file-uploads" id="id28">Rules for File Uploads</a></li>
+<li><a class="reference internal" href="#creating-custom-rules" id="id28">Creating Custom Rules</a><ul>
+<li><a class="reference internal" href="#allowing-parameters" id="id29">Allowing Parameters</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#available-rules" id="id30">Available Rules</a><ul>
+<li><a class="reference internal" href="#rules-for-file-uploads" id="id31">Rules for File Uploads</a></li>
 </ul>
 </li>
 </ul>
@@ -721,16 +728,31 @@ be used for any errors when this group is used:</p>
 </div>
 <p>See below for details on the formatting of the array.</p>
 </div>
+<div class="section" id="getting-setting-rule-groups">
+<h3><a class="toc-backref" href="#id16">Getting &amp; Setting Rule Groups</a><a class="headerlink" href="#getting-setting-rule-groups" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="get-rule-group">
+<h4><a class="toc-backref" href="#id17">Get Rule Group</a><a class="headerlink" href="#get-rule-group" title="Permalink to this headline">¶</a></h4>
+<p>This method gets a rule group from the validation configuration.</p>
+<blockquote>
+<div>$validation-&gt;getRuleGroup(&#8216;signup&#8217;);</div></blockquote>
+</div>
+<div class="section" id="set-rule-group">
+<h4><a class="toc-backref" href="#id18">Set Rule Group</a><a class="headerlink" href="#set-rule-group" title="Permalink to this headline">¶</a></h4>
+<p>This method sets a rule group from the validation configuration to the validation service.</p>
+<blockquote>
+<div>$validation-&gt;setRuleGroup(&#8216;signup&#8217;);</div></blockquote>
+</div>
+</div>
 </div>
 <div class="section" id="working-with-errors">
-<h2><a class="toc-backref" href="#id16">Working With Errors</a><a class="headerlink" href="#working-with-errors" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id19">Working With Errors</a><a class="headerlink" href="#working-with-errors" title="Permalink to this headline">¶</a></h2>
 <p>The Validation library provides several methods to help you set error messages, provide
 custom error messages, and retrieve one or more errors to display.</p>
 <p>By default, error messages are derived from language strings in <tt class="docutils literal"><span class="pre">system/Language/en/Validation.php</span></tt>, where
 each rule has an entry.</p>
 <p><strong>TODO: Determine how to easily add custom rule messages.</strong></p>
 <div class="section" id="setting-custom-error-messages">
-<span id="validation-custom-errors"></span><h3><a class="toc-backref" href="#id17">Setting Custom Error Messages</a><a class="headerlink" href="#setting-custom-error-messages" title="Permalink to this headline">¶</a></h3>
+<span id="validation-custom-errors"></span><h3><a class="toc-backref" href="#id20">Setting Custom Error Messages</a><a class="headerlink" href="#setting-custom-error-messages" title="Permalink to this headline">¶</a></h3>
 <p>Both the <tt class="docutils literal"><span class="pre">setRule()</span></tt> and <tt class="docutils literal"><span class="pre">setRules()</span></tt> methods can accept an array of custom messages
 that will be used as errors specific to each field as their last parameter. This allows
 for a very pleasant experience for the user since the errors are tailored to each
@@ -764,7 +786,7 @@ instance. If not custom error message is provided, the default value will be use
 </div>
 </div>
 <div class="section" id="getting-all-errors">
-<h3><a class="toc-backref" href="#id18">Getting All Errors</a><a class="headerlink" href="#getting-all-errors" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id21">Getting All Errors</a><a class="headerlink" href="#getting-all-errors" title="Permalink to this headline">¶</a></h3>
 <p>If you need to retrieve all error messages for failed fields, you can use the <tt class="docutils literal"><span class="pre">getErrors()</span></tt> method:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$errors</span> <span class="o">=</span> <span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">getErrors</span><span class="p">();</span>
 
@@ -778,7 +800,7 @@ instance. If not custom error message is provided, the default value will be use
 <p>If no errors exist, an empty array will be returned.</p>
 </div>
 <div class="section" id="getting-a-single-error">
-<h3><a class="toc-backref" href="#id19">Getting a Single Error</a><a class="headerlink" href="#getting-a-single-error" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id22">Getting a Single Error</a><a class="headerlink" href="#getting-a-single-error" title="Permalink to this headline">¶</a></h3>
 <p>You can retrieve the error for a single field with the <tt class="docutils literal"><span class="pre">getError()</span></tt> method. The only parameter is the field
 name:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$error</span> <span class="o">=</span> <span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">getError</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">);</span>
@@ -787,7 +809,7 @@ name:</p>
 <p>If no error exists, an empty string will be returned.</p>
 </div>
 <div class="section" id="check-if-error-exists">
-<h3><a class="toc-backref" href="#id20">Check If Error Exists</a><a class="headerlink" href="#check-if-error-exists" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id23">Check If Error Exists</a><a class="headerlink" href="#check-if-error-exists" title="Permalink to this headline">¶</a></h3>
 <p>You can check to see if an error exists with the <tt class="docutils literal"><span class="pre">hasError()</span></tt> method. The only parameter is the field name:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">hasError</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
 <span class="p">{</span>
@@ -798,13 +820,13 @@ name:</p>
 </div>
 </div>
 <div class="section" id="customizing-error-display">
-<h2><a class="toc-backref" href="#id21">Customizing Error Display</a><a class="headerlink" href="#customizing-error-display" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id24">Customizing Error Display</a><a class="headerlink" href="#customizing-error-display" title="Permalink to this headline">¶</a></h2>
 <p>When you call <tt class="docutils literal"><span class="pre">$validation-&gt;listErrors()</span></tt> or <tt class="docutils literal"><span class="pre">$validation-&gt;showError()</span></tt>, it loads a view file in the background
 that determines how the errors are displayed. By default, they display in a manner compatible with the
 <a class="reference external" href="http://getbootstrap.com/">Bootstrap</a> CSS framework. You can easily create new views and use them throughout your
 application.</p>
 <div class="section" id="creating-the-views">
-<h3><a class="toc-backref" href="#id22">Creating the Views</a><a class="headerlink" href="#creating-the-views" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id25">Creating the Views</a><a class="headerlink" href="#creating-the-views" title="Permalink to this headline">¶</a></h3>
 <p>The first step is to create the custom views. These can be placed anywhere that the <tt class="docutils literal"><span class="pre">view()</span></tt> method can locate them,
 which means the standard View directory, or any namespaced View folder will work. For example, you could create
 a new view at <strong>/application/Views/_errors_list.php</strong>:</p>
@@ -833,7 +855,7 @@ error message. This is used with the <tt class="docutils literal"><span class="p
 </div>
 </div>
 <div class="section" id="configuration">
-<h3><a class="toc-backref" href="#id23">Configuration</a><a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id26">Configuration</a><a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
 <p>Once you have your views created, you need to let the Validation library know about them. Open <tt class="docutils literal"><span class="pre">Config/Validation.php</span></tt>.
 Inside, you&#8217;ll find the <tt class="docutils literal"><span class="pre">$templates</span></tt> property where you can list as many custom views as you want, and provide an
 short alias they can be referenced by. If we were to add our example file from above, it would look something like:</p>
@@ -846,7 +868,7 @@ short alias they can be referenced by. If we were to add our example file from a
 </div>
 </div>
 <div class="section" id="specifying-the-template">
-<h3><a class="toc-backref" href="#id24">Specifying the Template</a><a class="headerlink" href="#specifying-the-template" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id27">Specifying the Template</a><a class="headerlink" href="#specifying-the-template" title="Permalink to this headline">¶</a></h3>
 <p>You can specify the template to use by passing it&#8217;s alias as the first parameter in <tt class="docutils literal"><span class="pre">listErrors</span></tt>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;?=</span> <span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">listErrors</span><span class="p">(</span><span class="s1">&#39;my_list&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span>
 </pre></div>
@@ -859,7 +881,7 @@ right after the name of the field the error should belong to:</p>
 </div>
 </div>
 <div class="section" id="creating-custom-rules">
-<h2><a class="toc-backref" href="#id25">Creating Custom Rules</a><a class="headerlink" href="#creating-custom-rules" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id28">Creating Custom Rules</a><a class="headerlink" href="#creating-custom-rules" title="Permalink to this headline">¶</a></h2>
 <p>Rules are stored within simple, namespaced classes. They can be stored any location you would like, as long as the
 autoloader can find it. These files are called RuleSets. To add a new RuleSet, edit <strong>Config/Validation.php</strong> and
 add the new file to the <tt class="docutils literal"><span class="pre">$ruleSets</span></tt> array:</p>
@@ -905,7 +927,7 @@ second parameter:</p>
 </pre></div>
 </div>
 <div class="section" id="allowing-parameters">
-<h3><a class="toc-backref" href="#id26">Allowing Parameters</a><a class="headerlink" href="#allowing-parameters" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id29">Allowing Parameters</a><a class="headerlink" href="#allowing-parameters" title="Permalink to this headline">¶</a></h3>
 <p>If your method needs to work with parameters, the function will need a minimum of three parameters: the string to validate,
 the parameter string, and an array with all of the data that was submitted the form. The $data array is especially handy
 for rules like <tt class="docutils literal"><span class="pre">require_with</span></tt> that needs to check the value of another submitted field to base its result on:</p>
@@ -940,7 +962,7 @@ for rules like <tt class="docutils literal"><span class="pre">require_with</span
 </div>
 </div>
 <div class="section" id="available-rules">
-<h2><a class="toc-backref" href="#id27">Available Rules</a><a class="headerlink" href="#available-rules" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id30">Available Rules</a><a class="headerlink" href="#available-rules" title="Permalink to this headline">¶</a></h2>
 <p>The following is a list of all the native rules that are available to use:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -1124,7 +1146,7 @@ HSBC Canada Card (hsbc)</td>
 </tbody>
 </table>
 <div class="section" id="rules-for-file-uploads">
-<h3><a class="toc-backref" href="#id28">Rules for File Uploads</a><a class="headerlink" href="#rules-for-file-uploads" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id31">Rules for File Uploads</a><a class="headerlink" href="#rules-for-file-uploads" title="Permalink to this headline">¶</a></h3>
 <p>These validation rules enable you to do the basic checks you might need to verify that uploaded files meet your business needs.
 Since the value of a file upload HTML field doesn&#8217;t exist, and is stored in the $_FILES global, the name of the input field will
 need to be used twice. Once to specify the field name as you would for any other rule, but again as the first parameter of all
@@ -1217,7 +1239,7 @@ the field data).</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014 - 2017, British Columbia Institute of Technology.
-       Last updated on Jan 03, 2017.
+       Last updated on Mar 06, 2017.
     </p>
   </div>
 
