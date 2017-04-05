@@ -32,7 +32,7 @@
   
     <link rel="top" title="CodeIgniter4 4.0.0-dev documentation" href="../index.html"/>
         <link rel="up" title="General Topics" href="index.html"/>
-        <link rel="next" title="Hooks - Extending the Framework Core" href="hooks.html"/>
+        <link rel="next" title="Events - Extending the Framework Core" href="events.html"/>
         <link rel="prev" title="Helper Functions" href="helpers.html"/> 
 
   
@@ -98,7 +98,7 @@
 <li class="toctree-l2"><a class="reference internal" href="view_parser.html">View Parser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helpers.html">Helper Functions</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="">Creating Core System Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hooks.html">Hooks - Extending the Framework Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html">Events - Extending the Framework Core</a></li>
 <li class="toctree-l2"><a class="reference internal" href="common_functions.html">Global Functions and Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="routing.html">URI Routing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="filters.html">Controller Filters</a></li>
@@ -168,6 +168,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
 </ul>
@@ -270,7 +271,7 @@
 <li class="toctree-l2"><a class="reference internal" href="view_parser.html">View Parser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helpers.html">Helper Functions</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="">Creating Core System Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hooks.html">Hooks - Extending the Framework Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html">Events - Extending the Framework Core</a></li>
 <li class="toctree-l2"><a class="reference internal" href="common_functions.html">Global Functions and Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="routing.html">URI Routing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="filters.html">Controller Filters</a></li>
@@ -340,6 +341,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
 </ul>
@@ -417,7 +419,7 @@ attempting it.</p>
 <li>CodeIgniter\Controller</li>
 <li>CodeIgniter\Debug\Exceptions</li>
 <li>CodeIgniter\Debug\Timer</li>
-<li>CodeIgniter\Hooks\Hooks</li>
+<li>CodeIgniter\Events\Events</li>
 <li>CodeIgniter\HTTP\CLIRequest (if launched from command line only)</li>
 <li>CodeIgniter\HTTP\IncomingRequest (if launched over HTTP)</li>
 <li>CodeIgniter\HTTP\Request</li>
@@ -504,7 +506,7 @@ constructors:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="hooks.html" class="btn btn-neutral float-right" title="Hooks - Extending the Framework Core">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="events.html" class="btn btn-neutral float-right" title="Events - Extending the Framework Core">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="helpers.html" class="btn btn-neutral" title="Helper Functions"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -517,7 +519,7 @@ constructors:</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014 - 2017, British Columbia Institute of Technology.
-       Last updated on Jan 03, 2017.
+       Last updated on Apr 05, 2017.
     </p>
   </div>
 

@@ -98,7 +98,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../general/view_parser.html">View Parser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/core_classes.html">Creating Core System Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/hooks.html">Hooks - Extending the Framework Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/events.html">Events - Extending the Framework Core</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/routing.html">URI Routing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/filters.html">Controller Filters</a></li>
@@ -271,7 +271,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../general/view_parser.html">View Parser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/core_classes.html">Creating Core System Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/hooks.html">Hooks - Extending the Framework Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/events.html">Events - Extending the Framework Core</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/routing.html">URI Routing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/filters.html">Controller Filters</a></li>
@@ -415,7 +415,8 @@
 <li><a class="reference internal" href="#creating-language-files" id="id8">Creating Language Files</a></li>
 <li><a class="reference internal" href="#basic-usage" id="id9">Basic Usage</a><ul>
 <li><a class="reference internal" href="#replacing-parameters" id="id10">Replacing Parameters</a></li>
-<li><a class="reference internal" href="#nested-arrays" id="id11">Nested Arrays</a></li>
+<li><a class="reference internal" href="#specifying-locale" id="id11">Specifying Locale</a></li>
+<li><a class="reference internal" href="#nested-arrays" id="id12">Nested Arrays</a></li>
 </ul>
 </li>
 </ul>
@@ -638,9 +639,22 @@ library, the following types of data can be replaced:</p>
 idea on what capabilities it has, like permorming conditional replacement, pluralization, and more. Both of the links provided
 earlier will give you an excellent idea as to the options available.</p>
 </div>
+<div class="section" id="specifying-locale">
+<h4><a class="toc-backref" href="#id11">Specifying Locale</a><a class="headerlink" href="#specifying-locale" title="Permalink to this headline">¶</a></h4>
+<p>To specify a different locale to be used when replacing parameters, you can pass the locale in as the
+third parameter to the <tt class="docutils literal"><span class="pre">lang()</span></tt> method.</p>
+<blockquote>
+<div><p>// Displays &#8220;The time is now 23:21:28 GMT-5&#8221;
+echo lang(&#8216;Test.longTime&#8217;, [time()], &#8216;ru_RU&#8217;);</p>
+<p>// Displays &#8220;£7.41&#8221;
+echo lang(&#8216;{price, number, currency}&#8217;, [&#8216;price&#8217; =&gt; 7.41], &#8216;en_GB&#8217;);
+// Displays &#8220;$7.41&#8221;
+echo lang(&#8216;{price, number, currency}&#8217;, [&#8216;price&#8217; =&gt; 7.41], &#8216;en_US&#8217;);</p>
+</div></blockquote>
+</div>
 <div class="section" id="nested-arrays">
-<h4><a class="toc-backref" href="#id11">Nested Arrays</a><a class="headerlink" href="#nested-arrays" title="Permalink to this headline">¶</a></h4>
-<p>Language files also allow nested arrays to make working with lists, etc… easier.</p>
+<h4><a class="toc-backref" href="#id12">Nested Arrays</a><a class="headerlink" href="#nested-arrays" title="Permalink to this headline">¶</a></h4>
+<p>Language files also allow nested arrays to make working with lists, etc... easier.</p>
 <blockquote>
 <div><p>// Language/en/Fruit.php
 return [</p>
@@ -657,7 +671,7 @@ return [</p>
 <p>]</p>
 </div></blockquote>
 <p>];</p>
-<p>// Displays &#8220;Apples, Bananas, Graps, Lemons, Oranges, Strawberries&#8221;
+<p>// Displays &#8220;Apples, Bananas, Grapes, Lemons, Oranges, Strawberries&#8221;
 echo implode(&#8216;, &#8216;, lang(&#8216;Fruit.list&#8217;));</p>
 </div></blockquote>
 </div>
@@ -684,7 +698,7 @@ echo implode(&#8216;, &#8216;, lang(&#8216;Fruit.list&#8217;));</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014 - 2017, British Columbia Institute of Technology.
-       Last updated on Mar 06, 2017.
+       Last updated on Apr 05, 2017.
     </p>
   </div>
 

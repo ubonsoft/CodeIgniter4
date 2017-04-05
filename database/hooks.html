@@ -98,7 +98,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../general/view_parser.html">View Parser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/core_classes.html">Creating Core System Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/hooks.html">Hooks - Extending the Framework Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/events.html">Events - Extending the Framework Core</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/routing.html">URI Routing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/filters.html">Controller Filters</a></li>
@@ -168,6 +168,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
 </ul>
@@ -270,7 +271,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../general/view_parser.html">View Parser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/core_classes.html">Creating Core System Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/hooks.html">Hooks - Extending the Framework Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/events.html">Events - Extending the Framework Core</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/routing.html">URI Routing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/filters.html">Controller Filters</a></li>
@@ -340,6 +341,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
 </ul>
@@ -397,7 +399,7 @@
             
   <div class="section" id="database-hooks">
 <h1>Database Hooks<a class="headerlink" href="#database-hooks" title="Permalink to this headline">¶</a></h1>
-<p>The Database classes contain a few <a class="reference internal" href="../general/hooks.html"><em>Hooks</em></a> that you can tap into in
+<p>The Database classes contain a few <tt class="xref doc docutils literal"><span class="pre">Hooks</span></tt> that you can tap into in
 order to learn more about what is happening during the database execution. These events can
 be used to collect data for analysis and reporting. The <a class="reference internal" href="../general/debugging.html"><em>Debug Toolbar</em></a>
 uses this to collect the queries to display in the Toolbar.</p>
@@ -408,7 +410,7 @@ uses this to collect the queries to display in the Toolbar.</p>
 a <tt class="xref doc docutils literal"><span class="pre">Query</span></tt> instance of the current query. You could use this to display all queries
 in STDOUT, or logging to a file, or even creating tools to do automatic query analysis to help you spot
 potentially missing indexes, slow queries, etc. An example usage might be:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="c1">// In Config\Hooks.php</span>
+<div class="highlight-ci"><div class="highlight"><pre><span class="c1">// In Config\Events.php</span>
 <span class="nx">Hooks</span><span class="o">::</span><span class="na">on</span><span class="p">(</span><span class="s1">&#39;DBQuery&#39;</span><span class="p">,</span> <span class="s1">&#39;CodeIgniter\Debug\Toolbar\Collectors\Database::collect&#39;</span><span class="p">);</span>
 
 <span class="c1">// Collect the queries so something can be done with them later.</span>
@@ -440,7 +442,7 @@ potentially missing indexes, slow queries, etc. An example usage might be:</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014 - 2017, British Columbia Institute of Technology.
-       Last updated on Jan 03, 2017.
+       Last updated on Apr 05, 2017.
     </p>
   </div>
 
