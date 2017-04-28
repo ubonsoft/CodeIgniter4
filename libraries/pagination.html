@@ -98,7 +98,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../general/view_parser.html">View Parser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/core_classes.html">Creating Core System Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/hooks.html">Hooks - Extending the Framework Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/events.html">Events - Extending the Framework Core</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/routing.html">URI Routing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/filters.html">Controller Filters</a></li>
@@ -134,6 +134,7 @@
 <li class="toctree-l2"><a class="reference internal" href="sessions.html">Session Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="throttler.html">Throttler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html">Working with Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uploaded_files.html">Working with Uploaded Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uri.html">Working with URIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="validation.html">Validation</a></li>
@@ -153,10 +154,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/seeds.html">Database Seeding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/hooks.html">Database Hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
 </ul>
 </li>
 </ul>
@@ -168,6 +170,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
 </ul>
@@ -270,7 +273,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../general/view_parser.html">View Parser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/core_classes.html">Creating Core System Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/hooks.html">Hooks - Extending the Framework Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/events.html">Events - Extending the Framework Core</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/routing.html">URI Routing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/filters.html">Controller Filters</a></li>
@@ -306,6 +309,7 @@
 <li class="toctree-l2"><a class="reference internal" href="sessions.html">Session Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="throttler.html">Throttler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html">Working with Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uploaded_files.html">Working with Uploaded Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uri.html">Working with URIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="validation.html">Validation</a></li>
@@ -325,10 +329,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/seeds.html">Database Seeding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/hooks.html">Database Hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
 </ul>
 </li>
 </ul>
@@ -340,6 +345,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
 </ul>
@@ -497,12 +503,12 @@ sections.</p>
 <p>When the links are rendered out to the page, they use a view file to describe the HTML. You can easily change the view
 that is used by editing <strong>application/Config/Pager.php</strong>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">public</span> <span class="nv">$templates</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="s1">&#39;default_full&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;CodeIgniter\Pager\Views\default_full&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;default_simple&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;CodeIgniter\Pager\Views\default_simple&#39;</span>
-    <span class="p">];</span>
+    <span class="s1">&#39;default_full&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;CodeIgniter\Pager\Views\default_full&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;default_simple&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;CodeIgniter\Pager\Views\default_simple&#39;</span>
+<span class="p">];</span>
 </pre></div>
 </div>
-<p>This setting stores the alias and <tt class="xref doc docutils literal"><span class="pre">namespaced</span> <span class="pre">view</span> <span class="pre">paths</span></tt> for the view that
+<p>This setting stores the alias and <a class="reference internal" href="../general/views.html"><em>namespaced view paths</em></a> for the view that
 should be used. The <em>default_full</em> and <em>default_simple</em> views are used for the <tt class="docutils literal"><span class="pre">links()</span></tt> and <tt class="docutils literal"><span class="pre">simpleLinks()</span></tt>
 methods, respectively. To change the way those are displayed application-wide, you could assign a new view here.</p>
 <p>For example, say you create a new view file that works with the Foundation CSS framework, instead of Bootstrap, and
@@ -521,10 +527,10 @@ the view file through it&#8217;s namespace:</p>
 just replace the existing templates. You can create as many additional templates as you need in the configuration
 file. A common situation would be needing different styles for the frontend and the backend of your application.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">public</span> <span class="nv">$templates</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="s1">&#39;default_full&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;CodeIgniter\Pager\Views\default_full&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;default_simple&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;CodeIgniter\Pager\Views\default_simple&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;front_full&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;App\Views\Pagers\foundation_full&#39;</span><span class="p">,</span>
-    <span class="p">];</span>
+    <span class="s1">&#39;default_full&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;CodeIgniter\Pager\Views\default_full&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;default_simple&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;CodeIgniter\Pager\Views\default_simple&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;front_full&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;App\Views\Pagers\foundation_full&#39;</span><span class="p">,</span>
+<span class="p">];</span>
 </pre></div>
 </div>
 <p>Once configured, you can specify it as a the last parameter in the <tt class="docutils literal"><span class="pre">links()</span></tt>, <tt class="docutils literal"><span class="pre">simpleLinks()</span></tt>, and <tt class="docutils literal"><span class="pre">makeLinks()</span></tt>
@@ -544,39 +550,39 @@ usefullness. It is easiest to demonstrate creating a new view by showing you the
 
 <span class="nt">&lt;nav</span> <span class="na">aria-label=</span><span class="s">&quot;Page navigation&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;pagination&quot;</span><span class="nt">&gt;</span>
-        <span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$pager</span><span class="o">-&gt;</span><span class="na">hasPrevious</span><span class="p">())</span> <span class="o">:</span> <span class="cp">?&gt;</span>
+    <span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$pager</span><span class="o">-&gt;</span><span class="na">hasPrevious</span><span class="p">())</span> <span class="o">:</span> <span class="cp">?&gt;</span>
         <span class="nt">&lt;li&gt;</span>
-                            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$pager</span><span class="o">-&gt;</span><span class="na">getFirst</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="s">&quot;</span> <span class="na">aria-label=</span><span class="s">&quot;First&quot;</span><span class="nt">&gt;</span>
-                                    <span class="nt">&lt;span</span> <span class="na">aria-hidden=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>First<span class="nt">&lt;/span&gt;</span>
-                            <span class="nt">&lt;/a&gt;</span>
-                    <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$pager</span><span class="o">-&gt;</span><span class="na">getFirst</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="s">&quot;</span> <span class="na">aria-label=</span><span class="s">&quot;First&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">aria-hidden=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>First<span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
         <span class="nt">&lt;li&gt;</span>
             <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$pager</span><span class="o">-&gt;</span><span class="na">getPrevious</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="s">&quot;</span> <span class="na">aria-label=</span><span class="s">&quot;Previous&quot;</span><span class="nt">&gt;</span>
                 <span class="nt">&lt;span</span> <span class="na">aria-hidden=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span><span class="ni">&amp;laquo;</span><span class="nt">&lt;/span&gt;</span>
             <span class="nt">&lt;/a&gt;</span>
         <span class="nt">&lt;/li&gt;</span>
-        <span class="cp">&lt;?php</span> <span class="k">endif</span> <span class="cp">?&gt;</span>
+    <span class="cp">&lt;?php</span> <span class="k">endif</span> <span class="cp">?&gt;</span>
 
-        <span class="cp">&lt;?php</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">$pager</span><span class="o">-&gt;</span><span class="na">links</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$link</span><span class="p">)</span> <span class="o">:</span> <span class="cp">?&gt;</span>
-            <span class="nt">&lt;li</span> <span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$link</span><span class="p">[</span><span class="s1">&#39;active&#39;</span><span class="p">]</span> <span class="o">?</span> <span class="s1">&#39;class=&quot;active&quot;&#39;</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="cp">?&gt;</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$link</span><span class="p">[</span><span class="s1">&#39;uri&#39;</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="s">&quot;</span><span class="nt">&gt;</span>
-                    <span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$link</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="cp">?&gt;</span>
-                <span class="nt">&lt;/a&gt;</span>
-            <span class="nt">&lt;/li&gt;</span>
-        <span class="cp">&lt;?php</span> <span class="k">endforeach</span> <span class="cp">?&gt;</span>
+    <span class="cp">&lt;?php</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">$pager</span><span class="o">-&gt;</span><span class="na">links</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$link</span><span class="p">)</span> <span class="o">:</span> <span class="cp">?&gt;</span>
+        <span class="nt">&lt;li</span> <span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$link</span><span class="p">[</span><span class="s1">&#39;active&#39;</span><span class="p">]</span> <span class="o">?</span> <span class="s1">&#39;class=&quot;active&quot;&#39;</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="cp">?&gt;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$link</span><span class="p">[</span><span class="s1">&#39;uri&#39;</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="s">&quot;</span><span class="nt">&gt;</span>
+                <span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$link</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="cp">?&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+    <span class="cp">&lt;?php</span> <span class="k">endforeach</span> <span class="cp">?&gt;</span>
 
-        <span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$pager</span><span class="o">-&gt;</span><span class="na">hasNext</span><span class="p">())</span> <span class="o">:</span> <span class="cp">?&gt;</span>
-            <span class="nt">&lt;li&gt;</span>
-                <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$pager</span><span class="o">-&gt;</span><span class="na">getNext</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="s">&quot;</span> <span class="na">aria-label=</span><span class="s">&quot;Previous&quot;</span><span class="nt">&gt;</span>
-                    <span class="nt">&lt;span</span> <span class="na">aria-hidden=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span><span class="ni">&amp;raquo;</span><span class="nt">&lt;/span&gt;</span>
-                <span class="nt">&lt;/a&gt;</span>
-            <span class="nt">&lt;/li&gt;</span>
-            <span class="nt">&lt;li&gt;</span>
-                                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$pager</span><span class="o">-&gt;</span><span class="na">getLast</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="s">&quot;</span> <span class="na">aria-label=</span><span class="s">&quot;Last&quot;</span><span class="nt">&gt;</span>
-                                            <span class="nt">&lt;span</span> <span class="na">aria-hidden=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>Last<span class="nt">&lt;/span&gt;</span>
-                                    <span class="nt">&lt;/a&gt;</span>
-                            <span class="nt">&lt;/li&gt;</span>
-        <span class="cp">&lt;?php</span> <span class="k">endif</span> <span class="cp">?&gt;</span>
+    <span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$pager</span><span class="o">-&gt;</span><span class="na">hasNext</span><span class="p">())</span> <span class="o">:</span> <span class="cp">?&gt;</span>
+        <span class="nt">&lt;li&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$pager</span><span class="o">-&gt;</span><span class="na">getNext</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="s">&quot;</span> <span class="na">aria-label=</span><span class="s">&quot;Previous&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">aria-hidden=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span><span class="ni">&amp;raquo;</span><span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$pager</span><span class="o">-&gt;</span><span class="na">getLast</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="s">&quot;</span> <span class="na">aria-label=</span><span class="s">&quot;Last&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">aria-hidden=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>Last<span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+    <span class="cp">&lt;?php</span> <span class="k">endif</span> <span class="cp">?&gt;</span>
     <span class="nt">&lt;/ul&gt;</span>
 <span class="nt">&lt;/nav&gt;</span>
 </pre></div>
@@ -632,7 +638,7 @@ title, which is just the number, and a boolean that tells whether the link is th
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014 - 2017, British Columbia Institute of Technology.
-       Last updated on Jan 03, 2017.
+       Last updated on Apr 28, 2017.
     </p>
   </div>
 

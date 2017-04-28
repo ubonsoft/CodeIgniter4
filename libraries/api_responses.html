@@ -98,7 +98,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../general/view_parser.html">View Parser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/core_classes.html">Creating Core System Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/hooks.html">Hooks - Extending the Framework Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/events.html">Events - Extending the Framework Core</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/routing.html">URI Routing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/filters.html">Controller Filters</a></li>
@@ -134,6 +134,7 @@
 <li class="toctree-l2"><a class="reference internal" href="sessions.html">Session Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="throttler.html">Throttler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html">Working with Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uploaded_files.html">Working with Uploaded Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uri.html">Working with URIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="validation.html">Validation</a></li>
@@ -153,10 +154,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/seeds.html">Database Seeding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/hooks.html">Database Hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
 </ul>
 </li>
 </ul>
@@ -271,7 +273,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../general/view_parser.html">View Parser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/core_classes.html">Creating Core System Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/hooks.html">Hooks - Extending the Framework Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/events.html">Events - Extending the Framework Core</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/routing.html">URI Routing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/filters.html">Controller Filters</a></li>
@@ -307,6 +309,7 @@
 <li class="toctree-l2"><a class="reference internal" href="sessions.html">Session Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="throttler.html">Throttler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html">Working with Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uploaded_files.html">Working with Uploaded Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uri.html">Working with URIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="validation.html">Validation</a></li>
@@ -326,10 +329,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/seeds.html">Database Seeding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/hooks.html">Database Hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
 </ul>
 </li>
 </ul>
@@ -561,18 +565,15 @@ that match the status code.</p>
 <p>The response is an array with two elements: <tt class="docutils literal"><span class="pre">error</span></tt> and <tt class="docutils literal"><span class="pre">messages</span></tt>. The <tt class="docutils literal"><span class="pre">error</span></tt> element contains the status
 code of the error. The <tt class="docutils literal"><span class="pre">messages</span></tt> element contains an array of error messages. It would look something like:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$response</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;status&#39;</span> <span class="o">=&gt;</span> <span class="mi">400</span><span class="p">,</span>
+    <span class="s1">&#39;code&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;321a&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;messages&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">&#39;Error message 1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Error message 2&#39;</span>
+    <span class="p">]</span>
+<span class="p">];</span>
 </pre></div>
 </div>
-<blockquote>
-<div><p>&#8216;status&#8217; =&gt; 400,
-&#8216;code&#8217; =&gt; &#8216;321a&#8217;,
-&#8216;messages&#8217; =&gt; [</p>
-<blockquote>
-<div>&#8216;Error message 1&#8217;,
-&#8216;Error message 2&#8217;</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>];</p>
 </dd></dl>
 
 <dl class="method">
@@ -593,11 +594,11 @@ code of the error. The <tt class="docutils literal"><span class="pre">messages</
 </tr>
 </tbody>
 </table>
-<p>Sets the appropriate status code to use when a new resource was created, typically 201.</p>
+<p>Sets the appropriate status code to use when a new resource was created, typically 201.:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$user</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">insert</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">respondCreated</span><span class="p">(</span><span class="nv">$user</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>return $this-&gt;respondCreated($user);</p>
 </dd></dl>
 
 <dl class="method">
@@ -608,19 +609,19 @@ code of the error. The <tt class="docutils literal"><span class="pre">messages</
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>$data</strong> (<em>mixed</em>) &#8211; <p>The data to return to the client. Either string or array.
+<li><strong>$data</strong> (<em>mixed</em>) &#8211; The data to return to the client. Either string or array.
 :param string $message: A custom &#8220;reason&#8221; message to return.
-:returns: The value of the Response object&#8217;s send() method.</p>
-<p>Sets the appropriate status code to use when a new resource was deleted as the result of
-this API call, typically 200.</p>
-</li>
+:returns: The value of the Response object&#8217;s send() method.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>$user = $userModel-&gt;delete($id);
-return $this-&gt;respondDeleted([&#8216;id&#8217; =&gt; $id]);</p>
+<p>Sets the appropriate status code to use when a new resource was deleted as the result of this API call, typically 200.</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$user</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">respondDeleted</span><span class="p">([</span><span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="nv">$id</span><span class="p">]);</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -644,7 +645,9 @@ return $this-&gt;respondDeleted([&#8216;id&#8217; =&gt; $id]);</p>
 </table>
 <p>Sets the appropriate status code to use when the user either has not been authorized,
 or has incorrect authorization. Status code is 401.</p>
-<p>return $this-&gt;failUnauthorized(&#8216;Invalid Auth token&#8217;);</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">failUnauthorized</span><span class="p">(</span><span class="s1">&#39;Invalid Auth token&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -669,7 +672,9 @@ or has incorrect authorization. Status code is 401.</p>
 <p>Unlike <tt class="docutils literal"><span class="pre">failUnauthorized</span></tt>, this method should be used when the requested API endpoint is never allowed.
 Unauthorized implies the client is encouraged to try again with different credentials. Forbidden means
 the client should not try again because it won&#8217;t help. Status code is 403.</p>
-<p>return $this-&gt;failForbidden(&#8216;Invalid API endpoint.&#8217;);</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">failForbidden</span><span class="p">(</span><span class="s1">&#39;Invalid API endpoint.&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -690,7 +695,9 @@ the client should not try again because it won&#8217;t help. Status code is 403.
 </tbody>
 </table>
 <p>Sets the appropriate status code to use when the requested resource cannot be found. Status code is 404.</p>
-<p>return $this-&gt;failNotFound(&#8216;User 13 cannot be found.&#8217;);</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">failNotFound</span><span class="p">(</span><span class="s1">&#39;User 13 cannot be found.&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -714,7 +721,9 @@ the client should not try again because it won&#8217;t help. Status code is 403.
 </table>
 <p>Sets the appropriate status code to use when data the client sent did not pass validation rules.
 Status code is typically 400.</p>
-<p>return $this-&gt;failValidationError($validation-&gt;getErrors());</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">failValidationError</span><span class="p">(</span><span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">getErrors</span><span class="p">());</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -738,7 +747,9 @@ Status code is typically 400.</p>
 </table>
 <p>Sets the appropriate status code to use when the resource the client is trying to create already exists.
 Status code is typically 409.</p>
-<p>return $this-&gt;failResourceExists(&#8216;A user already exists with that email.&#8217;);</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">failResourceExists</span><span class="p">(</span><span class="s1">&#39;A user already exists with that email.&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -762,7 +773,9 @@ Status code is typically 409.</p>
 </table>
 <p>Sets the appropriate status code to use when the requested resource was previously deleted and
 is no longer available. Status code is typically 410.</p>
-<p>return $this-&gt;failResourceGone(&#8216;That user has been previously deleted.&#8217;);</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">failResourceGone</span><span class="p">(</span><span class="s1">&#39;That user has been previously deleted.&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -786,7 +799,9 @@ is no longer available. Status code is typically 410.</p>
 </table>
 <p>Sets the appropriate status code to use when the client has called an API endpoint too many times.
 This might be due to some form of throttling or rate limiting. Status code is typically 400.</p>
-<p>return $this-&gt;failTooManyRequests(&#8216;You must wait 15 seconds before making another request.&#8217;);</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">failTooManyRequests</span><span class="p">(</span><span class="s1">&#39;You must wait 15 seconds before making another request.&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -809,7 +824,9 @@ This might be due to some form of throttling or rate limiting. Status code is ty
 </tbody>
 </table>
 <p>Sets the appropriate status code to use when there is a server error.</p>
-<p>return $this-&gt;failServerError(&#8216;Server error.&#8217;);</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">failServerError</span><span class="p">(</span><span class="s1">&#39;Server error.&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
@@ -835,7 +852,7 @@ This might be due to some form of throttling or rate limiting. Status code is ty
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014 - 2017, British Columbia Institute of Technology.
-       Last updated on Mar 06, 2017.
+       Last updated on Apr 28, 2017.
     </p>
   </div>
 

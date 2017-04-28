@@ -134,6 +134,7 @@
 <li class="toctree-l2"><a class="reference internal" href="sessions.html">Session Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="throttler.html">Throttler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html">Working with Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uploaded_files.html">Working with Uploaded Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uri.html">Working with URIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="validation.html">Validation</a></li>
@@ -153,10 +154,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/seeds.html">Database Seeding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/hooks.html">Database Hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
 </ul>
 </li>
 </ul>
@@ -307,6 +309,7 @@
 <li class="toctree-l2"><a class="reference internal" href="sessions.html">Session Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="throttler.html">Throttler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html">Working with Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uploaded_files.html">Working with Uploaded Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uri.html">Working with URIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="validation.html">Validation</a></li>
@@ -326,10 +329,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/seeds.html">Database Seeding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/hooks.html">Database Hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
 </ul>
 </li>
 </ul>
@@ -643,37 +647,36 @@ earlier will give you an excellent idea as to the options available.</p>
 <h4><a class="toc-backref" href="#id11">Specifying Locale</a><a class="headerlink" href="#specifying-locale" title="Permalink to this headline">¶</a></h4>
 <p>To specify a different locale to be used when replacing parameters, you can pass the locale in as the
 third parameter to the <tt class="docutils literal"><span class="pre">lang()</span></tt> method.</p>
-<blockquote>
-<div><p>// Displays &#8220;The time is now 23:21:28 GMT-5&#8221;
-echo lang(&#8216;Test.longTime&#8217;, [time()], &#8216;ru_RU&#8217;);</p>
-<p>// Displays &#8220;£7.41&#8221;
-echo lang(&#8216;{price, number, currency}&#8217;, [&#8216;price&#8217; =&gt; 7.41], &#8216;en_GB&#8217;);
-// Displays &#8220;$7.41&#8221;
-echo lang(&#8216;{price, number, currency}&#8217;, [&#8216;price&#8217; =&gt; 7.41], &#8216;en_US&#8217;);</p>
-</div></blockquote>
+<div class="highlight-ci"><div class="highlight"><pre><span class="c1">// Displays &quot;The time is now 23:21:28 GMT-5&quot;</span>
+<span class="k">echo</span> <span class="nx">lang</span><span class="p">(</span><span class="s1">&#39;Test.longTime&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nb">time</span><span class="p">()],</span> <span class="s1">&#39;ru_RU&#39;</span><span class="p">);</span>
+
+<span class="c1">// Displays &quot;£7.41&quot;</span>
+<span class="k">echo</span> <span class="nx">lang</span><span class="p">(</span><span class="s1">&#39;{price, number, currency}&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;price&#39;</span> <span class="o">=&gt;</span> <span class="mf">7.41</span><span class="p">],</span> <span class="s1">&#39;en_GB&#39;</span><span class="p">);</span>
+<span class="c1">// Displays &quot;$7.41&quot;</span>
+<span class="k">echo</span> <span class="nx">lang</span><span class="p">(</span><span class="s1">&#39;{price, number, currency}&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;price&#39;</span> <span class="o">=&gt;</span> <span class="mf">7.41</span><span class="p">],</span> <span class="s1">&#39;en_US&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="nested-arrays">
 <h4><a class="toc-backref" href="#id12">Nested Arrays</a><a class="headerlink" href="#nested-arrays" title="Permalink to this headline">¶</a></h4>
 <p>Language files also allow nested arrays to make working with lists, etc... easier.</p>
-<blockquote>
-<div><p>// Language/en/Fruit.php
-return [</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>&#8216;list&#8217; =&gt; [</dt>
-<dd>&#8216;Apples&#8217;,
-&#8216;Bananas&#8217;,
-&#8216;Grapes&#8217;,
-&#8216;Lemons&#8217;,
-&#8216;Oranges&#8217;,
-&#8216;Strawberries&#8217;</dd>
-</dl>
-<p>]</p>
-</div></blockquote>
-<p>];</p>
-<p>// Displays &#8220;Apples, Bananas, Grapes, Lemons, Oranges, Strawberries&#8221;
-echo implode(&#8216;, &#8216;, lang(&#8216;Fruit.list&#8217;));</p>
-</div></blockquote>
+<div class="highlight-ci"><div class="highlight"><pre><span class="c1">// Language/en/Fruit.php</span>
+
+<span class="k">return</span> <span class="p">[</span>
+    <span class="s1">&#39;list&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">&#39;Apples&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Bananas&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Grapes&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Lemons&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Oranges&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Strawberries&#39;</span>
+    <span class="p">]</span>
+<span class="p">];</span>
+
+<span class="c1">// Displays &quot;Apples, Bananas, Grapes, Lemons, Oranges, Strawberries&quot;</span>
+<span class="k">echo</span> <span class="nb">implode</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">,</span> <span class="nx">lang</span><span class="p">(</span><span class="s1">&#39;Fruit.list&#39;</span><span class="p">));</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -698,7 +701,7 @@ echo implode(&#8216;, &#8216;, lang(&#8216;Fruit.list&#8217;));</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014 - 2017, British Columbia Institute of Technology.
-       Last updated on Apr 05, 2017.
+       Last updated on Apr 28, 2017.
     </p>
   </div>
 

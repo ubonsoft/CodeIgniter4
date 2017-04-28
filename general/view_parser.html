@@ -134,6 +134,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Session Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">Throttler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Working with Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Working with Uploaded Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Working with URIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
@@ -157,7 +158,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/seeds.html">Database Seeding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/hooks.html">Database Hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
 </ul>
 </li>
 </ul>
@@ -308,6 +309,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Session Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">Throttler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Working with Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Working with Uploaded Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Working with URIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
@@ -331,7 +333,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/seeds.html">Database Seeding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/hooks.html">Database Hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
 </ul>
 </li>
 </ul>
@@ -483,10 +485,8 @@ like this:</p>
 <p>View parameters are passed to <tt class="docutils literal"><span class="pre">setData()</span></tt> as an associative
 array of data to be replaced in the template. In the above example, the
 template would contain two variables: {blog_title} and {blog_heading}
-The first parameter to <tt class="docutils literal"><span class="pre">render()</span></tt> contains the name of the :doc:<a href="#id1"><span class="problematic" id="id2">`</span></a>view</p>
-<blockquote>
-<div>file &lt;../general/views&gt;` (in this example the file would be called
-blog_template.php),</div></blockquote>
+The first parameter to <tt class="docutils literal"><span class="pre">render()</span></tt> contains the name of the <a class="reference internal" href="views.html"><em>view
+file</em></a> (in this example the file would be called blog_template.php),</p>
 </div>
 <div class="section" id="parser-configuration-options">
 <h3>Parser Configuration Options<a class="headerlink" href="#parser-configuration-options" title="Permalink to this headline">¶</a></h3>
@@ -767,6 +767,144 @@ left to right:</p>
 <div class="section" id="provided-filters">
 <h4>Provided Filters<a class="headerlink" href="#provided-filters" title="Permalink to this headline">¶</a></h4>
 <p>The following filters are available when using the parser:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="14%" />
+<col width="35%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Filter</th>
+<th class="head">Arguments</th>
+<th class="head">Description</th>
+<th class="head">Example</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>abs</td>
+<td>&nbsp;</td>
+<td>Displays the absolute value of a number.</td>
+<td>{ v|abs }</td>
+</tr>
+<tr class="row-odd"><td>capitalize</td>
+<td>&nbsp;</td>
+<td>Displays the string in sentence case: all lowercase with first
+letter capitalized.</td>
+<td>{ v|capitalize}</td>
+</tr>
+<tr class="row-even"><td>date</td>
+<td>format (Y-m-d)</td>
+<td>A PHP <strong>date</strong>-compatible formatting string.</td>
+<td>{ v|date(Y-m-d) }</td>
+</tr>
+<tr class="row-odd"><td>date_modify</td>
+<td>value to add/subtract</td>
+<td>A <strong>strtotime</strong> compatible string to modify the date, like
+<tt class="docutils literal"><span class="pre">+5</span> <span class="pre">day</span></tt> or <tt class="docutils literal"><span class="pre">-1</span> <span class="pre">week</span></tt>.</td>
+<td>{ v|date_modify(+1 day) }</td>
+</tr>
+<tr class="row-even"><td>default</td>
+<td>default value</td>
+<td>Displays the default value if the variable is empty or undefined.</td>
+<td>{ v|default(just in case) }</td>
+</tr>
+<tr class="row-odd"><td>esc</td>
+<td>html, attr, css, js</td>
+<td>Specifies the context to escape the data.</td>
+<td>{ v|esc(attr) }</td>
+</tr>
+<tr class="row-even"><td>excerpt</td>
+<td>phrase, radius</td>
+<td>Returns the text within a radius of words from a given phrase.
+Same as <strong>excerpt</strong> helper function.</td>
+<td>{ v|excerpt(green giant, 20) }</td>
+</tr>
+<tr class="row-odd"><td>highlight</td>
+<td>phrase</td>
+<td><dl class="first last docutils">
+<dt>Highlights a given phrase within the text using &#8216;&lt;mark&gt;&lt;/mark&gt;&#8217;</dt>
+<dd>tags.</dd>
+</dl>
+</td>
+<td>{ v|highlight(view parser) }</td>
+</tr>
+<tr class="row-even"><td>highlight_code</td>
+<td>&nbsp;</td>
+<td>Highlights code samples with HTML/CSS.</td>
+<td>{ v|highlight_code }</td>
+</tr>
+<tr class="row-odd"><td>limit_chars</td>
+<td>limit</td>
+<td>Limits the number of chracters to $limit.</td>
+<td>{ v|limit_chars(100) }</td>
+</tr>
+<tr class="row-even"><td>limit_words</td>
+<td>limit</td>
+<td>Limits the number of words to $limit.</td>
+<td>{ v|limit_words(20) }</td>
+</tr>
+<tr class="row-odd"><td>lower</td>
+<td>&nbsp;</td>
+<td>Converts a string to lowercase.</td>
+<td>{ v|lower }</td>
+</tr>
+<tr class="row-even"><td>nl2br</td>
+<td>&nbsp;</td>
+<td>Replaces all newline characters (n) to an HTML &lt;br/&gt; tag.</td>
+<td>{ v|nl2br }</td>
+</tr>
+<tr class="row-odd"><td>number_format</td>
+<td>places</td>
+<td>Wraps PHP <strong>number_format</strong> function for use within the parser.</td>
+<td>{ v|number_format(3) }</td>
+</tr>
+<tr class="row-even"><td>prose</td>
+<td>&nbsp;</td>
+<td>Takes a body of text and uses the <strong>auto_typography()</strong> method to
+turn it into prettier, easier-to-read, prose.</td>
+<td>{ v|prose }</td>
+</tr>
+<tr class="row-odd"><td>round</td>
+<td>places, type</td>
+<td>Rounds a number to the specified places. Types of <strong>ceil</strong> and
+<strong>floor</strong> can be passed to use those functions instead.</td>
+<td>{ v|round(3) } { v|round(ceil) }</td>
+</tr>
+<tr class="row-even"><td>strip_tags</td>
+<td>allowed chars</td>
+<td>Wraps PHP <strong>strip_tags</strong>. Can accept a string of allowed tags.</td>
+<td>{ v|strip_tags(&lt;br&gt;) }</td>
+</tr>
+<tr class="row-odd"><td>title</td>
+<td>&nbsp;</td>
+<td>Displays a &#8220;title case&#8221; version of the string, with all lowercase,
+and each word capitalized.</td>
+<td>{ v|title }</td>
+</tr>
+<tr class="row-even"><td>upper</td>
+<td>&nbsp;</td>
+<td>Displays the string in all lowercase.</td>
+<td>{ v|upper }</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="custom-filters">
+<h4>Custom Filters<a class="headerlink" href="#custom-filters" title="Permalink to this headline">¶</a></h4>
+<p>You can easily create your own filters by editing <strong>application/Config/View.php</strong> and adding new entries to the
+<tt class="docutils literal"><span class="pre">$filters</span></tt> array. Each key is the name the filter is called by in the view, and its value is any valid PHP
+callable:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="k">public</span> <span class="nv">$filters</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;abs&#39;</span>               <span class="o">=&gt;</span> <span class="s1">&#39;\CodeIgniter\View\Filters::abs&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;capitalize&#39;</span>        <span class="o">=&gt;</span> <span class="s1">&#39;\CodeIgniter\View\Filters::capitalize&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="parser-plugins">
+<h3>Parser Plugins<a class="headerlink" href="#parser-plugins" title="Permalink to this headline">¶</a></h3>
 <p>Plugins allow you to extend the parser, adding custom features for each project. They can be any PHP callable, making
 them very simple to implement. Within templates, plugins are specified by <tt class="docutils literal"><span class="pre">{+</span> <span class="pre">+}</span></tt> tags:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="p">{</span><span class="o">+</span> <span class="nx">foo</span> <span class="o">+</span><span class="p">}</span> <span class="nx">inner</span> <span class="nx">content</span> <span class="p">{</span><span class="o">+</span> <span class="o">/</span><span class="nx">foo</span> <span class="o">+</span><span class="p">}</span>
@@ -783,7 +921,6 @@ replacements happen.</p>
 key/value pairs:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="p">{</span><span class="o">+</span> <span class="nx">foo</span> <span class="nx">bar</span><span class="o">=</span><span class="mi">2</span> <span class="nx">baz</span><span class="o">=</span><span class="s2">&quot;x y&quot;</span> <span class="p">}</span>
 </pre></div>
-</div>
 </div>
 <div class="section" id="registering-a-plugin">
 <h4>Registering a Plugin<a class="headerlink" href="#registering-a-plugin" title="Permalink to this headline">¶</a></h4>
@@ -1117,7 +1254,7 @@ substitutions are performed for each data pair.</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014 - 2017, British Columbia Institute of Technology.
-       Last updated on Apr 18, 2017.
+       Last updated on Apr 28, 2017.
     </p>
   </div>
 

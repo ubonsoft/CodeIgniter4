@@ -98,7 +98,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../general/view_parser.html">View Parser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/core_classes.html">Creating Core System Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/hooks.html">Hooks - Extending the Framework Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/events.html">Events - Extending the Framework Core</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/routing.html">URI Routing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/filters.html">Controller Filters</a></li>
@@ -134,6 +134,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Session Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">Throttler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Working with Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Working with Uploaded Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Working with URIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
@@ -153,10 +154,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/seeds.html">Database Seeding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/hooks.html">Database Hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
 </ul>
 </li>
 </ul>
@@ -168,6 +170,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="">HTML Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="inflector_helper.html">Inflector Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_helper.html">Security Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="text_helper.html">Text Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="url_helper.html">URL Helper</a></li>
 </ul>
@@ -270,7 +273,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../general/view_parser.html">View Parser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/core_classes.html">Creating Core System Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/hooks.html">Hooks - Extending the Framework Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/events.html">Events - Extending the Framework Core</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/routing.html">URI Routing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/filters.html">Controller Filters</a></li>
@@ -306,6 +309,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Session Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">Throttler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Working with Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Working with Uploaded Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Working with URIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
@@ -325,10 +329,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/seeds.html">Database Seeding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/hooks.html">Database Hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
 </ul>
 </li>
 </ul>
@@ -340,6 +345,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="">HTML Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="inflector_helper.html">Inflector Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_helper.html">Security Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="text_helper.html">Text Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="url_helper.html">URL Helper</a></li>
 </ul>
@@ -559,6 +565,9 @@ the page specified by <tt class="docutils literal"><span class="pre">$config['in
 </pre></div>
 </div>
 <p>Further examples:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="c1">// to be done</span>
+</pre></div>
+</div>
 <p>Additionally, an associative array can be passed to the <tt class="docutils literal"><span class="pre">script_tag()</span></tt> function
 for complete control over all attributes and values:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$script</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;src&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;js/printer.js&#39;</span><span class="p">);</span>
@@ -1151,7 +1160,7 @@ pulled from application/config/doctypes.php</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014 - 2017, British Columbia Institute of Technology.
-       Last updated on Jan 03, 2017.
+       Last updated on Apr 28, 2017.
     </p>
   </div>
 
