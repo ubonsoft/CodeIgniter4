@@ -98,7 +98,7 @@
 <li class="toctree-l2"><a class="reference internal" href="view_parser.html">View Parser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helpers.html">Helper Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="core_classes.html">Creating Core System Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hooks.html">Hooks - Extending the Framework Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html">Events - Extending the Framework Core</a></li>
 <li class="toctree-l2"><a class="reference internal" href="common_functions.html">Global Functions and Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="routing.html">URI Routing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="filters.html">Controller Filters</a></li>
@@ -125,6 +125,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../libraries/content_negotiation.html">Content Negotiation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/localization.html">Localization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">CURLRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Image Manipulation Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/incomingrequest.html">IncomingRequest Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/message.html">HTTP Messages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Pagination</a></li>
@@ -134,6 +135,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Session Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">Throttler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Working with Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Working with Uploaded Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Working with URIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
@@ -153,10 +155,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/seeds.html">Database Seeding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/hooks.html">Database Hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
 </ul>
 </li>
 </ul>
@@ -168,6 +171,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
 </ul>
@@ -270,7 +274,7 @@
 <li class="toctree-l2"><a class="reference internal" href="view_parser.html">View Parser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helpers.html">Helper Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="core_classes.html">Creating Core System Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hooks.html">Hooks - Extending the Framework Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html">Events - Extending the Framework Core</a></li>
 <li class="toctree-l2"><a class="reference internal" href="common_functions.html">Global Functions and Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="routing.html">URI Routing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="filters.html">Controller Filters</a></li>
@@ -297,6 +301,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../libraries/content_negotiation.html">Content Negotiation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/localization.html">Localization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">CURLRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Image Manipulation Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/incomingrequest.html">IncomingRequest Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/message.html">HTTP Messages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Pagination</a></li>
@@ -306,6 +311,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Session Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">Throttler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Working with Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Working with Uploaded Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Working with URIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
@@ -325,10 +331,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/seeds.html">Database Seeding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/hooks.html">Database Hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
 </ul>
 </li>
 </ul>
@@ -340,6 +347,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
 </ul>
@@ -406,16 +414,25 @@ tools loaded that you don&#8217;t in production environments, etc.</p>
 <div class="section" id="the-environment-constant">
 <h2>The ENVIRONMENT Constant<a class="headerlink" href="#the-environment-constant" title="Permalink to this headline">¶</a></h2>
 <p>By default, CodeIgniter comes with the environment constant set to use
-the value provided in <tt class="docutils literal"><span class="pre">$_SERVER['CI_ENV']</span></tt>, otherwise defaulting to
-&#8216;production&#8217;. At the top of index.php, you will see:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nb">define</span><span class="p">(</span><span class="s1">&#39;ENVIRONMENT&#39;</span><span class="p">,</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;CI_ENV&#39;</span><span class="p">])</span> <span class="o">?</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;CI_ENV&#39;</span><span class="p">]</span> <span class="o">:</span> <span class="s1">&#39;development&#39;</span><span class="p">);</span>
+the value provided in <tt class="docutils literal"><span class="pre">$_SERVER['CI_ENVIRONMENT']</span></tt>, otherwise defaulting to
+&#8216;production&#8217;. This can be set in several ways depending on your server setup.</p>
+<div class="section" id="env">
+<h3>.env<a class="headerlink" href="#env" title="Permalink to this headline">¶</a></h3>
+<p>The simplest method to set the variable is in your <a class="reference internal" href="configuration.html"><em>.env file</em></a>:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nx">CI_ENVIRONMENT</span> <span class="o">=</span> <span class="nx">develop</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="apache">
+<h3>Apache<a class="headerlink" href="#apache" title="Permalink to this headline">¶</a></h3>
 <p>This server variable can be set in your <tt class="docutils literal"><span class="pre">.htaccess</span></tt> file, or Apache
 config using <a class="reference external" href="https://httpd.apache.org/docs/2.2/mod/mod_env.html#setenv">SetEnv</a>.</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nx">SetEnv</span> <span class="nx">CI_ENV</span> <span class="nx">development</span>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nx">SetEnv</span> <span class="nx">CI_ENVIRONMENT</span> <span class="nx">development</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="nginx">
+<h3>nginx<a class="headerlink" href="#nginx" title="Permalink to this headline">¶</a></h3>
 <p>Under nginx, you must pass the environment variable through the <tt class="docutils literal"><span class="pre">fastcgi_params</span></tt>
 in order for it to show up under the <cite>$_SERVER</cite> variable. This allows it to work on the
 virtual-host level, instead of using <cite>env</cite> to set it for the entire server, though that
@@ -427,7 +444,7 @@ like:</p>
     <span class="nx">root</span>        <span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="nx">www</span><span class="p">;</span>
 
     <span class="nx">location</span>    <span class="o">~*</span> <span class="s2">&quot;\.php$&quot;</span> <span class="p">{</span>
-        <span class="nx">fastcgi_param</span> <span class="nx">CI_ENV</span> <span class="s2">&quot;production&quot;</span><span class="p">;</span>
+        <span class="nx">fastcgi_param</span> <span class="nx">CI_ENVIRONMENT</span> <span class="s2">&quot;production&quot;</span><span class="p">;</span>
         <span class="k">include</span> <span class="nx">conf</span><span class="o">/</span><span class="nx">fastcgi</span><span class="o">-</span><span class="nx">php</span><span class="o">.</span><span class="nx">conf</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -439,6 +456,7 @@ remove this logic entirely and set the constant based on the server&#8217;s IP a
 <p>In addition to affecting some basic framework behavior (see the next
 section), you may use this constant in your own development to
 differentiate between which environment you are running in.</p>
+</div>
 <div class="section" id="boot-files">
 <h3>Boot Files<a class="headerlink" href="#boot-files" title="Permalink to this headline">¶</a></h3>
 <p>CodeIgniter requires that a PHP script matching the environment&#8217;s name is located
@@ -497,7 +515,7 @@ more detail in the Handling Different Environments section of the
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014 - 2017, British Columbia Institute of Technology.
-       Last updated on Jan 03, 2017.
+       Last updated on May 28, 2017.
     </p>
   </div>
 
