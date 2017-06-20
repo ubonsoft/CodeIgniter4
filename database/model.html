@@ -795,10 +795,10 @@ be applied. If you have custom error message that you want to use, place them in
 </pre></div>
 </div>
 <p>Now, whenever you call the <tt class="docutils literal"><span class="pre">insert()</span></tt>, <tt class="docutils literal"><span class="pre">update()</span></tt>, or <tt class="docutils literal"><span class="pre">save()</span></tt> methods, the data will be validated. If it fails,
-the model will return boolean <strong>false</strong>. You can use the <tt class="docutils literal"><span class="pre">getErrors()</span></tt> method to retrieve the validation errors:</p>
+the model will return boolean <strong>false</strong>. You can use the <tt class="docutils literal"><span class="pre">errors()</span></tt> method to retrieve the validation errors:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nv">$model</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span> <span class="o">===</span> <span class="k">false</span><span class="p">)</span>
 <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;updateUser&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;errors&#39;</span> <span class="o">=&gt;</span> <span class="nv">$model</span><span class="o">-&gt;</span><span class="na">getErrors</span><span class="p">()];</span>
+        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;updateUser&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;errors&#39;</span> <span class="o">=&gt;</span> <span class="nv">$model</span><span class="o">-&gt;</span><span class="na">errors</span><span class="p">()];</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -956,7 +956,7 @@ common in many circles to represent the encoding of an ID into a short, unique, 
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014 - 2017, British Columbia Institute of Technology.
-       Last updated on May 28, 2017.
+       Last updated on Jun 19, 2017.
     </p>
   </div>
 

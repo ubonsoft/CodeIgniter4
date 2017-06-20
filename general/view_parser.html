@@ -125,6 +125,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../libraries/content_negotiation.html">Content Negotiation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/localization.html">Localization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">CURLRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Image Manipulation Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/incomingrequest.html">IncomingRequest Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/message.html">HTTP Messages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Pagination</a></li>
@@ -300,6 +301,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../libraries/content_negotiation.html">Content Negotiation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/localization.html">Localization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">CURLRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Image Manipulation Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/incomingrequest.html">IncomingRequest Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/message.html">HTTP Messages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Pagination</a></li>
@@ -922,6 +924,56 @@ key/value pairs:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="p">{</span><span class="o">+</span> <span class="nx">foo</span> <span class="nx">bar</span><span class="o">=</span><span class="mi">2</span> <span class="nx">baz</span><span class="o">=</span><span class="s2">&quot;x y&quot;</span> <span class="p">}</span>
 </pre></div>
 </div>
+<p>Parameters can also be single values:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="p">{</span><span class="o">+</span> <span class="k">include</span> <span class="nx">somefile</span><span class="o">.</span><span class="nx">php</span> <span class="o">+</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="provided-plugins">
+<h4>Provided Plugins<a class="headerlink" href="#provided-plugins" title="Permalink to this headline">¶</a></h4>
+<p>The following plugins are available when using the parser:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="15%" />
+<col width="38%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Plugin</th>
+<th class="head">Arguments</th>
+<th class="head">Description</th>
+<th class="head">Example</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>current_url</td>
+<td>&nbsp;</td>
+<td>Alias for the current_url helper function.</td>
+<td>{+ current_url +}</td>
+</tr>
+<tr class="row-odd"><td>previous_url</td>
+<td>&nbsp;</td>
+<td>Alias for the previous_url helper function.</td>
+<td>{+ previous_url +}</td>
+</tr>
+<tr class="row-even"><td>mailto</td>
+<td>email, title, attributes</td>
+<td>Alias for the mailto helper function.</td>
+<td>{+ mailto <a class="reference external" href="mailto:email=foo&#37;&#52;&#48;example&#46;com">email=foo<span>&#64;</span>example<span>&#46;</span>com</a> title=&#8221;Stranger Things&#8221; +}</td>
+</tr>
+<tr class="row-odd"><td>safe_mailto</td>
+<td>email, title, attributes</td>
+<td>Alias for the safe_mailto helper function.</td>
+<td>{+ safe_mailto <a class="reference external" href="mailto:email=foo&#37;&#52;&#48;example&#46;com">email=foo<span>&#64;</span>example<span>&#46;</span>com</a> title=&#8221;Stranger Things&#8221; +}</td>
+</tr>
+<tr class="row-even"><td>lang</td>
+<td>language string</td>
+<td>Alias for the lang helper function.</td>
+<td>{+ lang number.terabyteAbbr +}</td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="registering-a-plugin">
 <h4>Registering a Plugin<a class="headerlink" href="#registering-a-plugin" title="Permalink to this headline">¶</a></h4>
 <p>At its simplest, all you need to do to register a new plugin and make it ready for use is to add it to the
@@ -1254,7 +1306,7 @@ substitutions are performed for each data pair.</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014 - 2017, British Columbia Institute of Technology.
-       Last updated on Apr 28, 2017.
+       Last updated on Jun 19, 2017.
     </p>
   </div>
 
