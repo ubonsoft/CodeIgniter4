@@ -742,12 +742,13 @@ inside the controller:</p>
 <div class="section" id="validating-post-data">
 <h2><a class="toc-backref" href="#id17">Validating $_POST data</a><a class="headerlink" href="#validating-post-data" title="Permalink to this headline">¶</a></h2>
 <p>The controller also provides a convenience method to make validating $_POST data a little simpler, <tt class="docutils literal"><span class="pre">validate()</span></tt> that
-takes the current Request as the first instance, an array of rules to test against as the second parameter, and, optionally,
-an array of custom error messages to display if the items don&#8217;t pass. The <a class="reference internal" href="../libraries/validation.html"><em>Validation Library docs</em></a>
+takes an array of rules to test against as the first parameter, and, optionally,
+an array of custom error messages to display if the items don&#8217;t pass. Internally, this uses the controller&#8217;s
+<strong>$this-&gt;request</strong> instance to get the POST data through. The <a class="reference internal" href="../libraries/validation.html"><em>Validation Library docs</em></a>
 has details on the format of the rules and messages arrays, as well as available rules.:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">public</span> <span class="k">function</span> <span class="nf">updateUser</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$userID</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">,</span> <span class="p">[</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">([</span>
         <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;required|is_unique[users.email,id,</span><span class="si">{</span><span class="nv">$userID</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">,</span>
         <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|alpha_numeric_spaces&#39;</span>
     <span class="p">]))</span>
@@ -765,7 +766,7 @@ has details on the format of the rules and messages arrays, as well as available
 name of the group, as defined in <tt class="docutils literal"><span class="pre">Config\Validation.php</span></tt>:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">public</span> <span class="k">function</span> <span class="nf">updateUser</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$userID</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">,</span> <span class="s1">&#39;userRules&#39;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">(</span><span class="s1">&#39;userRules&#39;</span><span class="p">))</span>
     <span class="p">{</span>
         <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;users/update&#39;</span><span class="p">,</span> <span class="p">[</span>
             <span class="s1">&#39;errors&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errors</span>
@@ -778,7 +779,7 @@ name of the group, as defined in <tt class="docutils literal"><span class="pre">
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Validation can also be handled automatically in the model. Where you handle validaiton is up to you,
+<p class="last">Validation can also be handled automatically in the model. Where you handle validation is up to you,
 and you will find that some situations are simpler in the controller than then model, and vice versa.</p>
 </div>
 </div>
@@ -807,7 +808,7 @@ and you will find that some situations are simpler in the controller than then m
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014 - 2017, British Columbia Institute of Technology.
-       Last updated on Jun 19, 2017.
+       Last updated on Jun 29, 2017.
     </p>
   </div>
 

@@ -497,51 +497,6 @@ be numerically indexed. Here is an example of a typical array:</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="read_file">
-<tt class="descname">read_file</tt><big>(</big><em>$file</em><big>)</big><a class="headerlink" href="#read_file" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>$file</strong> (<em>string</em>) &#8211; File path</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">File contents or FALSE on failure</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">string</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p>Returns the data contained in the file specified in the path.</p>
-<p>Example:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="nx">read_file</span><span class="p">(</span><span class="s1">&#39;./path/to/file.php&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>The path can be a relative or full server path. Returns FALSE (boolean) on failure.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The path is relative to your main site index.php file, NOT your
-controller or view files. CodeIgniter uses a front controller so paths
-are always relative to the main site index.</p>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This function is DEPRECATED. Use the native <tt class="docutils literal"><span class="pre">file_get_contents()</span></tt>
-instead.</p>
-</div>
-<div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">If your server is running an <strong>open_basedir</strong> restriction this
-function might not work if you are trying to access a file above the
-calling script.</p>
-</div>
-</dd></dl>
-
-<dl class="function">
 <dt id="write_file">
 <tt class="descname">write_file</tt><big>(</big><em>$path</em>, <em>$data</em><span class="optional">[</span>, <em>$mode = 'wb'</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#write_file" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
@@ -841,7 +796,7 @@ cause an error to be triggered if the path cannot be resolved.</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014 - 2017, British Columbia Institute of Technology.
-       Last updated on Jun 19, 2017.
+       Last updated on Jun 29, 2017.
     </p>
   </div>
 

@@ -453,26 +453,23 @@ validation</em></a> library to do this.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">public</span> <span class="k">function</span> <span class="nf">create</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="nx">helper</span><span class="p">(</span><span class="s1">&#39;form&#39;</span><span class="p">);</span>
-    <span class="nv">$validator</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\CodeIgniter\Form\Validator</span><span class="p">();</span>
     <span class="nv">$model</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NewsModel</span><span class="p">();</span>
 
-    <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Create a news item&#39;</span><span class="p">;</span>
-
-    <span class="nv">$validator</span><span class="o">-&gt;</span><span class="na">setRules</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Title&#39;</span><span class="p">,</span> <span class="s1">&#39;required&#39;</span><span class="p">);</span>
-    <span class="nv">$validator</span><span class="o">-&gt;</span><span class="na">setRules</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;Text&#39;</span><span class="p">,</span> <span class="s1">&#39;required&#39;</span><span class="p">);</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="nv">$validator</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">()</span> <span class="o">===</span> <span class="k">FALSE</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">,</span> <span class="p">[</span>
+        <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|min[3]|max[255]&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;text&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;required&#39;</span>
+    <span class="p">]))</span>
     <span class="p">{</span>
-        <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;Templates/Header&#39;</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
-        <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;News/Create&#39;</span><span class="p">);</span>
-        <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;Templates/Footer&#39;</span><span class="p">);</span>
+        <span class="k">echo</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;Templates/Header&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Create a news item&#39;</span><span class="p">]);</span>
+        <span class="k">echo</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;News/Create&#39;</span><span class="p">);</span>
+        <span class="k">echo</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;Templates/Footer&#39;</span><span class="p">);</span>
 
     <span class="p">}</span>
     <span class="k">else</span>
     <span class="p">{</span>
         <span class="nv">$model</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">([</span>
             <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getVar</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">),</span>
-            <span class="s1">&#39;slug&#39;</span>  <span class="o">=&gt;</span> <span class="nx">urlTitle</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getVar</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)),</span>
+            <span class="s1">&#39;slug&#39;</span>  <span class="o">=&gt;</span> <span class="nx">url_title</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getVar</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)),</span>
             <span class="s1">&#39;text&#39;</span>  <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getVar</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">),</span>
         <span class="p">]);</span>
         <span class="k">echo</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;News/Success&#39;</span><span class="p">);</span>
@@ -481,11 +478,10 @@ validation</em></a> library to do this.</p>
 </pre></div>
 </div>
 <p>The code above adds a lot of functionality. The first few lines load the
-form helper and the form validation library. After that, rules for the
-form validation are set. The <tt class="docutils literal"><span class="pre">setRules()</span></tt> method takes three arguments;
-the name of the input field, the name to be used in error messages, and
-the rule. In this case the title and text fields are required.</p>
-<p>CodeIgniter has a powerful form validation library as demonstrated
+form helper and the NewsModel. After that, the Controller-provided helper
+function is used to validate the $_POST fields. In this case the title and
+text fields are required.</p>
+<p>CodeIgniter has a powerful validation library as demonstrated
 above. You can read <a class="reference internal" href="../libraries/validation.html"><em>more about this library
 here</em></a>.</p>
 <p>Continuing down, you can see a condition that checks whether the form
@@ -565,7 +561,7 @@ Add some news and check out the different pages you made.</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014 - 2017, British Columbia Institute of Technology.
-       Last updated on Jun 19, 2017.
+       Last updated on Jun 29, 2017.
     </p>
   </div>
 
