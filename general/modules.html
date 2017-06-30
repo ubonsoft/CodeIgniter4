@@ -484,23 +484,16 @@ be used within the module. Some of this information is described in more detail 
 guide, but is being reproduced here so that it&#8217;s easier to grasp how all of the pieces fit together.</p>
 <div class="section" id="routes">
 <h3><a class="toc-backref" href="#id4">Routes</a><a class="headerlink" href="#routes" title="Permalink to this headline">¶</a></h3>
-<p>Unlike most of the other file types, <a class="reference internal" href="routing.html"><em>routes</em></a> are not automatically scanned for. This is to boost
+<p>By default, <a class="reference internal" href="routing.html"><em>routes</em></a> are not automatically scanned for within modules. This is to boost
 performance when modules are not in use. However, it&#8217;s a simple thing to scan for any Routes file within modules.
-Add the following code snippet to the end of <strong>/application/Config/Routes.php</strong>:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="sd">/**</span>
-<span class="sd"> * Load routes files from all defined namespaces in Config\Autoloader.php</span>
-<span class="sd"> */</span>
-<span class="nv">$files</span> <span class="o">=</span> <span class="nx">service</span><span class="p">(</span><span class="s1">&#39;locator&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">search</span><span class="p">(</span><span class="s1">&#39;Config/Routes.php&#39;</span><span class="p">);</span>
-
-<span class="k">foreach</span> <span class="p">(</span><span class="nv">$files</span> <span class="k">as</span> <span class="nv">$file</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">include_once</span> <span class="nv">$file</span><span class="p">;</span>
-<span class="p">}</span>
+Simply change the <tt class="docutils literal"><span class="pre">discoverLocal</span></tt> setting to true in <strong>/application/Config/Routes.php</strong>:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">discoverLocal</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>This will scan all namespaced directories, looking for <strong>{namespace}/Config/Routes.php</strong> files and loading them if
-they exist. This way, each module can contain its own Routes file that is kept with it whenever you add it to new projects.
-For our blog example, it would look for <strong>/acme/Blog/Config/Routes.php</strong>.</p>
+<p>This will scan all PSR4 namespaced directories specified in <strong>/application/Config/Autoload.php</strong>. It will look for
+<strong>{namespace}/Config/Routes.php</strong> files and load them if they exist. This way, each module can contain its own
+Routes file that is kept with it whenever you add it to new projects. For our blog example, it would look for
+<strong>/acme/Blog/Config/Routes.php</strong>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Since the files are being included into the current scope, the <tt class="docutils literal"><span class="pre">$routes</span></tt> instance is already defined for you.
@@ -599,7 +592,7 @@ file follows the same directory structures as the main application directory.</p
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014 - 2017, British Columbia Institute of Technology.
-       Last updated on Jun 19, 2017.
+       Last updated on Jun 30, 2017.
     </p>
   </div>
 
