@@ -592,9 +592,11 @@ data globally available to you without having to run a database query when
 you need it.</p>
 <p>You can simply assign data to the <tt class="docutils literal"><span class="pre">$_SESSION</span></tt> array, as with any other
 variable. Or as a property of <tt class="docutils literal"><span class="pre">$session</span></tt>.</p>
-<p>Alternatively, the old method of assigning it as &#8220;userdata&#8221; is also
-available. That however passing an array containing your new data to the
-<tt class="docutils literal"><span class="pre">set_userdata()</span></tt> method:</p>
+<dl class="docutils">
+<dt>userdata method is deprecated.</dt>
+<dd>That however passing an array containing your new sessiondata to the</dd>
+</dl>
+<p><tt class="docutils literal"><span class="pre">set()</span></tt> method:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$session</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="nv">$array</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -606,10 +608,10 @@ an example:</p>
         <span class="s1">&#39;logged_in&#39;</span> <span class="o">=&gt;</span> <span class="k">TRUE</span>
 <span class="p">);</span>
 
-<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">set_userdata</span><span class="p">(</span><span class="nv">$newdata</span><span class="p">);</span>
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="nv">$newdata</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>If you want to add userdata one value at a time, <tt class="docutils literal"><span class="pre">set()</span></tt> also
+<p>If you want to add sessiondata one value at a time, <tt class="docutils literal"><span class="pre">set()</span></tt> also
 supports this syntax:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$session</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;some_name&#39;</span><span class="p">,</span> <span class="s1">&#39;some_value&#39;</span><span class="p">);</span>
 </pre></div>
@@ -1195,7 +1197,7 @@ separate the multiple server paths with commas:</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014 - 2017, British Columbia Institute of Technology.
-       Last updated on Jun 29, 2017.
+       Last updated on Jul 05, 2017.
     </p>
   </div>
 
