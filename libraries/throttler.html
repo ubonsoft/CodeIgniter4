@@ -436,7 +436,7 @@ the third being the amount of time it takes for the bucket to refill:</p>
 </pre></div>
 </div>
 <p>Here we&#8217;re using one of the <a class="reference internal" href="../general/common_functions.html"><em>global constants</em></a> for the time, to make it a little
-more readable. This says that the bucket allows 60 actions every minute, or 1 action every 60 seconds.</p>
+more readable. This says that the bucket allows 60 actions every minute, or 1 action every second.</p>
 <p>Let&#8217;s say that a third-party script was trying to hit a URL repeatedly. At first, it would be able to use all 60
 of those tokens in less than a second. However, after that the Throttler would only allow one action per second,
 potentially slowing down the requests enough that they attack is no longer worth it.</p>
@@ -515,7 +515,7 @@ filter:</p>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">TRUE if action can be performed, FALSE if not</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">integer</p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
 </td>
 </tr>
 </tbody>
@@ -541,6 +541,7 @@ are reduced by $cost if successful.</p>
 <p>After <tt class="docutils literal"><span class="pre">check()</span></tt> has been ran and returned FALSE, this method can be used
 to determine the time until a new token should be available and the action can be
 tried again.</p>
+<p>In this case, the minimum enforced wait time is one second.</p>
 </dd></dl>
 
 </div>
@@ -567,7 +568,7 @@ tried again.</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014 - 2017, British Columbia Institute of Technology.
-       Last updated on Jun 19, 2017.
+       Last updated on Jul 11, 2017.
     </p>
   </div>
 
