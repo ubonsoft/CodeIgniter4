@@ -426,17 +426,17 @@ forms.</p>
 <p>You may need to use HTML and characters such as quotes within your form
 elements. In order to do that safely, you&#8217;ll need to use
 <a class="reference internal" href="../general/common_functions.html"><em>common function</em></a>
-<tt class="xref py py-func docutils literal"><span class="pre">html_escape()</span></tt>.</p>
+<tt class="xref py py-func docutils literal"><span class="pre">esc()</span></tt>.</p>
 <p>Consider the following example:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="s1">&#39;Here is a string containing &quot;quoted&quot; text.&#39;</span><span class="p">;</span>
 
-<span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;myfield&quot;</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;&lt;?php echo </span><span class="si">$string</span><span class="s2">; ?&gt;&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;myfield&quot;</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;&lt;?= </span><span class="si">$string</span><span class="s2">; ?&gt;&quot;</span> <span class="o">/&gt;</span>
 </pre></div>
 </div>
 <p>Since the above string contains a set of quotes, it will cause the form
-to break. The <tt class="xref php php-func docutils literal"><span class="pre">html_escape()</span></tt> function converts HTML special
+to break. The <a class="reference internal" href="../general/common_functions.html#esc" title="esc"><tt class="xref php php-func docutils literal"><span class="pre">esc()</span></tt></a> function converts HTML special
 characters so that it can be used safely:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;myfield&quot;</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;&lt;?php echo html_escape(</span><span class="si">$string</span><span class="s2">); ?&gt;&quot;</span> <span class="o">/&gt;</span>
+<div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;myfield&quot;</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;&lt;?= esc(</span><span class="si">$string</span><span class="s2">); ?&gt;&quot;</span> <span class="o">/&gt;</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1503,7 +1503,7 @@ around each of the messages.</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014 - 2017, British Columbia Institute of Technology.
-       Last updated on Jun 19, 2017.
+       Last updated on Jul 11, 2017.
     </p>
   </div>
 
