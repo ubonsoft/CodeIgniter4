@@ -30,6 +30,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="CodeIgniter4 4.0.0-dev documentation" href="../index.html"/>
         <link rel="up" title="CodeIgniter4 Overview" href="index.html"/>
         <link rel="next" title="Working With HTTP Requests" href="http.html"/>
@@ -81,7 +84,7 @@
 <li class="toctree-l2"><a class="reference internal" href="structure.html">Application Structure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mvc.html">Models, Views, and Controllers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="autoloader.html">Autoloading Files</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Services</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Services</a></li>
 <li class="toctree-l2"><a class="reference internal" href="http.html">Working With HTTP Requests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="security.html">Security Guidelines</a></li>
 </ul>
@@ -155,7 +158,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter's Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
@@ -187,7 +190,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../contributing/internals.html">CodeIgniter Internals Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/documentation.html">Writing CodeIgniter Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/styleguide.html">PHP Style Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer&#8217;s Certificate of Origin 1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer’s Certificate of Origin 1.1</a></li>
 </ul>
 </li>
 </ul>
@@ -258,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="structure.html">Application Structure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mvc.html">Models, Views, and Controllers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="autoloader.html">Autoloading Files</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Services</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Services</a></li>
 <li class="toctree-l2"><a class="reference internal" href="http.html">Working With HTTP Requests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="security.html">Security Guidelines</a></li>
 </ul>
@@ -332,7 +335,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter's Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
@@ -364,7 +367,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../contributing/internals.html">CodeIgniter Internals Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/documentation.html">Writing CodeIgniter Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/styleguide.html">PHP Style Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer&#8217;s Certificate of Origin 1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer’s Certificate of Origin 1.1</a></li>
 </ul>
 </li>
 </ul>
@@ -409,30 +412,30 @@
 <h1>Services<a class="headerlink" href="#services" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>All of the classes within CodeIgniter are provided as &#8220;services&#8221;. This simply means that, instead
+<p>All of the classes within CodeIgniter are provided as “services”. This simply means that, instead
 of hard-coding a class name to load, the classes to call are defined within a very simple
 configuration file. This file acts as a type of factory to create new instances of the required class.</p>
 <p>A quick example will probably make things clearer, so imagine that you need to pull in an instance
 of the Timer class. The simplest method would simply be to create a new instance of that class:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$timer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\CodeIgniter\Debug\Timer</span><span class="p">();</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$timer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\CodeIgniter\Debug\Timer</span><span class="p">();</span>
 </pre></div>
 </div>
 <p>And this works great. Until you decide that you want to use a different timer class in its place.
 Maybe this one has some advanced reporting the default timer does not provide. In order to do this,
 you now have to locate all of the locations in your application that you have used the timer class.
 Since you might have left them in place to keep a performance log of your application constantly
-running, this might be a time-consuming and error-prone way to handle this. That&#8217;s where services
+running, this might be a time-consuming and error-prone way to handle this. That’s where services
 come in handy.</p>
 <p>Instead of creating the instance ourself, we let a central class create an instance of the
 class for us. This class is kept very simple. It only contains a method for each class that we want
 to use as a service. The method typically returns a shared instance of that class, passing any dependencies
 it might have into it. Then, we would replace our timer creation code with code that calls this new class:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$timer</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">timer</span><span class="p">();</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$timer</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">timer</span><span class="p">();</span>
 </pre></div>
 </div>
 <p>When you need to change the implementation used, you can modify the services configuration file, and
 the change happens automatically throughout your application without you having to do anything. Now
-you just need to take advantage of any new functionality and you&#8217;re good to go. Very simple and
+you just need to take advantage of any new functionality and you’re good to go. Very simple and
 error-resistant.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -443,42 +446,42 @@ setter method.</p>
 <div class="section" id="convenience-functions">
 <h3>Convenience Functions<a class="headerlink" href="#convenience-functions" title="Permalink to this headline">¶</a></h3>
 <p>Two functions have been provided for getting a service. These functions are always available.</p>
-<p>The first is <tt class="docutils literal"><span class="pre">service()</span></tt> which returns a new instance of the requested service. The only
+<p>The first is <code class="docutils literal"><span class="pre">service()</span></code> which returns a new instance of the requested service. The only
 required parameter is the service name. This is the same as the method name within the Services
 file..Always returns a SHARED instance of the class, so calling the function multiple times should
 always return the same instance.:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$logger</span> <span class="o">=</span> <span class="nx">service</span><span class="p">(</span><span class="s1">&#39;logger&#39;</span><span class="p">);</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$logger</span> <span class="o">=</span> <span class="nx">service</span><span class="p">(</span><span class="s1">&#39;logger&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>If the creation method requires additional parameters, they can be passed after the service name:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$renderer</span> <span class="o">=</span> <span class="nx">service</span><span class="p">(</span><span class="s1">&#39;renderer&#39;</span><span class="p">,</span> <span class="nx">APPPATH</span><span class="o">.</span><span class="s1">&#39;views/&#39;</span><span class="p">);</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$renderer</span> <span class="o">=</span> <span class="nx">service</span><span class="p">(</span><span class="s1">&#39;renderer&#39;</span><span class="p">,</span> <span class="nx">APPPATH</span><span class="o">.</span><span class="s1">&#39;views/&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>The second function, <tt class="docutils literal"><span class="pre">single_service()</span></tt> works just like <tt class="docutils literal"><span class="pre">service()</span></tt> but returns a new instance of
+<p>The second function, <code class="docutils literal"><span class="pre">single_service()</span></code> works just like <code class="docutils literal"><span class="pre">service()</span></code> but returns a new instance of
 the class:</p>
 <blockquote>
-<div>$logger = single_service(&#8216;logger&#8217;);</div></blockquote>
+<div>$logger = single_service(‘logger’);</div></blockquote>
 </div>
 </div>
 <div class="section" id="defining-services">
 <h2>Defining Services<a class="headerlink" href="#defining-services" title="Permalink to this headline">¶</a></h2>
 <p>To make services work well, you have to be able to rely on each class having a constant API, or
 <a class="reference external" href="http://php.net/manual/en/language.oop5.interfaces.php">interface</a>, to use. Almost all of
-CodeIgniter&#8217;s classes provide an interface that they adhere to. When you want to extend or replace
+CodeIgniter’s classes provide an interface that they adhere to. When you want to extend or replace
 core classes, you only need to ensure you meet the requirements of the interface and you know that
 the classes are compatible.</p>
-<p>For example, the <tt class="docutils literal"><span class="pre">RouterCollection</span></tt> class implements the <tt class="docutils literal"><span class="pre">RouterCollectionInterface</span></tt>. When you
+<p>For example, the <code class="docutils literal"><span class="pre">RouterCollection</span></code> class implements the <code class="docutils literal"><span class="pre">RouterCollectionInterface</span></code>. When you
 want to create a replacement that provides a different way to create routes, you just need to
-create a new class that implements the <tt class="docutils literal"><span class="pre">RouterCollectionInterface</span></tt>:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyRouter</span> <span class="k">implements</span> <span class="nx">\CodeIgniter\Router\RouteCollectionInterface</span>
+create a new class that implements the <code class="docutils literal"><span class="pre">RouterCollectionInterface</span></code>:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyRouter</span> <span class="k">implements</span> <span class="nx">\CodeIgniter\Router\RouteCollectionInterface</span>
 <span class="p">{</span>
     <span class="c1">// Implement required methods here.</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Finally, modify <strong>/application/Config/Services.php</strong> to create a new instance of <tt class="docutils literal"><span class="pre">MyRouter</span></tt>
-instead of <tt class="docutils literal"><span class="pre">CodeIgniter\Router\RouterCollection</span></tt>:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">routes</span><span class="p">()</span>
+<p>Finally, modify <strong>/application/Config/Services.php</strong> to create a new instance of <code class="docutils literal"><span class="pre">MyRouter</span></code>
+instead of <code class="docutils literal"><span class="pre">CodeIgniter\Router\RouterCollection</span></code>:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">routes</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="k">return</span> <span class="k">new</span> <span class="nx">\App\Router\MyRouter</span><span class="p">();</span>
 <span class="p">}</span>
@@ -490,11 +493,11 @@ instead of <tt class="docutils literal"><span class="pre">CodeIgniter\Router\Rou
 <h3>Allowing Parameters<a class="headerlink" href="#allowing-parameters" title="Permalink to this headline">¶</a></h3>
 <p>In some instances, you will want the option to pass a setting to the class during instantiation.
 Since the services file is a very simple class, it is easy to make this work.</p>
-<p>A good example is the <tt class="docutils literal"><span class="pre">renderer</span></tt> service. By default, we want this class to be able
-to find the views at <tt class="docutils literal"><span class="pre">APPPATH.views/</span></tt>. We want the developer to have the option of
-changing that path, though, if their needs require it. So the class accepts the <tt class="docutils literal"><span class="pre">$viewPath</span></tt>
+<p>A good example is the <code class="docutils literal"><span class="pre">renderer</span></code> service. By default, we want this class to be able
+to find the views at <code class="docutils literal"><span class="pre">APPPATH.views/</span></code>. We want the developer to have the option of
+changing that path, though, if their needs require it. So the class accepts the <code class="docutils literal"><span class="pre">$viewPath</span></code>
 as a constructor parameter. The service method looks like this:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">renderer</span><span class="p">(</span><span class="nv">$viewPath</span><span class="o">=</span><span class="nx">APPPATH</span><span class="o">.</span><span class="s1">&#39;views/&#39;</span><span class="p">)</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">renderer</span><span class="p">(</span><span class="nv">$viewPath</span><span class="o">=</span><span class="nx">APPPATH</span><span class="o">.</span><span class="s1">&#39;views/&#39;</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="k">return</span> <span class="k">new</span> <span class="nx">\CodeIgniter\View\View</span><span class="p">(</span><span class="nv">$viewPath</span><span class="p">);</span>
 <span class="p">}</span>
@@ -502,18 +505,18 @@ as a constructor parameter. The service method looks like this:</p>
 </div>
 <p>This sets the default path in the constructor method, but allows for easily changing
 the path it uses:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$renderer</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">renderer</span><span class="p">(</span><span class="s1">&#39;/shared/views&#39;</span><span class="p">);</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$renderer</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">renderer</span><span class="p">(</span><span class="s1">&#39;/shared/views&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="shared-classes">
 <h3>Shared Classes<a class="headerlink" href="#shared-classes" title="Permalink to this headline">¶</a></h3>
 <p>There are occasions where you need to require that only a single instance of a service
-is created. This is easily handled with the <tt class="docutils literal"><span class="pre">getSharedInstance()</span></tt> method that is called from within the
+is created. This is easily handled with the <code class="docutils literal"><span class="pre">getSharedInstance()</span></code> method that is called from within the
 factory method. This handles checking if an instance has been created and saved
 within the class, and, if not, creates a new one. All of the factory methods provide a
-<tt class="docutils literal"><span class="pre">$getShared</span> <span class="pre">=</span> <span class="pre">true</span></tt> value as the last parameter. You should stick to the method also:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Services</span>
+<code class="docutils literal"><span class="pre">$getShared</span> <span class="pre">=</span> <span class="pre">true</span></code> value as the last parameter. You should stick to the method also:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Services</span>
 <span class="p">{</span>
     <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">routes</span><span class="p">(</span><span class="nv">$getShared</span> <span class="o">=</span> <span class="k">false</span><span class="p">)</span>
     <span class="p">{</span>
@@ -550,7 +553,7 @@ within the class, and, if not, creates a new one. All of the factory methods pro
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-       Last updated on Jul 13, 2017.
+       Last updated on Jul 20, 2017.
     </p>
   </div>
 

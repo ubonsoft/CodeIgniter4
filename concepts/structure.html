@@ -30,6 +30,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="CodeIgniter4 4.0.0-dev documentation" href="../index.html"/>
         <link rel="up" title="CodeIgniter4 Overview" href="index.html"/>
         <link rel="next" title="Models, Views, and Controllers" href="mvc.html"/>
@@ -78,7 +81,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">CodeIgniter4 Overview</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">Application Structure</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Application Structure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mvc.html">Models, Views, and Controllers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="autoloader.html">Autoloading Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="services.html">Services</a></li>
@@ -155,7 +158,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter's Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
@@ -187,7 +190,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../contributing/internals.html">CodeIgniter Internals Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/documentation.html">Writing CodeIgniter Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/styleguide.html">PHP Style Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer&#8217;s Certificate of Origin 1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer’s Certificate of Origin 1.1</a></li>
 </ul>
 </li>
 </ul>
@@ -255,7 +258,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">CodeIgniter4 Overview</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">Application Structure</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Application Structure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mvc.html">Models, Views, and Controllers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="autoloader.html">Autoloading Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="services.html">Services</a></li>
@@ -332,7 +335,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter's Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
@@ -364,7 +367,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../contributing/internals.html">CodeIgniter Internals Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/documentation.html">Writing CodeIgniter Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/styleguide.html">PHP Style Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer&#8217;s Certificate of Origin 1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer’s Certificate of Origin 1.1</a></li>
 </ul>
 </li>
 </ul>
@@ -411,14 +414,14 @@
 can change to meet the needs of your application.</p>
 <div class="section" id="default-directories">
 <h2>Default Directories<a class="headerlink" href="#default-directories" title="Permalink to this headline">¶</a></h2>
-<p>A fresh install has six directories: <tt class="docutils literal"><span class="pre">/application</span></tt>, <tt class="docutils literal"><span class="pre">/system</span></tt>, <tt class="docutils literal"><span class="pre">/public</span></tt>,
-<tt class="docutils literal"><span class="pre">/writable</span></tt>, <tt class="docutils literal"><span class="pre">/tests</span></tt> and <tt class="docutils literal"><span class="pre">/docs</span></tt>.
+<p>A fresh install has six directories: <code class="docutils literal"><span class="pre">/application</span></code>, <code class="docutils literal"><span class="pre">/system</span></code>, <code class="docutils literal"><span class="pre">/public</span></code>,
+<code class="docutils literal"><span class="pre">/writable</span></code>, <code class="docutils literal"><span class="pre">/tests</span></code> and <code class="docutils literal"><span class="pre">/docs</span></code>.
 Each of these directories has a very specific part to play.</p>
 <div class="section" id="application">
 <h3>application<a class="headerlink" href="#application" title="Permalink to this headline">¶</a></h3>
-<p>The <tt class="docutils literal"><span class="pre">application</span></tt> directory is where all of your application code lives. This comes with a default directory
+<p>The <code class="docutils literal"><span class="pre">application</span></code> directory is where all of your application code lives. This comes with a default directory
 structure that works well for many applications. The following folders make up the basic contents:</p>
-<div class="highlight-ci"><div class="highlight"><pre>/application
+<div class="highlight-ci"><div class="highlight"><pre><span></span>/application
         /Config         Stores the configuration files
         /Controllers    Controllers determine the program flow
         /Helpers        Helpers store collections of standalone functions
@@ -428,16 +431,16 @@ structure that works well for many applications. The following folders make up t
         /Views          Views make up the HTML that is displayed to the client.
 </pre></div>
 </div>
-<p>Because the <tt class="docutils literal"><span class="pre">application</span></tt> directory is already namespaced, you should feel free to modify the structure
-of this directory to suit your application&#8217;s needs. For example, you might decide to start using the Repository
-pattern and Entity Models to work with your data. In this case, you could rename the <tt class="docutils literal"><span class="pre">Models</span></tt> directory to
-<tt class="docutils literal"><span class="pre">Repositories</span></tt>, and add a new <tt class="docutils literal"><span class="pre">Entities</span></tt> directory.</p>
+<p>Because the <code class="docutils literal"><span class="pre">application</span></code> directory is already namespaced, you should feel free to modify the structure
+of this directory to suit your application’s needs. For example, you might decide to start using the Repository
+pattern and Entity Models to work with your data. In this case, you could rename the <code class="docutils literal"><span class="pre">Models</span></code> directory to
+<code class="docutils literal"><span class="pre">Repositories</span></code>, and add a new <code class="docutils literal"><span class="pre">Entities</span></code> directory.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">If you rename the <tt class="docutils literal"><span class="pre">Controllers</span></tt> directory, though, you will not be able to use the automatic method of
+<p class="last">If you rename the <code class="docutils literal"><span class="pre">Controllers</span></code> directory, though, you will not be able to use the automatic method of
 routing to controllers, and will need to define all of your routes in the routes file.</p>
 </div>
-<p>All files in this directory live under the <tt class="docutils literal"><span class="pre">App</span></tt> namespace, though you are free to change that in
+<p>All files in this directory live under the <code class="docutils literal"><span class="pre">App</span></code> namespace, though you are free to change that in
 <strong>application/Config/Constants.php</strong>.</p>
 </div>
 <div class="section" id="system">
@@ -445,7 +448,7 @@ routing to controllers, and will need to define all of your routes in the routes
 <p>This directory stores the files that make up the framework, itself. While you have a lot of flexibility in how you
 use the application directory, the files in the system directory should never be modified. Instead, you should
 extend the classes, or create new classes, to provide the desired functionality.</p>
-<p>All files in this directory live under the <tt class="docutils literal"><span class="pre">CodeIgniter</span></tt> namespace.</p>
+<p>All files in this directory live under the <code class="docutils literal"><span class="pre">CodeIgniter</span></code> namespace.</p>
 </div>
 <div class="section" id="public">
 <h3>public<a class="headerlink" href="#public" title="Permalink to this headline">¶</a></h3>
@@ -454,31 +457,31 @@ preventing direct access to your source code.
 It contains the main <strong>.htaccess</strong> file, <strong>index.php</strong>, and any application
 assets that you add, like CSS, javascript, or
 images.</p>
-<p>This folder is meant to be the &#8220;web root&#8221; of your site, and your web server
+<p>This folder is meant to be the “web root” of your site, and your web server
 would be configured to point to it.</p>
 </div>
 <div class="section" id="writable">
 <h3>writable<a class="headerlink" href="#writable" title="Permalink to this headline">¶</a></h3>
-<p>This directory holds any directories that might need to be written to in the course of an application&#8217;s life.
+<p>This directory holds any directories that might need to be written to in the course of an application’s life.
 This includes directories for storing cache files, logs, and any uploads a user might send. You should add any other
 directories that your application will need to write to here. This allows you to keep your other primary directories
 non-writable as an added security measure.</p>
 </div>
 <div class="section" id="tests">
 <h3>tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h3>
-<p>This directory is setup to hold your test files. The <tt class="docutils literal"><span class="pre">_support</span></tt> directory holds various mock classes and other
+<p>This directory is setup to hold your test files. The <code class="docutils literal"><span class="pre">_support</span></code> directory holds various mock classes and other
 utilities that you can use while writing your tests. This directory does not need to be transferred to your
 production servers.</p>
 </div>
 <div class="section" id="docs">
 <h3>docs<a class="headerlink" href="#docs" title="Permalink to this headline">¶</a></h3>
-<p>This directory holds the CodeIgniter documentation. The <tt class="docutils literal"><span class="pre">user_guide</span></tt> subfolder contains a local copy of the
-User Guide, and the <tt class="docutils literal"><span class="pre">api_docs</span></tt> subfolder contains a local copy of the CodeIgniter components API reference.</p>
+<p>This directory holds the CodeIgniter documentation. The <code class="docutils literal"><span class="pre">user_guide</span></code> subfolder contains a local copy of the
+User Guide, and the <code class="docutils literal"><span class="pre">api_docs</span></code> subfolder contains a local copy of the CodeIgniter components API reference.</p>
 </div>
 <div class="section" id="modifying-directory-locations">
 <h3>Modifying Directory Locations<a class="headerlink" href="#modifying-directory-locations" title="Permalink to this headline">¶</a></h3>
-<p>If you&#8217;ve relocated any of the main directories, you can let the application
-know the new location within the main <tt class="docutils literal"><span class="pre">index.php</span></tt> file.</p>
+<p>If you’ve relocated any of the main directories, you can let the application
+know the new location within the main <code class="docutils literal"><span class="pre">index.php</span></code> file.</p>
 <p>Starting around line 50, you will find three variables that hold the location to the <strong>application</strong>,
 <strong>system</strong>, and <strong>writable</strong> directories. These paths are relative to <strong>index.php</strong>.</p>
 </div>
@@ -504,7 +507,7 @@ know the new location within the main <tt class="docutils literal"><span class="
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-       Last updated on Jul 13, 2017.
+       Last updated on Jul 20, 2017.
     </p>
   </div>
 

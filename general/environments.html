@@ -30,6 +30,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="CodeIgniter4 4.0.0-dev documentation" href="../index.html"/>
         <link rel="up" title="General Topics" href="index.html"/>
         <link rel="next" title="Alternate PHP Syntax for View Files" href="alternative_php.html"/>
@@ -110,7 +113,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cli_commands.html">Custom CLI Commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modules.html">Code Modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="managing_apps.html">Managing your Applications</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Handling Multiple Environments</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Handling Multiple Environments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="alternative_php.html">Alternate PHP Syntax for View Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="testing.html">Testing</a></li>
 </ul>
@@ -155,7 +158,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter's Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
@@ -187,7 +190,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../contributing/internals.html">CodeIgniter Internals Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/documentation.html">Writing CodeIgniter Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/styleguide.html">PHP Style Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer&#8217;s Certificate of Origin 1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer’s Certificate of Origin 1.1</a></li>
 </ul>
 </li>
 </ul>
@@ -287,7 +290,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cli_commands.html">Custom CLI Commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modules.html">Code Modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="managing_apps.html">Managing your Applications</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Handling Multiple Environments</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Handling Multiple Environments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="alternative_php.html">Alternate PHP Syntax for View Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="testing.html">Testing</a></li>
 </ul>
@@ -332,7 +335,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter's Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
@@ -364,7 +367,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../contributing/internals.html">CodeIgniter Internals Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/documentation.html">Writing CodeIgniter Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/styleguide.html">PHP Style Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer&#8217;s Certificate of Origin 1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer’s Certificate of Origin 1.1</a></li>
 </ul>
 </li>
 </ul>
@@ -411,36 +414,36 @@
 an application is running in a development or production environment.
 For example, verbose error output is something that would be useful
 while developing an application, but it may also pose a security issue
-when &#8220;live&#8221;. In development environments, you might want additional
-tools loaded that you don&#8217;t in production environments, etc.</p>
+when “live”. In development environments, you might want additional
+tools loaded that you don’t in production environments, etc.</p>
 <div class="section" id="the-environment-constant">
 <h2>The ENVIRONMENT Constant<a class="headerlink" href="#the-environment-constant" title="Permalink to this headline">¶</a></h2>
 <p>By default, CodeIgniter comes with the environment constant set to use
-the value provided in <tt class="docutils literal"><span class="pre">$_SERVER['CI_ENVIRONMENT']</span></tt>, otherwise defaulting to
-&#8216;production&#8217;. This can be set in several ways depending on your server setup.</p>
+the value provided in <code class="docutils literal"><span class="pre">$_SERVER['CI_ENVIRONMENT']</span></code>, otherwise defaulting to
+‘production’. This can be set in several ways depending on your server setup.</p>
 <div class="section" id="env">
 <h3>.env<a class="headerlink" href="#env" title="Permalink to this headline">¶</a></h3>
-<p>The simplest method to set the variable is in your <a class="reference internal" href="configuration.html"><em>.env file</em></a>:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nx">CI_ENVIRONMENT</span> <span class="o">=</span> <span class="nx">development</span>
+<p>The simplest method to set the variable is in your <a class="reference internal" href="configuration.html"><span class="doc">.env file</span></a>:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nx">CI_ENVIRONMENT</span> <span class="o">=</span> <span class="nx">development</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="apache">
 <h3>Apache<a class="headerlink" href="#apache" title="Permalink to this headline">¶</a></h3>
-<p>This server variable can be set in your <tt class="docutils literal"><span class="pre">.htaccess</span></tt> file, or Apache
+<p>This server variable can be set in your <code class="docutils literal"><span class="pre">.htaccess</span></code> file, or Apache
 config using <a class="reference external" href="https://httpd.apache.org/docs/2.2/mod/mod_env.html#setenv">SetEnv</a>.</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nx">SetEnv</span> <span class="nx">CI_ENVIRONMENT</span> <span class="nx">development</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nx">SetEnv</span> <span class="nx">CI_ENVIRONMENT</span> <span class="nx">development</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="nginx">
 <h3>nginx<a class="headerlink" href="#nginx" title="Permalink to this headline">¶</a></h3>
-<p>Under nginx, you must pass the environment variable through the <tt class="docutils literal"><span class="pre">fastcgi_params</span></tt>
+<p>Under nginx, you must pass the environment variable through the <code class="docutils literal"><span class="pre">fastcgi_params</span></code>
 in order for it to show up under the <cite>$_SERVER</cite> variable. This allows it to work on the
 virtual-host level, instead of using <cite>env</cite> to set it for the entire server, though that
 would work fine on a dedicated server. You would then modify your server config to something
 like:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nx">server</span> <span class="p">{</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nx">server</span> <span class="p">{</span>
     <span class="nx">server_name</span> <span class="nx">localhost</span><span class="p">;</span>
     <span class="k">include</span>     <span class="nx">conf</span><span class="o">/</span><span class="nx">defaults</span><span class="o">.</span><span class="nx">conf</span><span class="p">;</span>
     <span class="nx">root</span>        <span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="nx">www</span><span class="p">;</span>
@@ -453,7 +456,7 @@ like:</p>
 </pre></div>
 </div>
 <p>Alternative methods are available for nginx and other servers, or you can
-remove this logic entirely and set the constant based on the server&#8217;s IP address
+remove this logic entirely and set the constant based on the server’s IP address
 (for instance).</p>
 <p>In addition to affecting some basic framework behavior (see the next
 section), you may use this constant in your own development to
@@ -461,9 +464,9 @@ differentiate between which environment you are running in.</p>
 </div>
 <div class="section" id="boot-files">
 <h3>Boot Files<a class="headerlink" href="#boot-files" title="Permalink to this headline">¶</a></h3>
-<p>CodeIgniter requires that a PHP script matching the environment&#8217;s name is located
+<p>CodeIgniter requires that a PHP script matching the environment’s name is located
 under <strong>APPPATH/Config/Boot</strong>. These files can contain any customizations that
-you would like to make for your environment, whether it&#8217;s updating the error display
+you would like to make for your environment, whether it’s updating the error display
 settings, loading addtional developer tools, or anything else. These are
 automatically loaded by the system. The following files are already created in
 a fresh install:</p>
@@ -481,11 +484,11 @@ constant is used. This section describes how default framework behavior
 is affected.</p>
 <div class="section" id="error-reporting">
 <h3>Error Reporting<a class="headerlink" href="#error-reporting" title="Permalink to this headline">¶</a></h3>
-<p>Setting the ENVIRONMENT constant to a value of &#8216;development&#8217; will cause
+<p>Setting the ENVIRONMENT constant to a value of ‘development’ will cause
 all PHP errors to be rendered to the browser when they occur.
-Conversely, setting the constant to &#8216;production&#8217; will disable all error
+Conversely, setting the constant to ‘production’ will disable all error
 output. Disabling error reporting in production is a
-<a class="reference internal" href="../concepts/security.html"><em>good security practice</em></a>.</p>
+<a class="reference internal" href="../concepts/security.html"><span class="doc">good security practice</span></a>.</p>
 </div>
 <div class="section" id="configuration-files">
 <h3>Configuration Files<a class="headerlink" href="#configuration-files" title="Permalink to this headline">¶</a></h3>
@@ -493,7 +496,7 @@ output. Disabling error reporting in production is a
 configuration files. This may be useful for managing things like
 differing API keys across multiple environments. This is described in
 more detail in the Handling Different Environments section of the
-<a class="reference internal" href="configuration.html"><em>Working with Configuration Files</em></a> documentation.</p>
+<a class="reference internal" href="configuration.html"><span class="doc">Working with Configuration Files</span></a> documentation.</p>
 </div>
 </div>
 </div>
@@ -517,7 +520,7 @@ more detail in the Handling Different Environments section of the
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-       Last updated on Jul 13, 2017.
+       Last updated on Jul 20, 2017.
     </p>
   </div>
 

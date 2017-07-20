@@ -30,6 +30,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="CodeIgniter4 4.0.0-dev documentation" href="../index.html"/>
         <link rel="up" title="Contributing to CodeIgniter" href="index.html"/>
         <link rel="next" title="PHP Coding Style Guide" href="styleguide.html"/>
@@ -155,7 +158,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter's Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
@@ -185,9 +188,9 @@
 <li class="toctree-l2"><a class="reference internal" href="signing.html">Contribution Signing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="roadmap.html">CodeIgniter4 Roadmap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="internals.html">CodeIgniter Internals Overview</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Writing CodeIgniter Documentation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Writing CodeIgniter Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="styleguide.html">PHP Style Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer&#8217;s Certificate of Origin 1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer’s Certificate of Origin 1.1</a></li>
 </ul>
 </li>
 </ul>
@@ -332,7 +335,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter's Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
@@ -362,9 +365,9 @@
 <li class="toctree-l2"><a class="reference internal" href="signing.html">Contribution Signing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="roadmap.html">CodeIgniter4 Roadmap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="internals.html">CodeIgniter Internals Overview</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Writing CodeIgniter Documentation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Writing CodeIgniter Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="styleguide.html">PHP Style Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer&#8217;s Certificate of Origin 1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer’s Certificate of Origin 1.1</a></li>
 </ul>
 </li>
 </ul>
@@ -414,7 +417,7 @@ on readability and user friendliness.
 While they can be quite technical, we always write for humans!</p>
 <p>A local table of contents should always be included, like the one below.
 It is created automatically by inserting the following:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="o">..</span> <span class="nx">contents</span><span class="o">::</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="nx">contents</span><span class="o">::</span>
         <span class="o">:</span><span class="nx">local</span><span class="o">:</span>
 
 <span class="o">..</span> <span class="nx">raw</span><span class="o">::</span> <span class="na">html</span>
@@ -428,7 +431,7 @@ It is created automatically by inserting the following:</p>
 <li><a class="reference internal" href="#page-and-section-headings-and-subheadings" id="id2">Page and Section Headings and Subheadings</a></li>
 </ul>
 </div>
-<div class="custom-index container"></div><p>The &lt;div&gt; that is inserted as raw HTML is a event for the documentation&#8217;s
+<div class="custom-index container"></div><p>The &lt;div&gt; that is inserted as raw HTML is a event for the documentation’s
 JavaScript to dynamically add links to any function and method definitions
 contained in the current page.</p>
 <div class="section" id="tools-required">
@@ -437,11 +440,11 @@ contained in the current page.</p>
 along with the PHP domain extension for Sphinx.  The underlying requirement
 is to have Python installed.  Lastly, you will install the CI Lexer for
 Pygments, so that code blocks can be properly highlighted.</p>
-<div class="highlight-bash"><div class="highlight"><pre>easy_install <span class="s2">&quot;sphinx==1.2.3&quot;</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>easy_install <span class="s2">&quot;sphinx==1.2.3&quot;</span>
 easy_install sphinxcontrib-phpdomain
 </pre></div>
 </div>
-<p>Then follow the directions in the README file in the <tt class="samp docutils literal"><span class="pre">cilexer</span></tt> folder
+<p>Then follow the directions in the README file in the <code class="samp docutils literal"><span class="pre">cilexer</span></code> folder
 inside the documentation repository to install the CI Lexer.</p>
 </div>
 <div class="section" id="page-and-section-headings-and-subheadings">
@@ -451,7 +454,7 @@ are used to automatically build both the page and document table of contents.
 Headings are formed by using certain characters as underlines for a bit of
 text.  Major headings, like page titles and section headings also use
 overlines.  Other headings just use underlines, with the following hierarchy:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="c1"># with overline for page titles</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="c1"># with overline for page titles</span>
 <span class="o">*</span> <span class="nx">with</span> <span class="nx">overline</span> <span class="k">for</span> <span class="nx">major</span> <span class="nx">sections</span>
 <span class="o">=</span> <span class="k">for</span> <span class="nx">subsections</span>
 <span class="o">-</span> <span class="k">for</span> <span class="nx">subsubsections</span>
@@ -459,9 +462,9 @@ overlines.  Other headings just use underlines, with the following hierarchy:</p
 <span class="s2">&quot; for subsubsubsubsections (!)</span>
 </pre></div>
 </div>
-<p>The <a class="reference download internal" href="../_downloads/ELDocs.tmbundle.zip"><tt class="xref download docutils literal"><span class="pre">TextMate</span> <span class="pre">ELDocs</span> <span class="pre">Bundle</span></tt></a> can help you
+<p>The <a class="reference download internal" href="../_downloads/ELDocs.tmbundle.zip" download=""><code class="xref download docutils literal"><span class="pre">TextMate</span> <span class="pre">ELDocs</span> <span class="pre">Bundle</span></code></a> can help you
 create these with the following tab triggers:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nx">title</span><span class="o">-&gt;</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nx">title</span><span class="o">-&gt;</span>
 
         <span class="c1">##########</span>
         <span class="nx">Page</span> <span class="nx">Title</span>
@@ -516,7 +519,7 @@ create these with the following tab triggers:</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-       Last updated on Jul 13, 2017.
+       Last updated on Jul 20, 2017.
     </p>
   </div>
 

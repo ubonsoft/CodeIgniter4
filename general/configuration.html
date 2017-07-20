@@ -30,6 +30,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="CodeIgniter4 4.0.0-dev documentation" href="../index.html"/>
         <link rel="up" title="General Topics" href="index.html"/>
         <link rel="next" title="CodeIgniter URLs" href="urls.html"/>
@@ -89,7 +92,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">General Topics</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">Working With Configuration Files</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Working With Configuration Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="urls.html">CodeIgniter URLs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="controllers.html">Controllers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="views.html">Views</a></li>
@@ -155,7 +158,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter's Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
@@ -187,7 +190,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../contributing/internals.html">CodeIgniter Internals Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/documentation.html">Writing CodeIgniter Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/styleguide.html">PHP Style Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer&#8217;s Certificate of Origin 1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer’s Certificate of Origin 1.1</a></li>
 </ul>
 </li>
 </ul>
@@ -266,7 +269,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">General Topics</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">Working With Configuration Files</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Working With Configuration Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="urls.html">CodeIgniter URLs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="controllers.html">Controllers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="views.html">Views</a></li>
@@ -332,7 +335,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter's Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
@@ -364,7 +367,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../contributing/internals.html">CodeIgniter Internals Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/documentation.html">Writing CodeIgniter Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/styleguide.html">PHP Style Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer&#8217;s Certificate of Origin 1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer’s Certificate of Origin 1.1</a></li>
 </ul>
 </li>
 </ul>
@@ -416,7 +419,7 @@ create an instance of the class and all your settings are there for you.</p>
 <h2>Accessing Config Files<a class="headerlink" href="#accessing-config-files" title="Permalink to this headline">¶</a></h2>
 <p>You can access config files within your classes by creating a new instance. All of the properties
 are public, so you access the settings like any other property:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$config</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Config\EmailConfig</span><span class="p">();</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$config</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Config\EmailConfig</span><span class="p">();</span>
 
 <span class="c1">// Access settings as class properties</span>
 <span class="nv">$protocol</span> <span class="o">=</span> <span class="nv">$config</span><span class="o">-&gt;</span><span class="na">protocol</span><span class="p">;</span>
@@ -425,9 +428,9 @@ are public, so you access the settings like any other property:</p>
 </div>
 <p>If no namespace is provided, it will look for the files in all available namespaces that have
 been defined, as well as <strong>/application/Config/</strong>. All of the configuration files
-that ship with CodeIgniter are namespaced with <tt class="docutils literal"><span class="pre">Config</span></tt>. Using this namespace in your
+that ship with CodeIgniter are namespaced with <code class="docutils literal"><span class="pre">Config</span></code>. Using this namespace in your
 application will provide the best performance since it knows exactly what directory to find the
-files in and doesn&#8217;t have to scan several locations in the filesystem to get there.</p>
+files in and doesn’t have to scan several locations in the filesystem to get there.</p>
 <p>You can locate the configuration files any place on your server by using a different namespace.
 This allows you to pull configuration files on the production server to a folder that is not in
 the web-accessible space at all, while keeping it under <strong>/application</strong> for ease of access during development.</p>
@@ -437,7 +440,7 @@ the web-accessible space at all, while keeping it under <strong>/application</st
 <p>If you need to create a new configuration file you would create a new file at your desired location,
 <strong>/application/Config</strong> by default. Then create the class and fill it with public properties that
 represent your settings:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
 
 <span class="k">class</span> <span class="nc">App</span> <span class="k">extends</span> <span class="nx">\CodeIgniter\Config\BaseConfig</span> <span class="p">{</span>
 
@@ -447,25 +450,25 @@ represent your settings:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The class should extend <tt class="docutils literal"><span class="pre">\CodeIgniter\Config\BaseConfig</span></tt> to ensure that it can receive environment-specific
+<p>The class should extend <code class="docutils literal"><span class="pre">\CodeIgniter\Config\BaseConfig</span></code> to ensure that it can receive environment-specific
 settings.</p>
 </div>
 <div class="section" id="handling-different-environments">
 <h2>Handling Different Environments<a class="headerlink" href="#handling-different-environments" title="Permalink to this headline">¶</a></h2>
-<p>Because your site can operate within multiple environments, such as the developer&#8217;s local machine or
+<p>Because your site can operate within multiple environments, such as the developer’s local machine or
 the server used for the production site, you can modify your values based on the environment.  Within these
-you will have settings that might change depending on the server it&#8217;s running on.This can include
+you will have settings that might change depending on the server it’s running on.This can include
 database settings, API credentials, and other settings that will vary between deploys.</p>
 <p>You can store values in a <strong>.env</strong> file in the root directory, alongside the system and application directories.
 It is simply a collection of name/value pairs separated by an equal sign, much like a .ini file:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nx">S3_BUCKET</span><span class="o">=</span><span class="s2">&quot;dotenv&quot;</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nx">S3_BUCKET</span><span class="o">=</span><span class="s2">&quot;dotenv&quot;</span>
 <span class="nx">SECRET_KEY</span><span class="o">=</span><span class="s2">&quot;super_secret_key&quot;</span>
 </pre></div>
 </div>
 <p>If the variable exists in the environment already, it will NOT be overwritten.</p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last">Make sure the <strong>.env</strong> file is added to <strong>.gitignore</strong> (or your version control system&#8217;s equivalent)
+<p class="last">Make sure the <strong>.env</strong> file is added to <strong>.gitignore</strong> (or your version control system’s equivalent)
 so it is not checked in the code. Failure to do so could result in sensitive credentials being stored in the
 repository for anyone to find.</p>
 </div>
@@ -475,9 +478,9 @@ appropriate data.</p>
 <p>When your application runs, this file will be automatically loaded and the variables will be put into
 the environment. This will work in any environment except for production, where the variables should be
 set in the environment through whatever means your getServer supports, such as .htaccess files, etc. These
-variables are then available through <tt class="docutils literal"><span class="pre">getenv()</span></tt>, <tt class="docutils literal"><span class="pre">$_SERVER</span></tt>, and <tt class="docutils literal"><span class="pre">$_ENV</span></tt>. Of the three, <tt class="docutils literal"><span class="pre">getenv()</span></tt> function
+variables are then available through <code class="docutils literal"><span class="pre">getenv()</span></code>, <code class="docutils literal"><span class="pre">$_SERVER</span></code>, and <code class="docutils literal"><span class="pre">$_ENV</span></code>. Of the three, <code class="docutils literal"><span class="pre">getenv()</span></code> function
 is recommended since it is not case-sensitive:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$s3_bucket</span> <span class="o">=</span> <span class="nb">getenv</span><span class="p">(</span><span class="s1">&#39;S3_BUCKET&#39;</span><span class="p">);</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$s3_bucket</span> <span class="o">=</span> <span class="nb">getenv</span><span class="p">(</span><span class="s1">&#39;S3_BUCKET&#39;</span><span class="p">);</span>
 <span class="nv">$s3_bucket</span> <span class="o">=</span> <span class="nv">$_ENV</span><span class="p">[</span><span class="s1">&#39;S3_BUCKET&#39;</span><span class="p">];</span>
 <span class="nv">$s3_bucket</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;S3_BUCKET&#39;</span><span class="p">];</span>
 </pre></div>
@@ -485,9 +488,9 @@ is recommended since it is not case-sensitive:</p>
 </div>
 <div class="section" id="nesting-variables">
 <h2>Nesting Variables<a class="headerlink" href="#nesting-variables" title="Permalink to this headline">¶</a></h2>
-<p>To save on typing, you can reuse variables that you&#8217;ve already specified in the file by wrapping the
-variable name within <tt class="docutils literal"><span class="pre">${...}</span></tt>:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nx">BASE_DIR</span><span class="o">=</span><span class="s2">&quot;/var/webroot/project-root&quot;</span>
+<p>To save on typing, you can reuse variables that you’ve already specified in the file by wrapping the
+variable name within <code class="docutils literal"><span class="pre">${...}</span></code>:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nx">BASE_DIR</span><span class="o">=</span><span class="s2">&quot;/var/webroot/project-root&quot;</span>
 <span class="nx">CACHE_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">BASE_DIR</span><span class="si">}</span><span class="s2">/cache&quot;</span>
 <span class="nx">TMP_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">BASE_DIR</span><span class="si">}</span><span class="s2">/tmp&quot;</span>
 </pre></div>
@@ -497,10 +500,10 @@ variable name within <tt class="docutils literal"><span class="pre">${...}</span
 <h2>Namespaced Variables<a class="headerlink" href="#namespaced-variables" title="Permalink to this headline">¶</a></h2>
 <p>There will be times when you will have several variables of the same name. When this happens, the
 system has no way of knowing what the correct value should be. You can protect against this by
-&#8220;namespacing&#8221; the variables. This is done by including the name of the config file (all lower case),
+“namespacing” the variables. This is done by including the name of the config file (all lower case),
 followed by a period (.), and then the variable name itself. This is especially common when you
 have multiple database connections:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="c1">// Not namespaced</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="c1">// Not namespaced</span>
 <span class="nx">db_name</span> <span class="o">=</span> <span class="s2">&quot;my_db&quot;</span>
 
 <span class="c1">// Namespaced for the &#39;Database&#39; config file</span>
@@ -529,7 +532,7 @@ have multiple database connections:</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-       Last updated on Jul 13, 2017.
+       Last updated on Jul 20, 2017.
     </p>
   </div>
 

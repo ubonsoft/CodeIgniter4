@@ -30,6 +30,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="CodeIgniter4 4.0.0-dev documentation" href="../index.html"/>
         <link rel="up" title="General Topics" href="index.html"/>
         <link rel="next" title="Running via the CLI" href="cli.html"/>
@@ -105,7 +108,7 @@
 <li class="toctree-l2"><a class="reference internal" href="logging.html">Logging Information</a></li>
 <li class="toctree-l2"><a class="reference internal" href="errors.html">Error Handling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="debugging.html">Debugging Your Application</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Web Page Caching</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Web Page Caching</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cli.html">Running via the CLI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cli_commands.html">Custom CLI Commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modules.html">Code Modules</a></li>
@@ -155,7 +158,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter's Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
@@ -187,7 +190,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../contributing/internals.html">CodeIgniter Internals Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/documentation.html">Writing CodeIgniter Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/styleguide.html">PHP Style Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer&#8217;s Certificate of Origin 1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer’s Certificate of Origin 1.1</a></li>
 </ul>
 </li>
 </ul>
@@ -282,7 +285,7 @@
 <li class="toctree-l2"><a class="reference internal" href="logging.html">Logging Information</a></li>
 <li class="toctree-l2"><a class="reference internal" href="errors.html">Error Handling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="debugging.html">Debugging Your Application</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Web Page Caching</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Web Page Caching</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cli.html">Running via the CLI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cli_commands.html">Custom CLI Commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modules.html">Code Modules</a></li>
@@ -332,7 +335,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter's Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
@@ -364,7 +367,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../contributing/internals.html">CodeIgniter Internals Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/documentation.html">Writing CodeIgniter Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/styleguide.html">PHP Style Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer&#8217;s Certificate of Origin 1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer’s Certificate of Origin 1.1</a></li>
 </ul>
 </li>
 </ul>
@@ -421,7 +424,7 @@ static web pages.</p>
 of time that a page should remain cached before being refreshed. When a
 page is loaded for the first time, the file will be cached using the
 currently configured cache engine. On subsequent page loads the cache file
-will be retrieved and sent to the requesting user&#8217;s browser. If it has
+will be retrieved and sent to the requesting user’s browser. If it has
 expired, it will be deleted and refreshed before being sent to the
 browser.</p>
 </div>
@@ -429,10 +432,10 @@ browser.</p>
 <h2>Enabling Caching<a class="headerlink" href="#enabling-caching" title="Permalink to this headline">¶</a></h2>
 <p>To enable caching, put the following tag in any of your controller
 methods:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cachePage</span><span class="p">(</span><span class="nv">$n</span><span class="p">);</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cachePage</span><span class="p">(</span><span class="nv">$n</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Where <tt class="docutils literal"><span class="pre">$n</span></tt> is the number of <strong>seconds</strong> you wish the page to remain
+<p>Where <code class="docutils literal"><span class="pre">$n</span></code> is the number of <strong>seconds</strong> you wish the page to remain
 cached between refreshes.</p>
 <p>The above tag can go anywhere within a method. It is not affected by
 the order that it appears, so place it wherever it seems most logical to
@@ -479,7 +482,7 @@ have to expire normally.</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-       Last updated on Jul 13, 2017.
+       Last updated on Jul 20, 2017.
     </p>
   </div>
 

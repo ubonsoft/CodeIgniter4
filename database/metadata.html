@@ -30,6 +30,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="CodeIgniter4 4.0.0-dev documentation" href="../index.html"/>
         <link rel="up" title="Database Reference" href="index.html"/>
         <link rel="next" title="Custom Function Calls" href="call_function.html"/>
@@ -153,9 +156,9 @@
 <li class="toctree-l2"><a class="reference internal" href="helpers.html">Query Helper Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="query_builder.html">Query Builder Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transactions.html">Transactions</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Getting MetaData</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="call_function.html">Custom Function Calls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html">Using CodeIgniter's Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="migration.html">Database Migrations</a></li>
@@ -187,7 +190,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../contributing/internals.html">CodeIgniter Internals Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/documentation.html">Writing CodeIgniter Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/styleguide.html">PHP Style Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer&#8217;s Certificate of Origin 1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer’s Certificate of Origin 1.1</a></li>
 </ul>
 </li>
 </ul>
@@ -330,9 +333,9 @@
 <li class="toctree-l2"><a class="reference internal" href="helpers.html">Query Helper Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="query_builder.html">Query Builder Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transactions.html">Transactions</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Getting MetaData</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="call_function.html">Custom Function Calls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html">Using CodeIgniter's Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="migration.html">Database Migrations</a></li>
@@ -364,7 +367,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../contributing/internals.html">CodeIgniter Internals Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/documentation.html">Writing CodeIgniter Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/styleguide.html">PHP Style Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer&#8217;s Certificate of Origin 1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer’s Certificate of Origin 1.1</a></li>
 </ul>
 </li>
 </ul>
@@ -415,7 +418,7 @@
 <p><strong>$db-&gt;listTables();</strong></p>
 <p>Returns an array containing the names of all the tables in the database
 you are currently connected to. Example:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$tables</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">listTables</span><span class="p">();</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$tables</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">listTables</span><span class="p">();</span>
 
 <span class="k">foreach</span> <span class="p">(</span><span class="nv">$tables</span> <span class="k">as</span> <span class="nv">$table</span><span class="p">)</span>
 <span class="p">{</span>
@@ -427,9 +430,9 @@ you are currently connected to. Example:</p>
 <div class="section" id="determine-if-a-table-exists">
 <h3>Determine If a Table Exists<a class="headerlink" href="#determine-if-a-table-exists" title="Permalink to this headline">¶</a></h3>
 <p><strong>$db-&gt;tableExists();</strong></p>
-<p>Sometimes it&#8217;s helpful to know whether a particular table exists before
+<p>Sometimes it’s helpful to know whether a particular table exists before
 running an operation on it. Returns a boolean TRUE/FALSE. Usage example:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nv">$db</span><span class="o">-&gt;</span><span class="na">tableExists</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">))</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nv">$db</span><span class="o">-&gt;</span><span class="na">tableExists</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">))</span>
 <span class="p">{</span>
         <span class="c1">// some code...</span>
 <span class="p">}</span>
@@ -450,7 +453,7 @@ running an operation on it. Returns a boolean TRUE/FALSE. Usage example:</p>
 two ways:</p>
 <p>1. You can supply the table name and call it from the $db-&gt;
 object:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$fields</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">getFieldNames</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">);</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$fields</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">getFieldNames</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">);</span>
 
 <span class="k">foreach</span> <span class="p">(</span><span class="nv">$fields</span> <span class="k">as</span> <span class="nv">$field</span><span class="p">)</span>
 <span class="p">{</span>
@@ -460,7 +463,7 @@ object:</p>
 </div>
 <p>2. You can gather the field names associated with any query you run by
 calling the function from your query result object:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$query</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM some_table&#39;</span><span class="p">);</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$query</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM some_table&#39;</span><span class="p">);</span>
 
 <span class="k">foreach</span> <span class="p">(</span><span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getFieldNames</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$field</span><span class="p">)</span>
 <span class="p">{</span>
@@ -472,9 +475,9 @@ calling the function from your query result object:</p>
 <div class="section" id="determine-if-a-field-is-present-in-a-table">
 <h3>Determine If a Field is Present in a Table<a class="headerlink" href="#determine-if-a-field-is-present-in-a-table" title="Permalink to this headline">¶</a></h3>
 <p><strong>$db-&gt;fieldExists()</strong></p>
-<p>Sometimes it&#8217;s helpful to know whether a particular field exists before
+<p>Sometimes it’s helpful to know whether a particular field exists before
 performing an action. Returns a boolean TRUE/FALSE. Usage example:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nv">$db</span><span class="o">-&gt;</span><span class="na">fieldExists</span><span class="p">(</span><span class="s1">&#39;field_name&#39;</span><span class="p">,</span> <span class="s1">&#39;table_name&#39;</span><span class="p">))</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nv">$db</span><span class="o">-&gt;</span><span class="na">fieldExists</span><span class="p">(</span><span class="s1">&#39;field_name&#39;</span><span class="p">,</span> <span class="s1">&#39;table_name&#39;</span><span class="p">))</span>
 <span class="p">{</span>
         <span class="c1">// some code...</span>
 <span class="p">}</span>
@@ -491,14 +494,14 @@ looking for.</p>
 <h3>Retrieve Field Metadata<a class="headerlink" href="#retrieve-field-metadata" title="Permalink to this headline">¶</a></h3>
 <p><strong>$db-&gt;getFieldData()</strong></p>
 <p>Returns an array of objects containing field information.</p>
-<p>Sometimes it&#8217;s helpful to gather the field names or other metadata, like
+<p>Sometimes it’s helpful to gather the field names or other metadata, like
 the column type, max length, etc.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Not all databases provide meta-data.</p>
 </div>
 <p>Usage example:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$fields</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">getFieldData</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">);</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$fields</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">getFieldData</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">);</span>
 
 <span class="k">foreach</span> <span class="p">(</span><span class="nv">$fields</span> <span class="k">as</span> <span class="nv">$field</span><span class="p">)</span>
 <span class="p">{</span>
@@ -511,7 +514,7 @@ the column type, max length, etc.</p>
 </div>
 <p>If you have run a query already you can use the result object instead of
 supplying the table name:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$query</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s2">&quot;YOUR QUERY&quot;</span><span class="p">);</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$query</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s2">&quot;YOUR QUERY&quot;</span><span class="p">);</span>
 <span class="nv">$fields</span> <span class="o">=</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">fieldData</span><span class="p">();</span>
 </pre></div>
 </div>
@@ -527,7 +530,7 @@ database:</p>
 <div class="section" id="list-the-indexes-in-a-table">
 <h3>List the Indexes in a Table<a class="headerlink" href="#list-the-indexes-in-a-table" title="Permalink to this headline">¶</a></h3>
 <p><strong>$db-&gt;getIndexData()</strong></p>
-<p>please write this, someone...</p>
+<p>please write this, someone…</p>
 </div>
 </div>
 </div>
@@ -551,7 +554,7 @@ database:</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-       Last updated on Jul 13, 2017.
+       Last updated on Jul 20, 2017.
     </p>
   </div>
 

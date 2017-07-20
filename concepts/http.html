@@ -30,6 +30,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="CodeIgniter4 4.0.0-dev documentation" href="../index.html"/>
         <link rel="up" title="CodeIgniter4 Overview" href="index.html"/>
         <link rel="next" title="Security Guidelines" href="security.html"/>
@@ -82,7 +85,7 @@
 <li class="toctree-l2"><a class="reference internal" href="mvc.html">Models, Views, and Controllers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="autoloader.html">Autoloading Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="services.html">Services</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Working With HTTP Requests</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Working With HTTP Requests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="security.html">Security Guidelines</a></li>
 </ul>
 </li>
@@ -155,7 +158,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter's Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
@@ -187,7 +190,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../contributing/internals.html">CodeIgniter Internals Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/documentation.html">Writing CodeIgniter Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/styleguide.html">PHP Style Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer&#8217;s Certificate of Origin 1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer’s Certificate of Origin 1.1</a></li>
 </ul>
 </li>
 </ul>
@@ -259,7 +262,7 @@
 <li class="toctree-l2"><a class="reference internal" href="mvc.html">Models, Views, and Controllers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="autoloader.html">Autoloading Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="services.html">Services</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Working With HTTP Requests</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Working With HTTP Requests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="security.html">Security Guidelines</a></li>
 </ul>
 </li>
@@ -332,7 +335,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter's Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
@@ -364,7 +367,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../contributing/internals.html">CodeIgniter Internals Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/documentation.html">Writing CodeIgniter Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/styleguide.html">PHP Style Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer&#8217;s Certificate of Origin 1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer’s Certificate of Origin 1.1</a></li>
 </ul>
 </li>
 </ul>
@@ -416,7 +419,7 @@ how to work with the requests and responses within CodeIgniter.</p>
 <h2>What is HTTP?<a class="headerlink" href="#what-is-http" title="Permalink to this headline">¶</a></h2>
 <p>HTTP is simply a text-based language that allows two machines to talk to each other. When a browser
 requests a page, it asks the server if it can get the page. The server then prepares the page and sends
-response back to the browser that asked for it. That&#8217;s pretty much it. Obviously, there are some complexities
+response back to the browser that asked for it. That’s pretty much it. Obviously, there are some complexities
 that you can use, but the basics are really pretty simple.</p>
 <p>HTTP is the term used to describe that language. It stands for HyperText Transfer Protocol. Your goal when
 you develop web applications is to always understand what the browser is requesting, and be able to
@@ -426,7 +429,7 @@ respond appropriately.</p>
 <p>Whenever a client makes a request (a web browser, smartphone app, etc), it is sending a small text message
 to the server and waits for a response.</p>
 <p>The request would look something like this:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nx">GET</span> <span class="o">/</span> <span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nx">GET</span> <span class="o">/</span> <span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
 <span class="nx">Host</span> <span class="nx">codeigniter</span><span class="o">.</span><span class="nx">com</span>
 <span class="nx">Accept</span><span class="o">:</span> <span class="nx">text</span><span class="o">/</span><span class="nx">html</span>
 <span class="nx">User</span><span class="o">-</span><span class="nx">Agent</span><span class="o">:</span> <span class="nx">Chrome</span><span class="o">/</span><span class="mf">46.0</span><span class="o">.</span><span class="mf">2490.80</span>
@@ -443,7 +446,7 @@ client accepts, and much more. Wikipedia has an article that lists <a class="ref
 <p>Once the server receives the request, your application will take that information and generate some output.
 The server will bundle your output as part of its response to the client. This is also represented as
 a simple text message that looks something like this:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="nx">OK</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="nx">OK</span>
 <span class="nx">Server</span><span class="o">:</span> <span class="nx">nginx</span><span class="o">/</span><span class="mf">1.8</span><span class="o">.</span><span class="mi">0</span>
 <span class="nx">Date</span><span class="o">:</span> <span class="nx">Thu</span><span class="p">,</span> <span class="mo">05</span> <span class="nx">Nov</span> <span class="mi">2015</span> <span class="mo">05</span><span class="o">:</span><span class="mi">33</span><span class="o">:</span><span class="mi">22</span> <span class="nx">GMT</span>
 <span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span> <span class="nx">text</span><span class="o">/</span><span class="nx">html</span><span class="p">;</span> <span class="nx">charset</span><span class="o">=</span><span class="nx">UTF</span><span class="o">-</span><span class="mi">8</span>
@@ -453,17 +456,17 @@ a simple text message that looks something like this:</p>
 <span class="o">&lt;/</span><span class="nx">html</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>The response tells the client what version of the HTTP specification that it&#8217;s using and, probably most
+<p>The response tells the client what version of the HTTP specification that it’s using and, probably most
 importantly, the status code (200). The status code is one of a number of codes that have been standardized
 to have a very specific meaning to the client. This can tell them that it was successful (200), or that the page
-wasn&#8217;t found (404). Head over to IANA for a <a class="reference external" href="https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml">full list of HTTP status codes</a>.</p>
+wasn’t found (404). Head over to IANA for a <a class="reference external" href="https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml">full list of HTTP status codes</a>.</p>
 </div>
 <div class="section" id="working-with-requests-and-responses">
 <h3>Working with Requests and Responses<a class="headerlink" href="#working-with-requests-and-responses" title="Permalink to this headline">¶</a></h3>
 <p>While PHP provides ways to interact with the request and response headers, CodeIgniter, like most frameworks,
-abstract them so that you have a consistent, simple interface to them. The <a class="reference internal" href="../libraries/incomingrequest.html"><em>IncomingRequest class</em></a>
+abstract them so that you have a consistent, simple interface to them. The <a class="reference internal" href="../libraries/incomingrequest.html"><span class="doc">IncomingRequest class</span></a>
 is an object-oriented representation of the HTTP request. It provides everything you need:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="k">use</span> <span class="nx">CodeIgniter\HTTP\IncomingRequest</span><span class="p">;</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">CodeIgniter\HTTP\IncomingRequest</span><span class="p">;</span>
 
 <span class="nv">$request</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">IncomingRequest</span><span class="p">(</span><span class="k">new</span> <span class="nx">\Config\App</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">\CodeIgniter\HTTP\URI</span><span class="p">());</span>
 
@@ -489,10 +492,10 @@ is an object-oriented representation of the HTTP request. It provides everything
 </pre></div>
 </div>
 <p>The request class does a lot of work in the background for you, that you never need to worry about.
-The <tt class="docutils literal"><span class="pre">isAJAX()</span></tt> and <tt class="docutils literal"><span class="pre">isSecure()</span></tt> methods check several different methods to determine the correct answer.</p>
-<p>CodeIgniter also provides a <a class="reference internal" href="../libraries/response.html"><em>Response class</em></a> that is an object-oriented representation
+The <code class="docutils literal"><span class="pre">isAJAX()</span></code> and <code class="docutils literal"><span class="pre">isSecure()</span></code> methods check several different methods to determine the correct answer.</p>
+<p>CodeIgniter also provides a <a class="reference internal" href="../libraries/response.html"><span class="doc">Response class</span></a> that is an object-oriented representation
 of the HTTP response. This gives you an easy and powerful way to construct your response to the client:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="k">use</span> <span class="nx">CodeIgniter\HTTP\Response</span><span class="p">;</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">CodeIgniter\HTTP\Response</span><span class="p">;</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">();</span>
 
@@ -529,7 +532,7 @@ of the HTTP response. This gives you an easy and powerful way to construct your 
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-       Last updated on Jul 13, 2017.
+       Last updated on Jul 20, 2017.
     </p>
   </div>
 

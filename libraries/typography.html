@@ -30,6 +30,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="CodeIgniter4 4.0.0-dev documentation" href="../index.html"/>
         <link rel="up" title="Library Reference" href="index.html"/>
         <link rel="next" title="Working with Uploaded Files" href="uploaded_files.html"/>
@@ -136,7 +139,7 @@
 <li class="toctree-l2"><a class="reference internal" href="security.html">Security Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sessions.html">Session Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="throttler.html">Throttler</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Typography</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Typography</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uploaded_files.html">Working with Uploaded Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uri.html">Working with URIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="validation.html">Validation</a></li>
@@ -155,7 +158,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter's Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
@@ -187,7 +190,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../contributing/internals.html">CodeIgniter Internals Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/documentation.html">Writing CodeIgniter Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/styleguide.html">PHP Style Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer&#8217;s Certificate of Origin 1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer’s Certificate of Origin 1.1</a></li>
 </ul>
 </li>
 </ul>
@@ -313,7 +316,7 @@
 <li class="toctree-l2"><a class="reference internal" href="security.html">Security Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sessions.html">Session Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="throttler.html">Throttler</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Typography</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Typography</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uploaded_files.html">Working with Uploaded Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uri.html">Working with URIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="validation.html">Validation</a></li>
@@ -332,7 +335,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter's Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
@@ -364,7 +367,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../contributing/internals.html">CodeIgniter Internals Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/documentation.html">Writing CodeIgniter Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/styleguide.html">PHP Style Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer&#8217;s Certificate of Origin 1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer’s Certificate of Origin 1.1</a></li>
 </ul>
 </li>
 </ul>
@@ -411,9 +414,9 @@
 in semantically relevant ways.</p>
 <div class="section" id="loading-the-library">
 <h2>Loading the Library<a class="headerlink" href="#loading-the-library" title="Permalink to this headline">¶</a></h2>
-<p>Like all services in CodeIgniter, it can be loaded via <tt class="docutils literal"><span class="pre">Config\Services</span></tt>, though you usually will not need
+<p>Like all services in CodeIgniter, it can be loaded via <code class="docutils literal"><span class="pre">Config\Services</span></code>, though you usually will not need
 to load it manually:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$typography</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">typography</span><span class="p">();</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$typography</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">typography</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
@@ -423,14 +426,14 @@ to load it manually:</p>
 <p><strong>autoTypography()</strong></p>
 <dl class="function">
 <dt id="autoTypography">
-<tt class="descname">autoTypography</tt><big>(</big><em>$str</em><span class="optional">[</span>, <em>$reduce_linebreaks = FALSE</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#autoTypography" title="Permalink to this definition">¶</a></dt>
+<code class="descname">autoTypography</code><span class="sig-paren">(</span><em>$str</em><span class="optional">[</span>, <em>$reduce_linebreaks = FALSE</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#autoTypography" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>$str</strong> (<em>string</em>) &#8211; Input string</li>
-<li><strong>$reduce_linebreaks</strong> (<em>bool</em>) &#8211; Whether to reduce multiple instances of double newlines to two</li>
+<li><strong>$str</strong> (<em>string</em>) – Input string</li>
+<li><strong>$reduce_linebreaks</strong> (<em>bool</em>) – Whether to reduce multiple instances of double newlines to two</li>
 </ul>
 </td>
 </tr>
@@ -445,14 +448,14 @@ to load it manually:</p>
 <p>Formats text so that it is semantically and typographically correct
 HTML.</p>
 <p>Usage example:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="nv">$typography</span><span class="o">-&gt;</span><span class="na">autoTypography</span><span class="p">(</span><span class="nv">$string</span><span class="p">);</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$string</span> <span class="o">=</span> <span class="nv">$typography</span><span class="o">-&gt;</span><span class="na">autoTypography</span><span class="p">(</span><span class="nv">$string</span><span class="p">);</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Typographic formatting can be processor intensive, particularly if
 you have a lot of content being formatted. If you choose to use this
-function you may want to consider <a class="reference internal" href="../general/caching.html"><em>caching</em></a> your
+function you may want to consider <a class="reference internal" href="../general/caching.html"><span class="doc">caching</span></a> your
 pages.</p>
 </div>
 </dd></dl>
@@ -460,13 +463,13 @@ pages.</p>
 <p><strong>formatCharacters()</strong></p>
 <dl class="function">
 <dt id="formatCharacters">
-<tt class="descname">formatCharacters</tt><big>(</big><em>$str</em><big>)</big><a class="headerlink" href="#formatCharacters" title="Permalink to this definition">¶</a></dt>
+<code class="descname">formatCharacters</code><span class="sig-paren">(</span><em>$str</em><span class="sig-paren">)</span><a class="headerlink" href="#formatCharacters" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>$str</strong> (<em>string</em>) &#8211; Input string</li>
+<li><strong>$str</strong> (<em>string</em>) – Input string</li>
 </ul>
 </td>
 </tr>
@@ -482,7 +485,7 @@ pages.</p>
 to curly entities, but it also converts em-dashes,
 double spaces, and ampersands.</p>
 <p>Usage example:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="nv">$typography</span><span class="o">-&gt;</span><span class="na">formatCharacters</span><span class="p">(</span><span class="nv">$string</span><span class="p">);</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$string</span> <span class="o">=</span> <span class="nv">$typography</span><span class="o">-&gt;</span><span class="na">formatCharacters</span><span class="p">(</span><span class="nv">$string</span><span class="p">);</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -490,13 +493,13 @@ double spaces, and ampersands.</p>
 <p><strong>nl2brExceptPre()</strong></p>
 <dl class="function">
 <dt id="nl2brExceptPre">
-<tt class="descname">nl2brExceptPre</tt><big>(</big><em>$str</em><big>)</big><a class="headerlink" href="#nl2brExceptPre" title="Permalink to this definition">¶</a></dt>
+<code class="descname">nl2brExceptPre</code><span class="sig-paren">(</span><em>$str</em><span class="sig-paren">)</span><a class="headerlink" href="#nl2brExceptPre" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>$str</strong> (<em>string</em>) &#8211; Input string</li>
+<li><strong>$str</strong> (<em>string</em>) – Input string</li>
 </ul>
 </td>
 </tr>
@@ -509,10 +512,10 @@ double spaces, and ampersands.</p>
 </tbody>
 </table>
 <p>Converts newlines to &lt;br /&gt; tags unless they appear within &lt;pre&gt; tags.
-This function is identical to the native PHP <tt class="docutils literal"><span class="pre">nl2br()</span></tt> function,
+This function is identical to the native PHP <code class="docutils literal"><span class="pre">nl2br()</span></code> function,
 except that it ignores &lt;pre&gt; tags.</p>
 <p>Usage example:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$string</span> <span class="o">=</span> <span class="nv">$typography</span><span class="o">-&gt;</span><span class="na">nl2brExceptPre</span><span class="p">(</span><span class="nv">$string</span><span class="p">);</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$string</span> <span class="o">=</span> <span class="nv">$typography</span><span class="o">-&gt;</span><span class="na">nl2brExceptPre</span><span class="p">(</span><span class="nv">$string</span><span class="p">);</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -539,7 +542,7 @@ except that it ignores &lt;pre&gt; tags.</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-       Last updated on Jul 13, 2017.
+       Last updated on Jul 20, 2017.
     </p>
   </div>
 

@@ -30,6 +30,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="CodeIgniter4 4.0.0-dev documentation" href="../index.html"/>
         <link rel="up" title="General Topics" href="index.html"/>
         <link rel="next" title="Events - Extending the Framework Core" href="events.html"/>
@@ -97,7 +100,7 @@
 <li class="toctree-l2"><a class="reference internal" href="view_renderer.html">View Renderer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="view_parser.html">View Parser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helpers.html">Helper Functions</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Creating Core System Classes</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Creating Core System Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="events.html">Events - Extending the Framework Core</a></li>
 <li class="toctree-l2"><a class="reference internal" href="common_functions.html">Global Functions and Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="routing.html">URI Routing</a></li>
@@ -155,7 +158,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter's Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
@@ -187,7 +190,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../contributing/internals.html">CodeIgniter Internals Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/documentation.html">Writing CodeIgniter Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/styleguide.html">PHP Style Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer&#8217;s Certificate of Origin 1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer’s Certificate of Origin 1.1</a></li>
 </ul>
 </li>
 </ul>
@@ -274,7 +277,7 @@
 <li class="toctree-l2"><a class="reference internal" href="view_renderer.html">View Renderer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="view_parser.html">View Parser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helpers.html">Helper Functions</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Creating Core System Classes</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Creating Core System Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="events.html">Events - Extending the Framework Core</a></li>
 <li class="toctree-l2"><a class="reference internal" href="common_functions.html">Global Functions and Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="routing.html">URI Routing</a></li>
@@ -332,7 +335,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter&#8217;s Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/model.html">Using CodeIgniter's Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/entities.html">Using Entity Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/migration.html">Database Migrations</a></li>
@@ -364,7 +367,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../contributing/internals.html">CodeIgniter Internals Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/documentation.html">Writing CodeIgniter Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/styleguide.html">PHP Style Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer&#8217;s Certificate of Origin 1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer’s Certificate of Origin 1.1</a></li>
 </ul>
 </li>
 </ul>
@@ -445,12 +448,12 @@ attempting it.</p>
 </div>
 <div class="section" id="replacing-core-classes">
 <h2>Replacing Core Classes<a class="headerlink" href="#replacing-core-classes" title="Permalink to this headline">¶</a></h2>
-<p>To use one of your own system classes instead of a default one, ensure that the <a class="reference internal" href="../concepts/autoloader.html"><em>Autoloader</em></a>
+<p>To use one of your own system classes instead of a default one, ensure that the <a class="reference internal" href="../concepts/autoloader.html"><span class="doc">Autoloader</span></a>
 can find your class, that  your new class extends the appropriate interface, and modify the appropriate
-<a class="reference internal" href="../concepts/services.html"><em>Service</em></a> to load your class in place of the core class.</p>
-<p>For example, if you have a new <tt class="docutils literal"><span class="pre">App\Libraries\RouteCollection</span></tt> class that you would like to use in place of
+<a class="reference internal" href="../concepts/services.html"><span class="doc">Service</span></a> to load your class in place of the core class.</p>
+<p>For example, if you have a new <code class="docutils literal"><span class="pre">App\Libraries\RouteCollection</span></code> class that you would like to use in place of
 the core system class, you would create your class like this:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="k">namespace</span> <span class="nx">App\Libraries</span><span class="p">;</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="nx">App\Libraries</span><span class="p">;</span>
 
 <span class="k">class</span> <span class="nc">RouteCollection</span> <span class="k">implements</span> <span class="nx">\CodeIgniter\Router\RouteCollectionInterface</span>
 <span class="p">{</span>
@@ -458,8 +461,8 @@ the core system class, you would create your class like this:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Then  you would modify the <tt class="docutils literal"><span class="pre">routes</span></tt> service to load your class instead:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">routes</span><span class="p">(</span><span class="nv">$getShared</span> <span class="o">=</span> <span class="k">false</span><span class="p">)</span>
+<p>Then  you would modify the <code class="docutils literal"><span class="pre">routes</span></code> service to load your class instead:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">routes</span><span class="p">(</span><span class="nv">$getShared</span> <span class="o">=</span> <span class="k">false</span><span class="p">)</span>
 <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$getShared</span><span class="p">)</span>
         <span class="p">{</span>
@@ -473,23 +476,23 @@ the core system class, you would create your class like this:</p>
 </div>
 <div class="section" id="extending-core-classes">
 <h2>Extending Core Classes<a class="headerlink" href="#extending-core-classes" title="Permalink to this headline">¶</a></h2>
-<p>If all you need to is add some functionality to an existing library - perhaps add a method or two - then it&#8217;s overkill
-to recreate the entire library. In this case it&#8217;s better to simply extend the class. Extending the class is nearly
+<p>If all you need to is add some functionality to an existing library - perhaps add a method or two - then it’s overkill
+to recreate the entire library. In this case it’s better to simply extend the class. Extending the class is nearly
 identical to replacing a class with a one exception:</p>
 <ul class="simple">
 <li>The class declaration must extend the parent class.</li>
 </ul>
 <p>For example, to extend the native RouteCollection class, you would declare your class with:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="k">class</span> <span class="nc">RouteCollection</span> <span class="k">extends</span> <span class="nx">\CodeIgniter\Router\RouteCollection</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RouteCollection</span> <span class="k">extends</span> <span class="nx">\CodeIgniter\Router\RouteCollection</span>
 <span class="p">{</span>
 
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>If you need to use a constructor in your class make sure you extend the parent constructor:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="k">class</span> <span class="nc">RouteCollection</span> <span class="k">implements</span> <span class="nx">\CodeIgniter\Router\RouteCollection</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RouteCollection</span> <span class="k">implements</span> <span class="nx">\CodeIgniter\Router\RouteCollection</span>
 <span class="p">{</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
     <span class="p">{</span>
         <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">();</span>
     <span class="p">}</span>
@@ -500,7 +503,7 @@ identical to replacing a class with a one exception:</p>
 instead of the native ones (this is known as “method overriding”). This allows you to substantially alter the CodeIgniter core.</p>
 <p>If you are extending the Controller core class, then be sure to extend your new class in your application controller’s
 constructors:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Home</span> <span class="k">extends</span> <span class="nx">App\BaseController</span> <span class="p">{</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Home</span> <span class="k">extends</span> <span class="nx">App\BaseController</span> <span class="p">{</span>
 
 <span class="p">}</span>
 </pre></div>
@@ -527,7 +530,7 @@ constructors:</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-       Last updated on Jul 13, 2017.
+       Last updated on Jul 20, 2017.
     </p>
   </div>
 
