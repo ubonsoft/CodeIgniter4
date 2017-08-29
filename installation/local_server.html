@@ -412,10 +412,10 @@
 <h1>Local Development Server<a class="headerlink" href="#local-development-server" title="Permalink to this headline">¶</a></h1>
 <p>PHP provides a built-in web server that is can be used locally when developing an application without
 the need to setup a dedicated web server like MAMP, XAMPP, etc. If you have PHP installed on your
-development machine, you can use the <code class="docutils literal"><span class="pre">serve.php</span></code> script to launch PHP’s built-in server and have
+development machine, you can use the <code class="docutils literal"><span class="pre">serve</span></code> script to launch PHP’s built-in server and have
 it all setup to work with your CodeIgniter application. To launch the server type the following
 from the command line in the main directory:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">serve</span><span class="o">.</span><span class="nx">php</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">serve</span>
 </pre></div>
 </div>
 <p>This will launch the server and you can now view your application in your browser at <a class="reference external" href="http://localhost:8080">http://localhost:8080</a>.</p>
@@ -430,12 +430,12 @@ be used on a production server.</p>
 to your <code class="docutils literal"><span class="pre">hosts</span></code> file. The exact location of the file varies in each of the main operating systems, though
 all <em>nix-type systems (include OS X) will typically keep the file at *</em>/etc/hosts**.</p>
 <p>Once that is done you can use the <code class="docutils literal"><span class="pre">--host</span></code> CLI option to specify a different host to run the application at:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">serve</span><span class="o">.</span><span class="nx">php</span> <span class="o">--</span><span class="nx">host</span><span class="o">=</span><span class="nx">example</span><span class="o">.</span><span class="nx">dev</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">serve</span> <span class="o">--</span><span class="nx">host</span><span class="o">=</span><span class="nx">example</span><span class="o">.</span><span class="nx">dev</span>
 </pre></div>
 </div>
 <p>By default, the server runs on port 8080 but you might have more than one site running, or already have
 another application using that port. You can use the <code class="docutils literal"><span class="pre">--port</span></code> CLI option to specify a different one:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">serve</span><span class="o">.</span><span class="nx">php</span> <span class="o">--</span><span class="nx">port</span><span class="o">=</span><span class="mi">8081</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">serve</span> <span class="o">--</span><span class="nx">port</span><span class="o">=</span><span class="mi">8081</span>
 </pre></div>
 </div>
 </div>
@@ -460,7 +460,7 @@ another application using that port. You can use the <code class="docutils liter
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-       Last updated on Jul 20, 2017.
+       Last updated on Aug 29, 2017.
     </p>
   </div>
 

@@ -468,22 +468,22 @@ as <em>20121031100537_Add_blog.php</em>.</p>
 
         <span class="k">public</span> <span class="k">function</span> <span class="nf">up</span><span class="p">()</span>
         <span class="p">{</span>
-                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">forge</span><span class="o">-&gt;</span><span class="na">addField</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
-                        <span class="s1">&#39;blog_id&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">forge</span><span class="o">-&gt;</span><span class="na">addField</span><span class="p">([</span>
+                        <span class="s1">&#39;blog_id&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
                                 <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;INT&#39;</span><span class="p">,</span>
                                 <span class="s1">&#39;constraint&#39;</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span>
                                 <span class="s1">&#39;unsigned&#39;</span> <span class="o">=&gt;</span> <span class="k">TRUE</span><span class="p">,</span>
                                 <span class="s1">&#39;auto_increment&#39;</span> <span class="o">=&gt;</span> <span class="k">TRUE</span>
-                        <span class="p">),</span>
-                        <span class="s1">&#39;blog_title&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                        <span class="p">],</span>
+                        <span class="s1">&#39;blog_title&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
                                 <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;VARCHAR&#39;</span><span class="p">,</span>
                                 <span class="s1">&#39;constraint&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;100&#39;</span><span class="p">,</span>
-                        <span class="p">),</span>
-                        <span class="s1">&#39;blog_description&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                        <span class="p">],</span>
+                        <span class="s1">&#39;blog_description&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
                                 <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;TEXT&#39;</span><span class="p">,</span>
                                 <span class="s1">&#39;null&#39;</span> <span class="o">=&gt;</span> <span class="k">TRUE</span><span class="p">,</span>
-                        <span class="p">),</span>
-                <span class="p">));</span>
+                        <span class="p">],</span>
+                <span class="p">]);</span>
                 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">forge</span><span class="o">-&gt;</span><span class="na">addKey</span><span class="p">(</span><span class="s1">&#39;blog_id&#39;</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
                 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">forge</span><span class="o">-&gt;</span><span class="na">createTable</span><span class="p">(</span><span class="s1">&#39;blog&#39;</span><span class="p">);</span>
         <span class="p">}</span>
@@ -582,7 +582,7 @@ you work with migrations. These tools are not required to use migrations but mig
 that wish to use them. The tools primarily provide access to the same methods that are available within the MigrationRunner class.</p>
 <p><strong>latest</strong></p>
 <p>Migrates all database groups to the latest available migrations:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">ci</span><span class="o">.</span><span class="nx">php</span> <span class="nx">migrate</span><span class="o">:</span><span class="nx">latest</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">spark</span> <span class="nx">migrate</span><span class="o">:</span><span class="nx">latest</span>
 </pre></div>
 </div>
 <p>You can use (latest) with the following options:</p>
@@ -592,13 +592,13 @@ that wish to use them. The tools primarily provide access to the same methods th
 <li>(all) to migrate all namespaces to the latest migration</li>
 </ul>
 <p>This example will migrate Blog namespace to latest:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">ci</span><span class="o">.</span><span class="nx">php</span> <span class="nx">migrate</span><span class="o">:</span><span class="nx">latest</span> <span class="o">-</span><span class="nx">g</span> <span class="nx">test</span> <span class="o">-</span><span class="nx">n</span> <span class="nx">Blog</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">spark</span> <span class="nx">migrate</span><span class="o">:</span><span class="nx">latest</span> <span class="o">-</span><span class="nx">g</span> <span class="nx">test</span> <span class="o">-</span><span class="nx">n</span> <span class="nx">Blog</span>
 </pre></div>
 </div>
 <p><strong>current</strong></p>
 <p>Migrates the (App) namespace to match the version set in <code class="docutils literal"><span class="pre">$currentVersion</span></code>. This will migrate both
 up and down as needed to match the specified version:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">ci</span><span class="o">.</span><span class="nx">php</span> <span class="nx">migrate</span><span class="o">:</span><span class="nb">current</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">spark</span> <span class="nx">migrate</span><span class="o">:</span><span class="nb">current</span>
 </pre></div>
 </div>
 <p>You can use (current) with the following options:</p>
@@ -609,14 +609,14 @@ up and down as needed to match the specified version:</p>
 <p>Migrates to the specified version. If no version is provided, you will be prompted
 for the version.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="c1">// Asks you for the version...</span>
-<span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">ci</span><span class="o">.</span><span class="nx">php</span> <span class="nx">migrate</span><span class="o">:</span><span class="nx">version</span>
+<span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">spark</span> <span class="nx">migrate</span><span class="o">:</span><span class="nx">version</span>
 <span class="o">&gt;</span> <span class="nx">Version</span><span class="o">:</span>
 
 <span class="c1">// Sequential</span>
-<span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">ci</span><span class="o">.</span><span class="nx">php</span> <span class="nx">migrate</span><span class="o">:</span><span class="nx">version</span> <span class="mo">007</span>
+<span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">spark</span> <span class="nx">migrate</span><span class="o">:</span><span class="nx">version</span> <span class="mo">007</span>
 
 <span class="c1">// Timestamp</span>
-<span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">ci</span><span class="o">.</span><span class="nx">php</span> <span class="nx">migrate</span><span class="o">:</span><span class="nx">version</span> <span class="mi">20161426211300</span>
+<span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">spark</span> <span class="nx">migrate</span><span class="o">:</span><span class="nx">version</span> <span class="mi">20161426211300</span>
 </pre></div>
 </div>
 <p>You can use (version) with the following options:</p>
@@ -626,7 +626,7 @@ for the version.</p>
 </ul>
 <p><strong>rollback</strong></p>
 <p>Rolls back all migrations, taking all database groups to a blank slate, effectively migration 0:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">ci</span><span class="o">.</span><span class="nx">php</span> <span class="nx">migrate</span><span class="o">:</span><span class="nx">rollback</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">spark</span> <span class="nx">migrate</span><span class="o">:</span><span class="nx">rollback</span>
 </pre></div>
 </div>
 <p>You can use (rollback) with the following options:</p>
@@ -637,7 +637,7 @@ for the version.</p>
 </ul>
 <p><strong>refresh</strong></p>
 <p>Refreshes the database state by first rolling back all migrations, and then migrating to the latest version:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">ci</span><span class="o">.</span><span class="nx">php</span> <span class="nx">migrate</span><span class="o">:</span><span class="nx">refresh</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">spark</span> <span class="nx">migrate</span><span class="o">:</span><span class="nx">refresh</span>
 </pre></div>
 </div>
 <p>You can use (refresh) with the following options:</p>
@@ -648,7 +648,7 @@ for the version.</p>
 </ul>
 <p><strong>status</strong></p>
 <p>Displays a list of all migrations and the date and time they were ran, or ‘–’ if they have not be ran:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">ci</span><span class="o">.</span><span class="nx">php</span> <span class="nx">migrate</span><span class="o">:</span><span class="nx">status</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">spark</span> <span class="nx">migrate</span><span class="o">:</span><span class="nx">status</span>
 <span class="nx">Filename</span>               <span class="nx">Migrated</span> <span class="nx">On</span>
 <span class="nx">First_migration</span><span class="o">.</span><span class="nx">php</span>    <span class="mi">2016</span><span class="o">-</span><span class="mo">04</span><span class="o">-</span><span class="mi">25</span> <span class="mo">04</span><span class="o">:</span><span class="mi">44</span><span class="o">:</span><span class="mi">22</span>
 </pre></div>
@@ -659,7 +659,7 @@ for the version.</p>
 </ul>
 <p><strong>create</strong></p>
 <p>Creates a skeleton migration file in <strong>application/Database/Migrations</strong> using the timestamp format:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">ci</span><span class="o">.</span><span class="nx">php</span> <span class="nx">migrate</span><span class="o">:</span><span class="nx">create</span> <span class="p">[</span><span class="nx">filename</span><span class="p">]</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">php</span> <span class="nx">spark</span> <span class="nx">migrate</span><span class="o">:</span><span class="nx">create</span> <span class="p">[</span><span class="nx">filename</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>You can use (create) with the following options:</p>
@@ -916,7 +916,7 @@ specific versions. It works just like <code class="docutils literal"><span class
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-       Last updated on Jul 20, 2017.
+       Last updated on Aug 29, 2017.
     </p>
   </div>
 

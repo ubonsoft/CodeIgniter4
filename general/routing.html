@@ -729,16 +729,25 @@ available from the command line:</p>
 creates the five most common routes needed for full CRUD of a resource: create a new resource, update an existing one,
 list all of that resource, show a single resource, and delete a single resource. The first parameter is the resource
 name:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">);</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span>    <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">);</span>
 
-<span class="c1">// Equivalent to the following:</span>
-<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span>               <span class="s1">&#39;Photos::listAll&#39;</span><span class="p">);</span>
-<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos/(:segment)&#39;</span><span class="p">,</span>    <span class="s1">&#39;Photos::show/$1&#39;</span><span class="p">);</span>
-<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span>              <span class="s1">&#39;Photos::create&#39;</span><span class="p">);</span>
-<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="s1">&#39;photos/(:segment)&#39;</span><span class="p">,</span>    <span class="s1">&#39;Photos::update/$1&#39;</span><span class="p">);</span>
-<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s1">&#39;photos/(:segment)&#39;</span><span class="p">,</span> <span class="s1">&#39;Photos::delete/$1&#39;</span><span class="p">);</span>
+    <span class="c1">// Equivalent to the following:</span>
+    <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span>                    <span class="s1">&#39;Photos::index&#39;</span><span class="p">);</span>
+    <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos/new&#39;</span><span class="p">,</span>                <span class="s1">&#39;Photos::new&#39;</span><span class="p">);</span>
+    <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos/(:segment)/edit&#39;</span><span class="p">,</span>    <span class="s1">&#39;Photos::edit/$1&#39;</span><span class="p">);</span>
+    <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos/(:segment)&#39;</span><span class="p">,</span>         <span class="s1">&#39;Photos::show/$1&#39;</span><span class="p">);</span>
+    <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span>                   <span class="s1">&#39;Photos::create&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">patch</span><span class="p">(</span><span class="s1">&#39;photos/(:segment)&#39;</span><span class="p">,</span>       <span class="s1">&#39;Photos::update/$1&#39;</span><span class="p">);</span>
+    <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="s1">&#39;photos/(:segment)&#39;</span><span class="p">,</span>         <span class="s1">&#39;Photos::update/$1&#39;</span><span class="p">);</span>
+    <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s1">&#39;photos/(:segment)&#39;</span><span class="p">,</span>      <span class="s1">&#39;Photos::delete/$1&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">The routes are matched in the order they are specified, so if you have a resource photos above a get ‘photos/poll’</p>
+</div>
+<p>the show action’s route for the resource line will be matched before the get line. To fix this, move the get line above the resource
+line so that it is matched first.</p>
 <p>The second parameter accepts an array of options that can be used to modify the routes that are generated. While these
 routes are geared toward API-usage, where more methods are allowed, you can pass in the ‘websafe’ option to have it
 generate update and delete methods that work with HTML forms:</p>
@@ -756,7 +765,7 @@ the controller that should be used:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">resources</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;controller&#39;</span> <span class="o">=&gt;</span><span class="s1">&#39;App\Gallery&#39;</span><span class="p">]);</span>
 
 <span class="c1">// Would create routes like:</span>
-<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="s1">&#39;App\Gallery::listAll&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="s1">&#39;App\Gallery::index&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -775,10 +784,10 @@ in the <code class="docutils literal"><span class="pre">placeholder</span></code
 <h3><a class="toc-backref" href="#id19">Limit the Routes Made</a><a class="headerlink" href="#limit-the-routes-made" title="Permalink to this headline">¶</a></h3>
 <p>You can restrict the routes generated with the <code class="docutils literal"><span class="pre">only</span></code> option. This should be an array of method names that should
 be created. Only routes that match one of these methods will be created. The rest will be ignored:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">resources</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;only&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;listAll&#39;</span><span class="p">,</span> <span class="s1">&#39;show&#39;</span><span class="p">]]);</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">resources</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;only&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;show&#39;</span><span class="p">]]);</span>
 </pre></div>
 </div>
-<p>Valid methods are: listAll, show, create, update, and delete.</p>
+<p>Valid methods are: index, show, create, update, new, edit and delete.</p>
 </div>
 </div>
 <div class="section" id="global-options">
@@ -974,7 +983,7 @@ Routes files should be scanned for within each of the PSR4 namespaces defined in
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-       Last updated on Jul 20, 2017.
+       Last updated on Aug 29, 2017.
     </p>
   </div>
 

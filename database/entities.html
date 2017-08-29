@@ -416,19 +416,25 @@ be used directly with the <a class="reference internal" href="model.html"><span 
 <div class="contents local topic" id="page-contents">
 <p class="topic-title first">Page Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#entity-usage" id="id1">Entity Usage</a><ul>
-<li><a class="reference internal" href="#create-the-entity-class" id="id2">Create the Entity Class</a></li>
-<li><a class="reference internal" href="#create-the-model" id="id3">Create the Model</a></li>
-<li><a class="reference internal" href="#working-with-the-entity-class" id="id4">Working With the Entity Class</a></li>
-<li><a class="reference internal" href="#filling-properties-quickly" id="id5">Filling Properties Quickly</a></li>
+<li><a class="reference internal" href="#entity-usage" id="id3">Entity Usage</a><ul>
+<li><a class="reference internal" href="#create-the-entity-class" id="id4">Create the Entity Class</a></li>
+<li><a class="reference internal" href="#create-the-model" id="id5">Create the Model</a></li>
+<li><a class="reference internal" href="#working-with-the-entity-class" id="id6">Working With the Entity Class</a></li>
+<li><a class="reference internal" href="#filling-properties-quickly" id="id7">Filling Properties Quickly</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#handling-business-logic" id="id6">Handling Business Logic</a></li>
-<li><a class="reference internal" href="#data-mapping" id="id7">Data Mapping</a></li>
+<li><a class="reference internal" href="#handling-business-logic" id="id8">Handling Business Logic</a></li>
+<li><a class="reference internal" href="#data-mapping" id="id9">Data Mapping</a></li>
+<li><a class="reference internal" href="#mutators" id="id10">Mutators</a><ul>
+<li><a class="reference internal" href="#date-mutators" id="id11">Date Mutators</a></li>
+<li><a class="reference internal" href="#property-casting" id="id12">Property Casting</a></li>
+<li><a class="reference internal" href="#array-casting" id="id13">Array Casting</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="entity-usage">
-<h2><a class="toc-backref" href="#id1">Entity Usage</a><a class="headerlink" href="#entity-usage" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3">Entity Usage</a><a class="headerlink" href="#entity-usage" title="Permalink to this headline">¶</a></h2>
 <p>At its core, an Entity class is simply a class that represents a single database row. It has class properties
 to represent the database columns, and provides any additional methods to implement the business logic for
 that row.  The core feature, though, is that it doesn’t know anything about how to persist itself. That’s the
@@ -446,7 +452,7 @@ database when you’ve proven the concept works.</p>
 </pre></div>
 </div>
 <div class="section" id="create-the-entity-class">
-<h3><a class="toc-backref" href="#id2">Create the Entity Class</a><a class="headerlink" href="#create-the-entity-class" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id4">Create the Entity Class</a><a class="headerlink" href="#create-the-entity-class" title="Permalink to this headline">¶</a></h3>
 <p>Now create a new Entity class. Since there’s no default location to store these classes, and it doesn’t fit
 in with the existing directory structure, create a new directory at <strong>application/Entities</strong>. Create the
 Entity itself at <strong>application/Entities/User.php</strong>.</p>
@@ -469,7 +475,7 @@ Entity itself at <strong>application/Entities/User.php</strong>.</p>
 database columns are represented in the Entity. This is required for the Model to populate the fields.</p>
 </div>
 <div class="section" id="create-the-model">
-<h3><a class="toc-backref" href="#id3">Create the Model</a><a class="headerlink" href="#create-the-model" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id5">Create the Model</a><a class="headerlink" href="#create-the-model" title="Permalink to this headline">¶</a></h3>
 <p>Create the model first at <strong>application/Models/UserModel.php</strong> so that we can interact with it:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
 
@@ -493,7 +499,7 @@ class as the <code class="docutils literal"><span class="pre">$returnType</span>
 instances of our User Entity class instead of an object or array like normal.</p>
 </div>
 <div class="section" id="working-with-the-entity-class">
-<h3><a class="toc-backref" href="#id4">Working With the Entity Class</a><a class="headerlink" href="#working-with-the-entity-class" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id6">Working With the Entity Class</a><a class="headerlink" href="#working-with-the-entity-class" title="Permalink to this headline">¶</a></h3>
 <p>Now that all of the pieces are in place, you would work with the Entity class as you would any other class:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$user</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
 
@@ -524,7 +530,7 @@ and saving any changes to columns listed in the model’s <strong>$allowedFields
 a new row, or update an existing one.</p>
 </div>
 <div class="section" id="filling-properties-quickly">
-<h3><a class="toc-backref" href="#id5">Filling Properties Quickly</a><a class="headerlink" href="#filling-properties-quickly" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id7">Filling Properties Quickly</a><a class="headerlink" href="#filling-properties-quickly" title="Permalink to this headline">¶</a></h3>
 <p>The Entity class also provides a method, <code class="docutils literal"><span class="pre">fill()</span></code> that allows you to shove an array of key/value pairs into the class
 and populate the class properties. Only properties that already exist on the class can be populated in this way.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$data</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getPost</span><span class="p">();</span>
@@ -537,7 +543,7 @@ and populate the class properties. Only properties that already exist on the cla
 </div>
 </div>
 <div class="section" id="handling-business-logic">
-<h2><a class="toc-backref" href="#id6">Handling Business Logic</a><a class="headerlink" href="#handling-business-logic" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">Handling Business Logic</a><a class="headerlink" href="#handling-business-logic" title="Permalink to this headline">¶</a></h2>
 <p>While the examples above are convenient, they don’t help enforce any business logic. The base Entity class implements
 some smart <code class="docutils literal"><span class="pre">__get()</span></code> and <code class="docutils literal"><span class="pre">__set()</span></code> methods that will check for special methods and use those instead of using
 the class properties directly, allowing you to enforce any business logic or data conversion that you need.</p>
@@ -553,7 +559,7 @@ the class properties directly, allowing you to enforce any business logic or dat
     <span class="k">protected</span> <span class="nv">$email</span><span class="p">;</span>
     <span class="k">protected</span> <span class="nv">$password</span><span class="p">;</span>
     <span class="k">protected</span> <span class="nv">$created_at</span><span class="p">;</span>
-    <span class="k">protected</span> <span class="nv">$updated_on</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$updated_at</span><span class="p">;</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">setPassword</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$pass</span><span class="p">)</span>
     <span class="p">{</span>
@@ -562,14 +568,14 @@ the class properties directly, allowing you to enforce any business logic or dat
         <span class="k">return</span> <span class="nv">$this</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">setCreatedOn</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$dateString</span><span class="p">)</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setCreatedAt</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$dateString</span><span class="p">)</span>
     <span class="p">{</span>
         <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">created_at</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\DateTime</span><span class="p">(</span><span class="nv">$datetime</span><span class="p">,</span> <span class="k">new</span> <span class="nx">\DateTimeZone</span><span class="p">(</span><span class="s1">&#39;UTC&#39;</span><span class="p">));</span>
 
         <span class="k">return</span>
     <span class="p">}</span>
 
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">getCreatedOn</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$format</span> <span class="o">=</span> <span class="s1">&#39;Y-m-d H:i:s&#39;</span><span class="p">)</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getCreatedAt</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$format</span> <span class="o">=</span> <span class="s1">&#39;Y-m-d H:i:s&#39;</span><span class="p">)</span>
     <span class="p">{</span>
         <span class="nv">$timezone</span> <span class="o">=</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">timezone</span><span class="p">)</span>
         <span class="o">?</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">timezone</span>
@@ -602,7 +608,7 @@ business logic and create objects that are pleasant to use.</p>
 </div>
 </div>
 <div class="section" id="data-mapping">
-<h2><a class="toc-backref" href="#id7">Data Mapping</a><a class="headerlink" href="#data-mapping" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">Data Mapping</a><a class="headerlink" href="#data-mapping" title="Permalink to this headline">¶</a></h2>
 <p>At many points in your career, you will run into situations where the use of an application has changed and the
 original column names in the database no longer make sense. Or you find that your coding style prefers camelCase
 class properties, but your database schema required snake_case names. These situations can be easily handled
@@ -619,7 +625,7 @@ with the Entity class’ data mapping features.</p>
     <span class="k">protected</span> <span class="nv">$email</span><span class="p">;</span>
     <span class="k">protected</span> <span class="nv">$password</span><span class="p">;</span>
     <span class="k">protected</span> <span class="nv">$created_at</span><span class="p">;</span>
-    <span class="k">protected</span> <span class="nv">$updated_on</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$updated_at</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -641,10 +647,12 @@ simply map the <code class="docutils literal"><span class="pre">full_name</span>
     <span class="k">protected</span> <span class="nv">$email</span><span class="p">;</span>
     <span class="k">protected</span> <span class="nv">$password</span><span class="p">;</span>
     <span class="k">protected</span> <span class="nv">$created_at</span><span class="p">;</span>
-    <span class="k">protected</span> <span class="nv">$updated_on</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$updated_at</span><span class="p">;</span>
 
-    <span class="k">protected</span> <span class="nv">$datamap</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s1">&#39;full_name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;name&#39;</span>
+    <span class="k">protected</span> <span class="nv">$_options</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;datamap&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">&#39;full_name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;name&#39;</span>
+        <span class="p">]</span>
     <span class="p">];</span>
 <span class="p">}</span>
 </pre></div>
@@ -657,6 +665,103 @@ class’ <code class="docutils literal"><span class="pre">$name</span></code> pr
 through the original <code class="docutils literal"><span class="pre">$user-&gt;full_name</span></code>, also, as this is needed for the model to get the data back out and save it
 to the database. However, <code class="docutils literal"><span class="pre">unset</span></code> and <code class="docutils literal"><span class="pre">isset</span></code> only work on the mapped property, <code class="docutils literal"><span class="pre">$name</span></code>, not on the original name,
 <code class="docutils literal"><span class="pre">full_name</span></code>.</p>
+</div>
+<div class="section" id="mutators">
+<h2><a class="toc-backref" href="#id10">Mutators</a><a class="headerlink" href="#mutators" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="date-mutators">
+<h3><a class="toc-backref" href="#id11">Date Mutators</a><a class="headerlink" href="#date-mutators" title="Permalink to this headline">¶</a></h3>
+<p>By default, the Entity class will convert fields named <cite>created_at</cite>, <cite>updated_at</cite>, or <cite>deleted_at</cite> into
+<a href="#id1"><span class="problematic" id="id2">:doc:`Time &lt;/libraries/time&gt;`_</span></a> instances whenever they are set or retrieved. The Time class provides a large number
+of helpful methods in a immutable, localized way.</p>
+<p>You can define which properties are automatically converted by adding the name to the <strong>options[‘dates’]</strong> array:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">namespace</span> <span class="nx">App\Entities</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Entity</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">User</span> <span class="k">extends</span> <span class="nx">Entity</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$id</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$name</span><span class="p">;</span>        <span class="c1">// Represents a full name now</span>
+    <span class="k">protected</span> <span class="nv">$email</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$password</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$created_at</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$updated_at</span><span class="p">;</span>
+
+    <span class="k">protected</span> <span class="nv">$_options</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;dates&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">,</span> <span class="s1">&#39;updated_at&#39;</span><span class="p">,</span> <span class="s1">&#39;deleted_at&#39;</span><span class="p">],</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now, when any of those properties are set, they will be converted to a Time instance, using the application’s
+current timezone, as set in <strong>application/Config/App.php</strong>:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">App\Entities\User</span><span class="p">();</span>
+
+<span class="c1">// Converted to Time instance</span>
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">created_at</span> <span class="o">=</span> <span class="s1">&#39;April 15, 2017 10:30:00&#39;</span><span class="p">;</span>
+
+<span class="c1">// Can now use any Time methods:</span>
+<span class="k">echo</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">created_at</span><span class="o">-&gt;</span><span class="na">humanize</span><span class="p">();</span>
+<span class="k">echo</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">created_at</span><span class="o">-&gt;</span><span class="na">setTimezone</span><span class="p">(</span><span class="s1">&#39;Europe/London&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">toDateString</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="property-casting">
+<h3><a class="toc-backref" href="#id12">Property Casting</a><a class="headerlink" href="#property-casting" title="Permalink to this headline">¶</a></h3>
+<p>You can specify that properties in your Entity should be converted to common data types with the <strong>casts</strong> entry in
+the <strong>$_options</strong> property. The <strong>casts</strong> option should be an array where the key is the name of the class property,
+and the value is the data type it should be cast to. Casting only affects when values are read. No conversions happen
+that affect the permanent value in either the entity or the database. Properties can be cast to any of the following
+data types: <strong>integer</strong>, <strong>float</strong>, <strong>double</strong>, <strong>string</strong>, <strong>boolean</strong>, <strong>object</strong>, <strong>array</strong>, <strong>datetime</strong>, and
+<strong>timestamp</strong>.</p>
+<p>For example, if you had a User entity with an <strong>is_banned</strong> property, you can cast it as a boolean:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">namespace</span> <span class="nx">App\Entities</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Entity</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">User</span> <span class="k">extends</span> <span class="nx">Entity</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$is_banned</span><span class="p">;</span>
+
+    <span class="k">protected</span> <span class="nx">_</span><span class="nv">$options</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;casts&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">&#39;is_banned&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;boolean&#39;</span>
+        <span class="p">]</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="array-casting">
+<h3><a class="toc-backref" href="#id13">Array Casting</a><a class="headerlink" href="#array-casting" title="Permalink to this headline">¶</a></h3>
+<p>Array casting is especially useful with fields that store serialized arrays or json in them. When cast as an array,
+they will automatically be unserialized when you read the property’s value. Unlike the rest of the data types that
+you can cast properties into, the <strong>array</strong> cast type will serialize the value whenever the property is set:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">namespace</span> <span class="nx">App\Entities</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">CodeIgniter\Entity</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">User</span> <span class="k">extends</span> <span class="nx">Entity</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$options</span><span class="p">;</span>
+
+    <span class="k">protected</span> <span class="nx">_</span><span class="nv">$options</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;casts&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">&#39;options&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;array&#39;</span>
+        <span class="p">]</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+
+<span class="nv">$user</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
+<span class="nv">$options</span> <span class="o">=</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">options</span><span class="p">;</span>
+
+<span class="nv">$options</span><span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">;</span>
+
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">options</span> <span class="o">=</span> <span class="nv">$options</span><span class="p">;</span>
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$user</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -679,7 +784,7 @@ to the database. However, <code class="docutils literal"><span class="pre">unset
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-       Last updated on Jul 20, 2017.
+       Last updated on Aug 29, 2017.
     </p>
   </div>
 

@@ -522,11 +522,31 @@ The array returns in a manner that you would expect. With the simplest usage, a 
 </div>
 <div class="section" id="multiple-files">
 <h4><a class="toc-backref" href="#id6">Multiple files</a><a class="headerlink" href="#multiple-files" title="Permalink to this headline">¶</a></h4>
-<p>If there are multiple files with the same name you can use <code class="docutils literal"><span class="pre">getFile()</span></code> ro retrieve every file individually:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;file&quot;</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;images[]&quot;</span> <span class="nx">multiple</span> <span class="o">/&gt;</span>
-</pre></div>
-</div>
-<p>In controller:</p>
+<blockquote>
+<div>&lt;input type=”file” name=”images[]” multiple /&gt;</div></blockquote>
+<dl class="docutils">
+<dt>In controller::</dt>
+<dd><p class="first">if($imagefile = $this-&gt;request-&gt;getFiles())
+{</p>
+<blockquote>
+<div><p>foreach($imagefile[‘images’] as $Im)
+{</p>
+<blockquote>
+<div><p>if ($im-&gt;isValid() &amp;&amp; ! $im-&gt;hasMoved())
+{</p>
+<blockquote>
+<div>$newName = $img-&gt;getRandomName();
+$img-&gt;move(WRITEPATH.’uploads’, $newName);</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>}</p>
+<p class="last">where the <strong>images</strong> is loop is from the form field name</p>
+</dd>
+</dl>
+<p>If there are multiple files with the same name you can use <code class="docutils literal"><span class="pre">getFile()</span></code> ro retrieve every file individually::
+In controller:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$file1</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getFile</span><span class="p">(</span><span class="s1">&#39;images.0&#39;</span><span class="p">);</span>
 <span class="nv">$file2</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getFile</span><span class="p">(</span><span class="s1">&#39;images.1&#39;</span><span class="p">);</span>
 </pre></div>
@@ -543,7 +563,7 @@ The array returns in a manner that you would expect. With the simplest usage, a 
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">For multiple files it is recommended to use the function <code class="docutils literal"><span class="pre">getFiles()</span></code></p>
+<p class="last">using <code class="docutils literal"><span class="pre">getFiles()</span></code> is more appropriate</p>
 </div>
 </div>
 </div>
@@ -654,7 +674,7 @@ the <code class="docutils literal"><span class="pre">hasMoved()</span></code> me
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-       Last updated on Jul 20, 2017.
+       Last updated on Aug 29, 2017.
     </p>
   </div>
 

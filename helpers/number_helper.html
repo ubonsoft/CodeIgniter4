@@ -556,6 +556,34 @@ for numbers up to the quadrillions. Examples:</p>
 </div>
 </dd></dl>
 
+<dl class="function">
+<dt id="number_to_roman">
+<code class="descname">number_to_roman</code><span class="sig-paren">(</span><em>$num</em><span class="sig-paren">)</span><a class="headerlink" href="#number_to_roman" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>$num</strong> (<em>string</em>) – The number want to convert</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The roman number converted from given parameter</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">string</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Converts a number into roman:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">echo</span> <span class="nx">number_to_roman</span><span class="p">(</span><span class="mi">23</span><span class="p">);</span>  <span class="c1">// Returns XXIII</span>
+<span class="k">echo</span> <span class="nx">number_to_roman</span><span class="p">(</span><span class="mi">324</span><span class="p">);</span>  <span class="c1">// Returns CCCXXIV</span>
+<span class="k">echo</span> <span class="nx">number_to_roman</span><span class="p">(</span><span class="mi">2534</span><span class="p">);</span>  <span class="c1">// Returns MMDXXXIV</span>
+</pre></div>
+</div>
+</dd></dl>
+
 </div>
 </div>
 
@@ -578,7 +606,7 @@ for numbers up to the quadrillions. Examples:</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-       Last updated on Jul 20, 2017.
+       Last updated on Aug 29, 2017.
     </p>
   </div>
 

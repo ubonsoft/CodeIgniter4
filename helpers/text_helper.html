@@ -460,6 +460,7 @@ specifies the length. The following choices are available:</p>
 <li><strong>nozero</strong>: Numeric string with no zeros.</li>
 <li><strong>md5</strong>: An encrypted random number based on <code class="docutils literal"><span class="pre">md5()</span></code> (fixed length of 32).</li>
 <li><strong>sha1</strong>: An encrypted random number based on <code class="docutils literal"><span class="pre">sha1()</span></code> (fixed length of 40).</li>
+<li><strong>crypto</strong>: A random string based on <code class="docutils literal"><span class="pre">random_bytes()</span></code>.</li>
 </ul>
 <p>Usage example:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">echo</span> <span class="nx">random_string</span><span class="p">(</span><span class="s1">&#39;alnum&#39;</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
@@ -1113,7 +1114,7 @@ at the end.</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-       Last updated on Jul 20, 2017.
+       Last updated on Aug 29, 2017.
     </p>
   </div>
 
