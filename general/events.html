@@ -489,6 +489,19 @@ given the arguments in the same order as defined:</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="simulating-events">
+<h2>Simulating Events<a class="headerlink" href="#simulating-events" title="Permalink to this headline">¶</a></h2>
+<p>During testing, you might not want the events to actually fire, as sending out hundreds of emails a day is both slow
+and counter-productive. You can tell the Events class to only simulate running the events with the <code class="docutils literal"><span class="pre">simulate()</span></code> method.
+When <strong>true</strong>, all events will be skipped over during the trigger method. Everything else will work as normal, though.</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nx">Events</span><span class="o">::</span><span class="na">simulate</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You can stop simulation by passing false:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nx">Events</span><span class="o">::</span><span class="na">simulate</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="event-points">
 <h2>Event Points<a class="headerlink" href="#event-points" title="Permalink to this headline">¶</a></h2>
 <p>The following is a list of available event points within the CodeIgniter core code:</p>
@@ -519,7 +532,7 @@ given the arguments in the same order as defined:</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-       Last updated on Jul 20, 2017.
+       Last updated on Sep 06, 2017.
     </p>
   </div>
 
