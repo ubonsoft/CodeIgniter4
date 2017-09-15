@@ -448,8 +448,8 @@ HTTP_X_CLUSTER_CLIENT_IP address for the allowed IP address.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="validIP">
-<code class="descname">validIP</code><span class="sig-paren">(</span><em>$ip</em><span class="optional">[</span>, <em>$which = ''</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#validIP" title="Permalink to this definition">¶</a></dt>
+<dt id="isValidIP">
+<code class="descname">isValidIP</code><span class="sig-paren">(</span><em>$ip</em><span class="optional">[</span>, <em>$which = ''</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#isValidIP" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -474,7 +474,7 @@ on whether it is valid or not.</p>
 <p class="first admonition-title">Note</p>
 <p class="last">The $request-&gt;getIPAddress() method above automatically validates the IP address.</p>
 </div>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">validIP</span><span class="p">(</span><span class="nv">$ip</span><span class="p">))</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">isValidIP</span><span class="p">(</span><span class="nv">$ip</span><span class="p">))</span>
 <span class="p">{</span>
     <span class="k">echo</span> <span class="s1">&#39;Not Valid&#39;</span><span class="p">;</span>
 <span class="p">}</span>
@@ -576,7 +576,7 @@ as an array.</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-       Last updated on Sep 08, 2017.
+       Last updated on Sep 15, 2017.
     </p>
   </div>
 

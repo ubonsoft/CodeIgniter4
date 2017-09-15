@@ -128,7 +128,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../libraries/content_negotiation.html">Content Negotiation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">CURLRequest Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Image Manipulation Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Encryption Service</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Working with Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/incomingrequest.html">IncomingRequest Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/localization.html">Localization</a></li>
@@ -305,7 +304,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../libraries/content_negotiation.html">Content Negotiation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">CURLRequest Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Image Manipulation Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Encryption Service</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Working with Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/incomingrequest.html">IncomingRequest Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../libraries/localization.html">Localization</a></li>
@@ -887,7 +885,7 @@ and each word capitalized.</td>
 </tr>
 <tr class="row-even"><td>upper</td>
 <td>&#160;</td>
-<td>Displays the string in all lowercase.</td>
+<td>Displays the string in all uppercase.</td>
 <td>{ v|upper }</td>
 </tr>
 </tbody>
@@ -934,9 +932,9 @@ key/value pairs:</p>
 <p>The following plugins are available when using the parser:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="11%" />
-<col width="15%" />
-<col width="38%" />
+<col width="10%" />
+<col width="13%" />
+<col width="41%" />
 <col width="36%" />
 </colgroup>
 <thead valign="bottom">
@@ -971,6 +969,11 @@ key/value pairs:</p>
 <td>language string</td>
 <td>Alias for the lang helper function.</td>
 <td>{+ lang number.terabyteAbbr +}</td>
+</tr>
+<tr class="row-odd"><td>validation_errors</td>
+<td>fieldname(optional)</td>
+<td>Returns either error string for the field (if specified) or all validation errors.</td>
+<td>{+ validation_errors +} , {+ validation_errors field=”email” +}</td>
 </tr>
 </tbody>
 </table>
@@ -1307,7 +1310,7 @@ substitutions are performed for each data pair.</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-       Last updated on Jul 20, 2017.
+       Last updated on Sep 15, 2017.
     </p>
   </div>
 

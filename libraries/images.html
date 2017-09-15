@@ -35,7 +35,7 @@
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="CodeIgniter4 4.0.0-dev documentation" href="../index.html"/>
         <link rel="up" title="Library Reference" href="index.html"/>
-        <link rel="next" title="Encryption Service" href="encryption.html"/>
+        <link rel="next" title="Working with Files" href="files.html"/>
         <link rel="prev" title="CURLRequest Class" href="curlrequest.html"/> 
 
   
@@ -128,7 +128,6 @@
 <li class="toctree-l2"><a class="reference internal" href="content_negotiation.html">Content Negotiation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="curlrequest.html">CURLRequest Class</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Image Manipulation Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="encryption.html">Encryption Service</a></li>
 <li class="toctree-l2"><a class="reference internal" href="files.html">Working with Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="incomingrequest.html">IncomingRequest Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="localization.html">Localization</a></li>
@@ -305,7 +304,6 @@
 <li class="toctree-l2"><a class="reference internal" href="content_negotiation.html">Content Negotiation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="curlrequest.html">CURLRequest Class</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Image Manipulation Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="encryption.html">Encryption Service</a></li>
 <li class="toctree-l2"><a class="reference internal" href="files.html">Working with Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="incomingrequest.html">IncomingRequest Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="localization.html">Localization</a></li>
@@ -429,10 +427,11 @@ actions:</p>
 <li><a class="reference internal" href="#processing-methods" id="id4">Processing Methods</a><ul>
 <li><a class="reference internal" href="#cropping-images" id="id5">Cropping Images</a></li>
 <li><a class="reference internal" href="#fitting-images" id="id6">Fitting Images</a></li>
-<li><a class="reference internal" href="#flipping-images" id="id7">Flipping Images</a></li>
-<li><a class="reference internal" href="#resizing-images" id="id8">Resizing Images</a></li>
-<li><a class="reference internal" href="#rotating-images" id="id9">Rotating Images</a></li>
-<li><a class="reference internal" href="#adding-a-text-watermark" id="id10">Adding a Text Watermark</a></li>
+<li><a class="reference internal" href="#flattening-images" id="id7">Flattening Images</a></li>
+<li><a class="reference internal" href="#flipping-images" id="id8">Flipping Images</a></li>
+<li><a class="reference internal" href="#resizing-images" id="id9">Resizing Images</a></li>
+<li><a class="reference internal" href="#rotating-images" id="id10">Rotating Images</a></li>
+<li><a class="reference internal" href="#adding-a-text-watermark" id="id11">Adding a Text Watermark</a></li>
 </ul>
 </li>
 </ul>
@@ -528,6 +527,7 @@ adjust PHP memory limits.</p>
 <ul class="simple">
 <li>$image-&gt;crop()</li>
 <li>$image-&gt;fit()</li>
+<li>$image-&gt;flatten()</li>
 <li>$image-&gt;flip()</li>
 <li>$image-&gt;resize()</li>
 <li>$image-&gt;rotate()</li>
@@ -614,8 +614,34 @@ offset values:</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="flattening-images">
+<h4><a class="toc-backref" href="#id7">Flattening Images</a><a class="headerlink" href="#flattening-images" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal"><span class="pre">flatten()</span></code> method aims to add a background color behind transparent images (PNG) and convert RGBA pixels to RGB pixels</p>
+<ul class="simple">
+<li>Specify a background color when converting from transparent images to jpgs.</li>
+</ul>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nx">flatten</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$red</span> <span class="o">=</span> <span class="mi">255</span><span class="p">,</span> <span class="nx">int</span> <span class="nv">$green</span> <span class="o">=</span> <span class="mi">255</span><span class="p">,</span> <span class="nx">int</span> <span class="nv">$blue</span> <span class="o">=</span> <span class="mi">255</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><strong>$red</strong> is the red value of the background.</li>
+<li><strong>$green</strong> is the green value of the background.</li>
+<li><strong>$blue</strong> is the blue value of the background.</li>
+</ul>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nx">Services</span><span class="o">::</span><span class="na">image</span><span class="p">(</span><span class="s1">&#39;imagick&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">withFile</span><span class="p">(</span><span class="s1">&#39;/path/to/image/mypic.png&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">flatten</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="s1">&#39;path/to/new/image.jpg&#39;</span><span class="p">);</span>
+
+<span class="nx">Services</span><span class="o">::</span><span class="na">image</span><span class="p">(</span><span class="s1">&#39;imagick&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">withFile</span><span class="p">(</span><span class="s1">&#39;/path/to/image/mypic.png&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">flatten</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">112</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="s1">&#39;path/to/new/image.jpg&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="flipping-images">
-<h4><a class="toc-backref" href="#id7">Flipping Images</a><a class="headerlink" href="#flipping-images" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id8">Flipping Images</a><a class="headerlink" href="#flipping-images" title="Permalink to this headline">¶</a></h4>
 <p>Images can be flipped along either their horizontal or vertical axis:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nx">flip</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$dir</span><span class="p">)</span>
 </pre></div>
@@ -631,7 +657,7 @@ offset values:</p>
 </div>
 </div>
 <div class="section" id="resizing-images">
-<h4><a class="toc-backref" href="#id8">Resizing Images</a><a class="headerlink" href="#resizing-images" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id9">Resizing Images</a><a class="headerlink" href="#resizing-images" title="Permalink to this headline">¶</a></h4>
 <p>Images can be resized to fit any dimension you require with the resize() method:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nx">resize</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$width</span><span class="p">,</span> <span class="nx">int</span> <span class="nv">$height</span><span class="p">,</span> <span class="nx">bool</span> <span class="nv">$maintainRatio</span> <span class="o">=</span> <span class="k">false</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$masterDim</span> <span class="o">=</span> <span class="s1">&#39;auto&#39;</span><span class="p">)</span>
 </pre></div>
@@ -653,7 +679,7 @@ while the other dimension will be altered to match the original image’s aspect
 </div>
 </div>
 <div class="section" id="rotating-images">
-<h4><a class="toc-backref" href="#id9">Rotating Images</a><a class="headerlink" href="#rotating-images" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id10">Rotating Images</a><a class="headerlink" href="#rotating-images" title="Permalink to this headline">¶</a></h4>
 <p>The rotate() method allows you to rotate an image in 90 degree increments:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nx">rotate</span><span class="p">(</span><span class="nx">float</span> <span class="nv">$angle</span><span class="p">)</span>
 </pre></div>
@@ -668,7 +694,7 @@ If the value is any other than the three values listed above, it will throw a Co
 </div>
 </div>
 <div class="section" id="adding-a-text-watermark">
-<h4><a class="toc-backref" href="#id10">Adding a Text Watermark</a><a class="headerlink" href="#adding-a-text-watermark" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id11">Adding a Text Watermark</a><a class="headerlink" href="#adding-a-text-watermark" title="Permalink to this headline">¶</a></h4>
 <p>You can overlay a text watermark onto the image very simply with the text() method. This is useful for placing copyright
 notices, photogropher names, or simply marking the images as a preview so they won’t be used in other people’s final
 products.</p>
@@ -720,7 +746,7 @@ name of one of the installed system fonts that you wish to use, i.e. Calibri.</p
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="encryption.html" class="btn btn-neutral float-right" title="Encryption Service">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="files.html" class="btn btn-neutral float-right" title="Working with Files">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="curlrequest.html" class="btn btn-neutral" title="CURLRequest Class"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -733,7 +759,7 @@ name of one of the installed system fonts that you wish to use, i.e. Calibri.</p
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-       Last updated on Jul 20, 2017.
+       Last updated on Sep 15, 2017.
     </p>
   </div>
 
