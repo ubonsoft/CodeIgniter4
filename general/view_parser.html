@@ -894,7 +894,7 @@ and each word capitalized.</td>
 <div class="section" id="custom-filters">
 <h4>Custom Filters<a class="headerlink" href="#custom-filters" title="Permalink to this headline">¶</a></h4>
 <p>You can easily create your own filters by editing <strong>application/Config/View.php</strong> and adding new entries to the
-<code class="docutils literal"><span class="pre">$filters</span></code> array. Each key is the name the filter is called by in the view, and its value is any valid PHP
+<code class="docutils literal"><span class="pre">$filters</span></code> array. Each key is the name of the filter is called by in the view, and its value is any valid PHP
 callable:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="nv">$filters</span> <span class="o">=</span> <span class="p">[</span>
         <span class="s1">&#39;abs&#39;</span>               <span class="o">=&gt;</span> <span class="s1">&#39;\CodeIgniter\View\Filters::abs&#39;</span><span class="p">,</span>
@@ -902,6 +902,19 @@ callable:</p>
 <span class="p">];</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="php-native-functions-as-filters">
+<h4>PHP Native functions as Filters<a class="headerlink" href="#php-native-functions-as-filters" title="Permalink to this headline">¶</a></h4>
+<p>You can easily use native php function as filters by editing <strong>application/Config/View.php</strong> and adding new entries to the
+<code class="docutils literal"><span class="pre">$filters</span></code> array.Each key is the name of the native PHP function is called by in the view, and its value is any valid native PHP
+function prefixed with ::</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>public $filters = [</dt>
+<dd>‘str_repeat’               =&gt; ‘str_repeat’,</dd>
+</dl>
+<p>];</p>
+</div></blockquote>
 </div>
 </div>
 <div class="section" id="parser-plugins">
@@ -1310,7 +1323,7 @@ substitutions are performed for each data pair.</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-       Last updated on Sep 15, 2017.
+       Last updated on Sep 19, 2017.
     </p>
   </div>
 
