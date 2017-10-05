@@ -378,11 +378,10 @@ redirect them back to the same page after they log in, you may find this example
 executed when the user visits that URI. This is handy for quickly executing small tasks, or even just showing
 a simple view:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;feed&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span>
-        <span class="p">{</span>
-                <span class="nv">$rss</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RSSFeeder</span><span class="p">();</span>
-                <span class="k">return</span> <span class="nv">$rss</span><span class="o">-&gt;</span><span class="na">feed</span><span class="p">(</span><span class="s1">&#39;general&#39;</span><span class="p">);</span>
-        <span class="p">{</span>
-<span class="p">);</span>
+<span class="p">{</span>
+    <span class="nv">$rss</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RSSFeeder</span><span class="p">();</span>
+    <span class="k">return</span> <span class="nv">$rss</span><span class="o">-&gt;</span><span class="na">feed</span><span class="p">(</span><span class="s1">&#39;general&#39;</span><span class="p">);</span>
+<span class="p">});</span>
 </pre></div>
 </div>
 </div>
@@ -483,9 +482,9 @@ with the name of the route:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="c1">// The route is defined as:</span>
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;users/(:id)/gallery(:any)&#39;</span><span class="p">,</span> <span class="s1">&#39;Galleries::showUserGallery/$1/$2&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;as&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;user_gallery&#39;</span><span class="p">);</span>
 
-    <span class="c1">// Generate the relative URL to link to user ID 15, gallery 12</span>
-    <span class="c1">// Generates: /users/15/gallery/12</span>
-    <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;&lt;?= route_to(&#39;user_gallery&#39;, 15, 12) ?&gt;&quot;</span><span class="o">&gt;</span><span class="nx">View</span> <span class="nx">Gallery</span><span class="o">&lt;/</span><span class="nx">a</span><span class="o">&gt;</span>
+<span class="c1">// Generate the relative URL to link to user ID 15, gallery 12</span>
+<span class="c1">// Generates: /users/15/gallery/12</span>
+<span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;&lt;?= route_to(&#39;user_gallery&#39;, 15, 12) ?&gt;&quot;</span><span class="o">&gt;</span><span class="nx">View</span> <span class="nx">Gallery</span><span class="o">&lt;/</span><span class="nx">a</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>This has the added benefit of making the views more readable, too.</p>
@@ -522,17 +521,17 @@ available from the command line:</p>
 creates the five most common routes needed for full CRUD of a resource: create a new resource, update an existing one,
 list all of that resource, show a single resource, and delete a single resource. The first parameter is the resource
 name:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span>    <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">);</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">);</span>
 
-    <span class="c1">// Equivalent to the following:</span>
-    <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span>                    <span class="s1">&#39;Photos::index&#39;</span><span class="p">);</span>
-    <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos/new&#39;</span><span class="p">,</span>                <span class="s1">&#39;Photos::new&#39;</span><span class="p">);</span>
-    <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos/(:segment)/edit&#39;</span><span class="p">,</span>    <span class="s1">&#39;Photos::edit/$1&#39;</span><span class="p">);</span>
-    <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos/(:segment)&#39;</span><span class="p">,</span>         <span class="s1">&#39;Photos::show/$1&#39;</span><span class="p">);</span>
-    <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span>                   <span class="s1">&#39;Photos::create&#39;</span><span class="p">);</span>
+<span class="c1">// Equivalent to the following:</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span>                    <span class="s1">&#39;Photos::index&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos/new&#39;</span><span class="p">,</span>                <span class="s1">&#39;Photos::new&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos/(:segment)/edit&#39;</span><span class="p">,</span>    <span class="s1">&#39;Photos::edit/$1&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos/(:segment)&#39;</span><span class="p">,</span>         <span class="s1">&#39;Photos::show/$1&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span>                   <span class="s1">&#39;Photos::create&#39;</span><span class="p">);</span>
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">patch</span><span class="p">(</span><span class="s1">&#39;photos/(:segment)&#39;</span><span class="p">,</span>       <span class="s1">&#39;Photos::update/$1&#39;</span><span class="p">);</span>
-    <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="s1">&#39;photos/(:segment)&#39;</span><span class="p">,</span>         <span class="s1">&#39;Photos::update/$1&#39;</span><span class="p">);</span>
-    <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s1">&#39;photos/(:segment)&#39;</span><span class="p">,</span>      <span class="s1">&#39;Photos::delete/$1&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="s1">&#39;photos/(:segment)&#39;</span><span class="p">,</span>         <span class="s1">&#39;Photos::update/$1&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s1">&#39;photos/(:segment)&#39;</span><span class="p">,</span>      <span class="s1">&#39;Photos::delete/$1&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 <div class="admonition important">
@@ -671,10 +670,10 @@ controller:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">setDefaultNamespace</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
 
 <span class="c1">// Controller is \Users</span>
-    <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="s1">&#39;Users::index&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="s1">&#39;Users::index&#39;</span><span class="p">);</span>
 
-    <span class="c1">// Controller is \Admin\Users</span>
-    <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="s1">&#39;Admin\Users::index&#39;</span><span class="p">);</span>
+<span class="c1">// Controller is \Admin\Users</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="s1">&#39;Admin\Users::index&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>If your controllers are not explicitly namespaced, there is no need to change this. If you namespace your controllers,
@@ -740,7 +739,8 @@ a valid class/method pair, just like you would show in any route, or a Closure:<
 <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">set404Override</span><span class="p">(</span><span class="s1">&#39;App\Errors::show404&#39;</span><span class="p">);</span>
 
 <span class="c1">// Will display a custom view</span>
-<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">set404Override</span><span class="p">(</span><span class="k">function</span><span class="p">(){</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">set404Override</span><span class="p">(</span><span class="k">function</span><span class="p">()</span>
+<span class="p">{</span>
     <span class="k">echo</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;my_errors/not_found.html&#39;</span><span class="p">);</span>
 <span class="p">});</span>
 </pre></div>
@@ -780,7 +780,7 @@ Routes files should be scanned for within each of the PSR4 namespaces defined in
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 01, 2017.
+      Last updated on Oct 04, 2017.
 
     </p>
   </div>
