@@ -569,48 +569,34 @@ modern browsers to automatically modify any HTTP requests to HTTPS requests for 
 
 <dl class="function">
 <dt id="redirect">
-<code class="descname">redirect</code><span class="sig-paren">(</span><em>$uri</em><span class="optional">[</span>, <em>...$params</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#redirect" title="Permalink to this definition">¶</a></dt>
+<code class="descname">redirect</code><span class="sig-paren">(</span><em>string $uri</em><span class="sig-paren">)</span><a class="headerlink" href="#redirect" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>$uri</strong> (<em>string</em>) – The URI to redirect the user to.</li>
-<li><strong>$params</strong> (<em>mixed</em>) – one or more additional parameters that can be used with the <code class="xref py py-meth docutils literal"><span class="pre">RouteCollection::reverseRoute()</span></code> method.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Convenience method that works with the current global <code class="docutils literal"><span class="pre">$request</span></code> and
-<code class="docutils literal"><span class="pre">$router</span></code> instances to redirect using named/reverse-routed routes
-to determine the URL to go to. If nothing is found, will treat
-as a traditional redirect and pass the string in, letting
-<code class="docutils literal"><span class="pre">$response-&gt;redirect()</span></code> determine the correct method and code.</p>
-<p>If more control is needed, you must use <code class="docutils literal"><span class="pre">$response-&gt;redirect()</span></code> explicitly.</p>
-</dd></dl>
+<p>Returns a RedirectResponse instance allowing you to easily create redirects:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="c1">// Go back to the previous page</span>
+<span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">back</span><span class="p">();</span>
 
-<dl class="function">
-<dt id="redirect_with_input">
-<code class="descname">redirect_with_input</code><span class="sig-paren">(</span><em>$uri</em><span class="optional">[</span>, <em>...$params</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#redirect_with_input" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>$uri</strong> (<em>string</em>) – The URI to redirect the user to.</li>
-<li><strong>$params</strong> (<em>mixed</em>) – one or more additional parameters that can be used with the <code class="xref py py-meth docutils literal"><span class="pre">RouteCollection::reverseRoute()</span></code> method.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<p>Identical to the <code class="docutils literal"><span class="pre">redirect()</span></code> method, except this flashes the request’s $_GET and $_POST values to the session.
-On the next page request, the form helper <code class="docutils literal"><span class="pre">set_*</span></code> methods will check for data within the old input first, then,
-if it’s not found, the current GET/POST will be checked.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">In order to retrieve the old, the session MUST be started prior to calling the function.</p>
+<span class="c1">// Go to specific UI</span>
+<span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">to</span><span class="p">(</span><span class="s1">&#39;/admin&#39;</span><span class="p">);</span>
+
+<span class="c1">// Go to a named/reverse-routed URI</span>
+<span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">route</span><span class="p">(</span><span class="s1">&#39;named_route&#39;</span><span class="p">);</span>
+
+<span class="c1">// Keep the old input values upon redirect so they can be used by the `old()` function</span>
+<span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">back</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">withInput</span><span class="p">();</span>
+
+<span class="c1">// Set a flash message</span>
+<span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">back</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;message&#39;</span><span class="p">);</span>
+</pre></div>
 </div>
 </dd></dl>
 
@@ -866,7 +852,7 @@ instance every time.</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 01, 2017.
+      Last updated on Oct 05, 2017.
 
     </p>
   </div>
