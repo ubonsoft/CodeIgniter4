@@ -339,7 +339,7 @@ strings are to be used in LIKE conditions so that LIKE wildcards
 </ol>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$search</span> <span class="o">=</span> <span class="s1">&#39;20% raise&#39;</span><span class="p">;</span>
 <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT id FROM table WHERE column LIKE &#39;%&quot;</span> <span class="o">.</span>
-    <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">escapeLikeString</span><span class="p">(</span><span class="nv">$search</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;%&#39; ESCAPE &#39;!&#39;&quot;</span><span class="p">;</span>
+<span class="nv">$db</span><span class="o">-&gt;</span><span class="na">escapeLikeString</span><span class="p">(</span><span class="nv">$search</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;%&#39; ESCAPE &#39;!&#39;&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
 <div class="admonition important">
@@ -380,9 +380,11 @@ you.</p>
 you can name the bindings, allowing the keys of the values passed in to match
 placeholders in the query:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM some_table WHERE id = :id AND status = :status AND author = :name&quot;</span><span class="p">;</span>
-<span class="nv">$db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="nv">$sql</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span>     <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
-                                  <span class="s1">&#39;status&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;live&#39;</span><span class="p">,</span>
-                                  <span class="s1">&#39;name&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;Rick&#39;</span><span class="p">]);</span>
+<span class="nv">$db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="nv">$sql</span><span class="p">,</span> <span class="p">[</span>
+        <span class="s1">&#39;id&#39;</span>     <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s1">&#39;status&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;live&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;name&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;Rick&#39;</span>
+<span class="p">]);</span>
 </pre></div>
 </div>
 </div>
@@ -419,11 +421,11 @@ as placeholders. This returns a PreparedQuery object:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$pQuery</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="nv">$db</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="k">return</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
-              <span class="o">-&gt;</span><span class="na">insert</span><span class="p">([</span>
-                  <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span>
-                  <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span>
-                  <span class="s1">&#39;country&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;US&#39;</span>
-              <span class="p">]);</span>
+               <span class="o">-&gt;</span><span class="na">insert</span><span class="p">([</span>
+                    <span class="s1">&#39;name&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;email&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;country&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;US&#39;</span>
+               <span class="p">]);</span>
 <span class="p">});</span>
 </pre></div>
 </div>
@@ -458,16 +460,16 @@ query:</p>
 <span class="nv">$pQuery</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="nv">$db</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="k">return</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
-              <span class="o">-&gt;</span><span class="na">insert</span><span class="p">([</span>
-                  <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span>
-                  <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span>
-                  <span class="s1">&#39;country&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;US&#39;</span>
-              <span class="p">]);</span>
+               <span class="o">-&gt;</span><span class="na">insert</span><span class="p">([</span>
+                    <span class="s1">&#39;name&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;email&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;country&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;US&#39;</span>
+               <span class="p">]);</span>
 <span class="p">});</span>
 
 <span class="c1">// Collect the Data</span>
-<span class="nv">$name</span> <span class="o">=</span> <span class="s1">&#39;John Doe&#39;</span><span class="p">;</span>
-<span class="nv">$email</span> <span class="o">=</span> <span class="s1">&#39;j.doe@example.com&#39;</span><span class="p">;</span>
+<span class="nv">$name</span>    <span class="o">=</span> <span class="s1">&#39;John Doe&#39;</span><span class="p">;</span>
+<span class="nv">$email</span>   <span class="o">=</span> <span class="s1">&#39;j.doe@example.com&#39;</span><span class="p">;</span>
 <span class="nv">$country</span> <span class="o">=</span> <span class="s1">&#39;US&#39;</span><span class="p">;</span>
 
 <span class="c1">// Run the Query</span>
@@ -591,7 +593,7 @@ parameter is the value you want it replaced with:</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 01, 2017.
+      Last updated on Oct 08, 2017.
 
     </p>
   </div>

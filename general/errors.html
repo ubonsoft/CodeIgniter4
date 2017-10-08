@@ -257,6 +257,29 @@ portion at the top of the main <code class="docutils literal"><span class="pre">
 <p class="first admonition-title">Important</p>
 <p class="last">Disabling error reporting DOES NOT stop logs from being written if there are errors.</p>
 </div>
+<div class="section" id="logging-exceptions">
+<h3>Logging Exceptions<a class="headerlink" href="#logging-exceptions" title="Permalink to this headline">¶</a></h3>
+<p>By default, all Exceptions other than 404 - Page Not Found exceptions are logged. This can be turned on and off
+by setting the <strong>$log</strong> value of <code class="docutils literal"><span class="pre">Config\Exceptions</span></code>:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Exceptions</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$log</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>To ignore logging on other status codes, you can set the status code to ignore in the same file:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Exceptions</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$ignoredCodes</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">404</span> <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It is possible that logging still will not happen for exceptions if your current Log settings
+are not setup to log <strong>critical</strong> errors, which all exceptions are logged as.</p>
+</div>
+</div>
 </div>
 <div class="section" id="custom-exceptions">
 <h2>Custom Exceptions<a class="headerlink" href="#custom-exceptions" title="Permalink to this headline">¶</a></h2>
@@ -320,7 +343,7 @@ is not the right type, etc:</p>
 <h3>DatabaseException<a class="headerlink" href="#databaseexception" title="Permalink to this headline">¶</a></h3>
 <p>This exception is thrown for database errors, such as when the database connection cannot be created,
 or when it is temporarily lost:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">throw</span> <span class="k">new</span> <span class="nx">\CodeIgniter\DatabaseException</span><span class="p">();</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">throw</span> <span class="k">new</span> <span class="nx">\CodeIgniter\Database\Exceptions\DatabaseException</span><span class="p">();</span>
 </pre></div>
 </div>
 <p>This provides an HTTP status code of 500, and an exit code of 8.</p>
@@ -351,7 +374,7 @@ or when it is temporarily lost:</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 01, 2017.
+      Last updated on Oct 08, 2017.
 
     </p>
   </div>

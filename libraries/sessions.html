@@ -830,7 +830,7 @@ table that we already mentioned and then set it as your
 <code class="docutils literal"><span class="pre">$sessionSavePath</span></code> value.
 For example, if you would like to use ‘ci_sessions’ as your table name,
 you would do this:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="nv">$sessionDriver</span> <span class="o">=</span> <span class="s1">&#39;database&#39;</span><span class="p">;</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="nv">$sessionDriver</span>   <span class="o">=</span> <span class="s1">&#39;database&#39;</span><span class="p">;</span>
 <span class="k">public</span> <span class="nv">$sessionSavePath</span> <span class="o">=</span> <span class="s1">&#39;ci_sessions&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -925,7 +925,7 @@ the link above.</p>
 </div>
 <p>For the most common case however, a simple <code class="docutils literal"><span class="pre">host:port</span></code> pair should be
 sufficient:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="nv">$sessionDiver</span> <span class="o">=</span> <span class="s1">&#39;redis&#39;</span><span class="p">;</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="nv">$sessionDiver</span>    <span class="o">=</span> <span class="s1">&#39;redis&#39;</span><span class="p">;</span>
 <span class="k">public</span> <span class="nv">$sessionSavePath</span> <span class="o">=</span> <span class="s1">&#39;tcp://localhost:6379&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -951,7 +951,7 @@ expire earlier than that time). This happens very rarely, but should be
 considered as it may result in loss of sessions.</p>
 <p>The <code class="docutils literal"><span class="pre">$sessionSavePath</span></code> format is fairly straightforward here,
 being just a <code class="docutils literal"><span class="pre">host:port</span></code> pair:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="nv">$sessionDriver</span> <span class="o">=</span> <span class="s1">&#39;memcached&#39;</span><span class="p">;</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="nv">$sessionDriver</span>   <span class="o">=</span> <span class="s1">&#39;memcached&#39;</span><span class="p">;</span>
 <span class="k">public</span> <span class="nv">$sessionSavePath</span> <span class="o">=</span> <span class="s1">&#39;localhost:11211&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -996,7 +996,7 @@ separate the multiple server paths with commas:</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 01, 2017.
+      Last updated on Oct 08, 2017.
 
     </p>
   </div>

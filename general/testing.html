@@ -306,7 +306,7 @@ to run as the parameter:</p>
     <span class="p">{</span>
         <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">withURI</span><span class="p">(</span><span class="s1">&#39;http://example.com/categories&#39;</span><span class="p">)</span>
                         <span class="o">-&gt;</span><span class="na">controller</span><span class="p">(</span><span class="nx">\App\Controllers\ForumController</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
-            <span class="o">-&gt;</span><span class="na">execute</span><span class="p">(</span><span class="s1">&#39;showCategories&#39;</span><span class="p">);</span>
+                        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">(</span><span class="s1">&#39;showCategories&#39;</span><span class="p">);</span>
 
         <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertTrue</span><span class="p">(</span><span class="nv">$result</span><span class="o">-&gt;</span><span class="na">isOK</span><span class="p">());</span>
     <span class="p">}</span>
@@ -488,8 +488,8 @@ it is in a known state for every test. You can use migrations and seeds to setup
 by adding a couple of class properties to your test.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyTests</span> <span class="k">extends</span> <span class="nx">\CIDatabaseTestCase</span>
 <span class="p">{</span>
-    <span class="k">protected</span> <span class="nv">$refresh</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
-    <span class="k">protected</span> <span class="nv">$seed</span>    <span class="o">=</span> <span class="s1">&#39;TestSeeder&#39;</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$refresh</span>  <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$seed</span>     <span class="o">=</span> <span class="s1">&#39;TestSeeder&#39;</span><span class="p">;</span>
     <span class="k">protected</span> <span class="nv">$basePath</span> <span class="o">=</span> <span class="s1">&#39;path/to/database/files&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
@@ -516,7 +516,7 @@ must pe present within the path specified in <code class="docutils literal"><spa
 <p><strong>dontSeeInDatabase($table, $criteria)</strong></p>
 <p>Asserts that a row with criteria matching the key/value pairs in <code class="docutils literal"><span class="pre">$criteria</span></code> DOES NOT exist in the database.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$criteria</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;joe@example.com&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;joe@example.com&#39;</span><span class="p">,</span>
     <span class="s1">&#39;active&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span>
 <span class="p">];</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">dontSeeInDatabase</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="nv">$criteria</span><span class="p">);</span>
@@ -525,7 +525,7 @@ must pe present within the path specified in <code class="docutils literal"><spa
 <p><strong>seeInDatabase($table, $criteria)</strong></p>
 <p>Asserts that a row with criteria matching the key/value pairs in <code class="docutils literal"><span class="pre">$criteria</span></code> DOES exist in the database.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$criteria</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;joe@example.com&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;joe@example.com&#39;</span><span class="p">,</span>
     <span class="s1">&#39;active&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span>
 <span class="p">];</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">seeInDatabase</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="nv">$criteria</span><span class="p">);</span>
@@ -582,7 +582,7 @@ array with the data to insert into the table.</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 02, 2017.
+      Last updated on Oct 08, 2017.
 
     </p>
   </div>

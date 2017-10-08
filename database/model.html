@@ -561,7 +561,7 @@ a permanent delete by setting the second parameter as true.</p>
 
 <span class="c1">// Complex where</span>
 <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">deleteWhere</span><span class="p">([</span>
-        <span class="s1">&#39;status&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;inactive&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;status&#39;</span>      <span class="o">=&gt;</span> <span class="s1">&#39;inactive&#39;</span><span class="p">,</span>
         <span class="s1">&#39;warn_lvl &gt;=&#39;</span> <span class="o">=&gt;</span> <span class="mi">50</span>
 <span class="p">]);</span>
 </pre></div>
@@ -583,15 +583,15 @@ prior to saving to the database with the <code class="docutils literal"><span cl
 be applied. If you have custom error message that you want to use, place them in the <code class="docutils literal"><span class="pre">$validationMessages</span></code> array:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">UserModel</span> <span class="k">extends</span> <span class="nx">Model</span>
 <span class="p">{</span>
-        <span class="k">protected</span> <span class="nv">$validationRules</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|alpha_numeric_space|min_length[3]&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;email&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;required|valid_email|is_unique[users.email]&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|min_length[8]&#39;</span><span class="p">,</span>
+        <span class="k">protected</span> <span class="nv">$validationRules</span>    <span class="o">=</span> <span class="p">[</span>
+                <span class="s1">&#39;username&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;required|alpha_numeric_space|min_length[3]&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;email&#39;</span>        <span class="o">=&gt;</span> <span class="s1">&#39;required|valid_email|is_unique[users.email]&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;password&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;required|min_length[8]&#39;</span><span class="p">,</span>
                 <span class="s1">&#39;pass_confirm&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required_with[password]|matches[password]&#39;</span>
         <span class="p">];</span>
 
         <span class="k">protected</span> <span class="nv">$validationMessages</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">&#39;email&#39;</span>        <span class="o">=&gt;</span> <span class="p">[</span>
                         <span class="s1">&#39;is_unique&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Sorry. That email has already been taken. Please choose another.&#39;</span>
                 <span class="p">]</span>
         <span class="p">];</span>
@@ -638,8 +638,8 @@ or primary keys do not get changed.</p>
 <p>Occasionally, you will find times where you need to be able to change these elements. This is often during
 testing, migrations, or seeds. In these cases, you can turn the protection on or off:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$model</span><span class="o">-&gt;</span><span class="na">protect</span><span class="p">(</span><span class="k">false</span><span class="p">)</span>
-          <span class="o">-&gt;</span><span class="na">insert</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span>
-          <span class="o">-&gt;</span><span class="na">protect</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+      <span class="o">-&gt;</span><span class="na">insert</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span>
+      <span class="o">-&gt;</span><span class="na">protect</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -654,8 +654,8 @@ need it:</p>
 <p>You can also use Query Builder methods and the Model’s CRUD methods in the same chained call, allowing for
 very elegant use:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$users</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;active&#39;</span><span class="p">)</span>
-                                        <span class="o">-&gt;</span><span class="na">orderBy</span><span class="p">(</span><span class="s1">&#39;last_login&#39;</span><span class="p">,</span> <span class="s1">&#39;asc&#39;</span><span class="p">)</span>
-                                        <span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+                   <span class="o">-&gt;</span><span class="na">orderBy</span><span class="p">(</span><span class="s1">&#39;last_login&#39;</span><span class="p">,</span> <span class="s1">&#39;asc&#39;</span><span class="p">)</span>
+                   <span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -728,7 +728,7 @@ you can use the <strong>encodeID()</strong> method to get the hashed ID.</p>
 </pre></div>
 </div>
 <p>If you ever need to decode the hash, you may do so with the <strong>decodeID()</strong> method.</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$hash</span> <span class="o">=</span> <span class="nv">$model</span><span class="o">-&gt;</span><span class="na">encodeID</span><span class="p">(</span><span class="mi">123</span><span class="p">);</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$hash</span>  <span class="o">=</span> <span class="nv">$model</span><span class="o">-&gt;</span><span class="na">encodeID</span><span class="p">(</span><span class="mi">123</span><span class="p">);</span>
 <span class="nv">$check</span> <span class="o">=</span> <span class="nv">$model</span><span class="o">-&gt;</span><span class="na">decodeID</span><span class="p">(</span><span class="nv">$hash</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -906,7 +906,7 @@ Builder. <strong>data</strong> = unused.</dd>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 01, 2017.
+      Last updated on Oct 08, 2017.
 
     </p>
   </div>

@@ -237,7 +237,7 @@ represent your settings:</p>
 
 <span class="k">class</span> <span class="nc">App</span> <span class="k">extends</span> <span class="nx">\CodeIgniter\Config\BaseConfig</span> <span class="p">{</span>
 
-        <span class="k">public</span> <span class="nv">$siteName</span> <span class="o">=</span> <span class="s1">&#39;My Great Site&#39;</span><span class="p">;</span>
+        <span class="k">public</span> <span class="nv">$siteName</span>  <span class="o">=</span> <span class="s1">&#39;My Great Site&#39;</span><span class="p">;</span>
         <span class="k">public</span> <span class="nv">$siteEmail</span> <span class="o">=</span> <span class="s1">&#39;webmaster@example.com&#39;</span><span class="p">;</span>
 
 <span class="p">}</span>
@@ -337,7 +337,7 @@ contains a dot:</p>
 </pre></div>
 </div>
 <p>If this was referring to a SimpleConfig configuration object, the above example would be treated as:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$address</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Berlin&quot;</span><span class="p">;</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$address</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="s2">&quot;Berlin&quot;</span><span class="p">;</span>
 <span class="nv">$address</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Germany&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -372,8 +372,8 @@ the same way as described for namespaced variables.</p>
 <p>A sample configuration class setup for this:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="nx">App\Config</span><span class="p">;</span>
 <span class="k">class</span> <span class="nc">MySalesConfig</span> <span class="k">extends</span> <span class="nx">\CodeIgniter\Config\BaseConfig</span> <span class="p">{</span>
-    <span class="k">public</span> <span class="nv">$target</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-    <span class="k">public</span> <span class="nv">$campaign</span> <span class="o">=</span> <span class="s2">&quot;Winter Wonderland&quot;</span><span class="p">;</span>
+    <span class="k">public</span> <span class="nv">$target</span>        <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="k">public</span> <span class="nv">$campaign</span>      <span class="o">=</span> <span class="s2">&quot;Winter Wonderland&quot;</span><span class="p">;</span>
     <span class="k">protected</span> <span class="nv">$registrars</span> <span class="o">=</span> <span class="p">[</span>
         <span class="s1">&#39;\App\Models\RegionalSales&#39;</span><span class="p">;</span>
     <span class="p">];</span>
@@ -392,7 +392,7 @@ the same way as described for namespaced variables.</p>
 <p>With the above example, when <cite>MySalesConfig</cite> is instantiated, it will end up with
 the two properties declared, but the value of the <cite>$target</cite> property will be over-ridden
 by treating <cite>RegionalSalesModel</cite> as a “registrar”. The resulting configuration properties:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$target</span> <span class="o">=</span> <span class="mi">45</span><span class="p">;</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$target</span>   <span class="o">=</span> <span class="mi">45</span><span class="p">;</span>
 <span class="nv">$campaign</span> <span class="o">=</span> <span class="s2">&quot;Winter Wonderland&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -422,7 +422,7 @@ by treating <cite>RegionalSalesModel</cite> as a “registrar”. The resulting 
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 01, 2017.
+      Last updated on Oct 08, 2017.
 
     </p>
   </div>

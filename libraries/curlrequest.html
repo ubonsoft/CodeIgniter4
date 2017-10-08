@@ -224,7 +224,7 @@ will provide it, so please check with your host to verify if you run into proble
 The options are described later in this document:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$options</span> <span class="o">=</span> <span class="p">[</span>
         <span class="s1">&#39;base_uri&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;http://example.com/api/v1/&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;timeout&#39;</span> <span class="o">=&gt;</span> <span class="mi">3</span>
+        <span class="s1">&#39;timeout&#39;</span>  <span class="o">=&gt;</span> <span class="mi">3</span>
 <span class="p">];</span>
 <span class="nv">$client</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">curlrequest</span><span class="p">(</span><span class="nv">$options</span><span class="p">);</span>
 </pre></div>
@@ -344,7 +344,7 @@ examples of how the combinations are resolved.</p>
 <p>Each <code class="docutils literal"><span class="pre">request()</span></code> call returns a Response object that contains a lot of useful information and some helpful
 methods. The most commonly used methods let you determine the response itself.</p>
 <p>You can get the status code and reason phrase of the response:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$code</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">statusCode</span><span class="p">();</span>    <span class="c1">// 200</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$code</span>   <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">statusCode</span><span class="p">();</span>    <span class="c1">// 200</span>
 <span class="nv">$reason</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">reason</span><span class="p">();</span>      <span class="c1">// OK</span>
 </pre></div>
 </div>
@@ -389,14 +389,14 @@ allows you to modify how that works.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;http://example.com&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;allow_redirects&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">]);</span>
 
 <span class="c1">// Sets the following defaults:</span>
-<span class="s1">&#39;max&#39;</span>       <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span>   <span class="c1">// Maximum number of redirects to follow before stopping</span>
-<span class="s1">&#39;strict&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>   <span class="c1">// Ensure POST requests stay POST requests through redirects</span>
+<span class="s1">&#39;max&#39;</span>       <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span> <span class="c1">// Maximum number of redirects to follow before stopping</span>
+<span class="s1">&#39;strict&#39;</span>    <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span> <span class="c1">// Ensure POST requests stay POST requests through redirects</span>
 <span class="s1">&#39;protocols&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;http&#39;</span><span class="p">,</span> <span class="s1">&#39;https&#39;</span><span class="p">]</span> <span class="c1">// Restrict redirects to one or more protocols</span>
 </pre></div>
 </div>
 <p>You can pass in array as the value of the <code class="docutils literal"><span class="pre">allow_redirects</span></code> option to specify new settings in place of the defaults:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;http://example.com&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;allow_redirects&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-        <span class="s1">&#39;max&#39;</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s1">&#39;max&#39;</span>       <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
         <span class="s1">&#39;protocols&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;https&#39;</span><span class="p">]</span> <span class="c1">// Force HTTPS domains only.</span>
 <span class="p">]]);</span>
 </pre></div>
@@ -501,11 +501,11 @@ further headers arrays or calls to <code class="docutils literal"><span class="p
 <p>By default, CURLRequest will fail if the HTTP code returned is greater than or equal to 400. You can set
 <code class="docutils literal"><span class="pre">http_errors</span></code> to <code class="docutils literal"><span class="pre">false</span></code> to return the content instead:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;/status/500&#39;</span><span class="p">);</span>
-    <span class="c1">// Will fail verbosely</span>
+<span class="c1">// Will fail verbosely</span>
 
-    <span class="nv">$res</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;/status/500&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;http_errors&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">]);</span>
-    <span class="k">echo</span> <span class="nv">$res</span><span class="o">-&gt;</span><span class="na">statusCode</span><span class="p">();</span>
-    <span class="c1">// 500</span>
+<span class="nv">$res</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;/status/500&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;http_errors&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">]);</span>
+<span class="k">echo</span> <span class="nv">$res</span><span class="o">-&gt;</span><span class="na">statusCode</span><span class="p">();</span>
+<span class="c1">// 500</span>
 </pre></div>
 </div>
 </div>
@@ -525,7 +525,7 @@ the <a class="reference external" href="http://php.net/manual/en/class.curlfile.
 of POST data to send. For safer usage, the legacy method of uploading files by prefixing their name with an <cite>&#64;</cite>
 has been disabled. Any files that you want to send must be passed as instances of CURLFile:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$post_data</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;foo&#39;</span>      <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span>
         <span class="s1">&#39;userfile&#39;</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nx">CURLFile</span><span class="p">(</span><span class="s1">&#39;/path/to/file.txt&#39;</span><span class="p">)</span>
 <span class="p">];</span>
 </pre></div>
@@ -600,7 +600,7 @@ or 1.1, 2.0 is currently unsupported.):</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 01, 2017.
+      Last updated on Oct 08, 2017.
 
     </p>
   </div>

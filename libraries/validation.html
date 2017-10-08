@@ -361,28 +361,28 @@ this code and save it to your <strong>application/Views/</strong> folder:</p>
 <h3><a class="toc-backref" href="#id6">The Controller</a><a class="headerlink" href="#the-controller" title="Permalink to this headline">¶</a></h3>
 <p>Using a text editor, create a controller called <strong>Form.php</strong>. In it, place
 this code and save it to your <strong>application/Controllers/</strong> folder:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span>    <span class="o">&lt;?</span><span class="nx">php</span> <span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
 
 <span class="k">use</span> <span class="nx">CodeIgniter\Controller</span><span class="p">;</span>
 
-    <span class="k">class</span> <span class="nc">Form</span> <span class="k">extends</span> <span class="nx">Controller</span>
-    <span class="p">{</span>
-            <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span>
-            <span class="p">{</span>
+<span class="k">class</span> <span class="nc">Form</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+        <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span>
+        <span class="p">{</span>
                 <span class="nx">helper</span><span class="p">([</span><span class="s1">&#39;form&#39;</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="p">]);</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">([]))</span>
-                    <span class="p">{</span>
-                            <span class="k">echo</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;Signup&#39;</span><span class="p">,</span> <span class="p">[</span>
+                <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">([]))</span>
+                <span class="p">{</span>
+                        <span class="k">echo</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;Signup&#39;</span><span class="p">,</span> <span class="p">[</span>
                                 <span class="s1">&#39;validation&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validation</span>
-                            <span class="p">]);</span>
-                    <span class="p">}</span>
-                    <span class="k">else</span>
-                    <span class="p">{</span>
-                            <span class="k">echo</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;Success&#39;</span><span class="p">);</span>
-                    <span class="p">}</span>
-            <span class="p">}</span>
-    <span class="p">}</span>
+                        <span class="p">]);</span>
+                <span class="p">}</span>
+                <span class="k">else</span>
+                <span class="p">{</span>
+                        <span class="k">echo</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;Success&#39;</span><span class="p">);</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -525,9 +525,9 @@ be used for any errors when this group is used:</p>
 
     <span class="k">public</span> <span class="nv">$signup_errors</span> <span class="o">=</span> <span class="p">[</span>
         <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-            <span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;You must choose a username.&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;required&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;You must choose a username.&#39;</span><span class="p">,</span>
         <span class="p">],</span>
-        <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">&#39;email&#39;</span>    <span class="o">=&gt;</span> <span class="p">[</span>
             <span class="s1">&#39;valid_email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Please check the Email field. It does not appear to be valid.&#39;</span>
         <span class="p">]</span>
     <span class="p">];</span>
@@ -577,7 +577,7 @@ instance. If not custom error message is provided, the default value will be use
 <p>Here is a more practical example:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$rules</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-        <span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;All accounts must have usernames provided&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;required&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;All accounts must have usernames provided&#39;</span><span class="p">,</span>
     <span class="p">],</span>
     <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
         <span class="s1">&#39;min_length&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Your password is too short. You want to get hacked?&#39;</span>
@@ -651,7 +651,7 @@ a new view at <strong>/application/Views/_errors_list.php</strong>:</p>
 the name of the field that had the error, and the value is the error message, like this:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$errors</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;The username field must be unique.&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;You must provide a valid email address.&#39;</span>
+    <span class="s1">&#39;email&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;You must provide a valid email address.&#39;</span>
 <span class="p">];</span>
 </pre></div>
 </div>
@@ -668,8 +668,8 @@ error message. This is used with the <code class="docutils literal"><span class=
 Inside, you’ll find the <code class="docutils literal"><span class="pre">$templates</span></code> property where you can list as many custom views as you want, and provide an
 short alias they can be referenced by. If we were to add our example file from above, it would look something like:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="nv">$templates</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;list&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;CodeIgniter\Validation\Views\list&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;single&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;CodeIgniter\Validation\Views\single&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;list&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;CodeIgniter\Validation\Views\list&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;single&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;CodeIgniter\Validation\Views\single&#39;</span><span class="p">,</span>
     <span class="s1">&#39;my_list&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;_errors_list&#39;</span>
 <span class="p">];</span>
 </pre></div>
@@ -696,7 +696,7 @@ add the new file to the <code class="docutils literal"><span class="pre">$ruleSe
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="nv">$ruleSets</span> <span class="o">=</span> <span class="p">[</span>
             <span class="nx">\CodeIgniter\Validation\Rules</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
             <span class="nx">\CodeIgniter\Validation\FileRules</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
-    <span class="nx">\CodeIgniter\Validation\CreditCardRules</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+            <span class="nx">\CodeIgniter\Validation\CreditCardRules</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
     <span class="p">];</span>
 </pre></div>
 </div>
@@ -740,30 +740,30 @@ second parameter:</p>
 the parameter string, and an array with all of the data that was submitted the form. The $data array is especially handy
 for rules like <code class="docutils literal"><span class="pre">require_with</span></code> that needs to check the value of another submitted field to base its result on:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">required_with</span><span class="p">(</span><span class="nv">$str</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$fields</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$data</span><span class="p">)</span><span class="o">:</span> <span class="nx">bool</span>
-    <span class="p">{</span>
+<span class="p">{</span>
         <span class="nv">$fields</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="nv">$fields</span><span class="p">);</span>
 
-            <span class="c1">// If the field is present we can safely assume that</span>
-            <span class="c1">// the field is here, no matter whether the corresponding</span>
-            <span class="c1">// search field is present or not.</span>
-            <span class="nv">$present</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">required</span><span class="p">(</span><span class="nv">$data</span><span class="p">[</span><span class="nv">$str</span><span class="p">]</span> <span class="o">??</span> <span class="k">null</span><span class="p">);</span>
+        <span class="c1">// If the field is present we can safely assume that</span>
+        <span class="c1">// the field is here, no matter whether the corresponding</span>
+        <span class="c1">// search field is present or not.</span>
+        <span class="nv">$present</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">required</span><span class="p">(</span><span class="nv">$data</span><span class="p">[</span><span class="nv">$str</span><span class="p">]</span> <span class="o">??</span> <span class="k">null</span><span class="p">);</span>
 
-            <span class="k">if</span> <span class="p">(</span><span class="nv">$present</span> <span class="o">===</span> <span class="k">true</span><span class="p">)</span>
-            <span class="p">{</span>
-                    <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
-            <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$present</span> <span class="o">===</span> <span class="k">true</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+        <span class="p">}</span>
 
-            <span class="c1">// Still here? Then we fail this test if</span>
-            <span class="c1">// any of the fields are present in $data</span>
-            <span class="nv">$requiredFields</span> <span class="o">=</span> <span class="nb">array_intersect</span><span class="p">(</span><span class="nv">$fields</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
+        <span class="c1">// Still here? Then we fail this test if</span>
+        <span class="c1">// any of the fields are present in $data</span>
+        <span class="nv">$requiredFields</span> <span class="o">=</span> <span class="nb">array_intersect</span><span class="p">(</span><span class="nv">$fields</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
 
-            <span class="nv">$requiredFields</span> <span class="o">=</span> <span class="nb">array_filter</span><span class="p">(</span><span class="nv">$requiredFields</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="nv">$item</span><span class="p">)</span>
-            <span class="p">{</span>
-                    <span class="k">return</span> <span class="o">!</span> <span class="k">empty</span><span class="p">(</span><span class="nv">$item</span><span class="p">);</span>
-            <span class="p">});</span>
+        <span class="nv">$requiredFields</span> <span class="o">=</span> <span class="nb">array_filter</span><span class="p">(</span><span class="nv">$requiredFields</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="nv">$item</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="k">return</span> <span class="o">!</span> <span class="k">empty</span><span class="p">(</span><span class="nv">$item</span><span class="p">);</span>
+        <span class="p">});</span>
 
-            <span class="k">return</span> <span class="o">!</span> <span class="p">(</span><span class="nx">bool</span><span class="p">)</span><span class="nb">count</span><span class="p">(</span><span class="nv">$requiredFields</span><span class="p">);</span>
-    <span class="p">}</span>
+        <span class="k">return</span> <span class="o">!</span> <span class="p">(</span><span class="nx">bool</span><span class="p">)</span><span class="nb">count</span><span class="p">(</span><span class="nv">$requiredFields</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Custom errors can be returned as the fourth parameter, just as described above.</p>
@@ -1056,7 +1056,7 @@ the field data).</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 01, 2017.
+      Last updated on Oct 08, 2017.
 
     </p>
   </div>
