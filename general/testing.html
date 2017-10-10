@@ -402,6 +402,18 @@ the HTTP status code is within the 200 or 300 ranges:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
+<p><strong>isRedirect()</strong></p>
+<p>Checks to see if the final response was a redirection of some sort:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$results</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">withBody</span><span class="p">(</span><span class="nv">$body</span><span class="p">)</span>
+                 <span class="o">-&gt;</span><span class="na">controller</span><span class="p">(</span><span class="nx">\App\Controllers\ForumController</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+                 <span class="o">-&gt;</span><span class="na">execute</span><span class="p">(</span><span class="s1">&#39;showCategories&#39;</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$results</span><span class="o">-&gt;</span><span class="na">isRedirect</span><span class="p">())</span>
+<span class="p">{</span>
+    <span class="o">.</span> <span class="o">.</span> <span class="o">.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <p><strong>request()</strong></p>
 <p>You can access the Request object that was generated with this method:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$results</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">withBody</span><span class="p">(</span><span class="nv">$body</span><span class="p">)</span>
@@ -429,6 +441,61 @@ be generated HTML, or a JSON response, etc.:</p>
 
 <span class="nv">$body</span> <span class="o">=</span> <span class="nv">$results</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">();</span>
 </pre></div>
+</div>
+<div class="section" id="response-helper-methods">
+<h4>Response Helper methods<a class="headerlink" href="#response-helper-methods" title="Permalink to this headline">¶</a></h4>
+<p>The response you get back contains a number of helper methods to inspect the HTML output within the response. These
+are useful for using within assertions in your tests.</p>
+<p>The <strong>see()</strong> method checks the text on the page to see if it exists either by itself, or more specifically within
+a tag, as specified by type, class, or id:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="c1">// Check that &quot;Hello World&quot; is on the page</span>
+<span class="nv">$results</span><span class="o">-&gt;</span><span class="na">see</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">);</span>
+<span class="c1">// Check that &quot;Hello World&quot; is within an h1 tag</span>
+<span class="nv">$results</span><span class="o">-&gt;</span><span class="na">see</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">,</span> <span class="s1">&#39;h1&#39;</span><span class="p">);</span>
+<span class="c1">// Check that &quot;Hello World&quot; is within an element with the &quot;notice&quot; class</span>
+<span class="nv">$results</span><span class="o">-&gt;</span><span class="na">see</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">,</span> <span class="s1">&#39;.notice&#39;</span><span class="p">);</span>
+<span class="c1">// Check that &quot;Hello World&quot; is within an element with id of &quot;title&quot;</span>
+<span class="nv">$results</span><span class="o">-&gt;</span><span class="na">see</span><span class="p">(</span><span class="s1">&#39;Hellow World&#39;</span><span class="p">,</span> <span class="s1">&#39;#title&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The <strong>dontSee()</strong> method is the exact opposite:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span>// Checks that &quot;Hello World&quot; does NOT exist on the page
+$results-&gt;dontSee(&#39;Hello World&quot;);
+// Checks that &quot;Hellow World&quot; does NOT exist within any h1 tag
+$results-&gt;dontSee(&#39;Hello World&#39;, &#39;h1&#39;);
+</pre></div>
+</div>
+<p>The <strong>seeElement()</strong> and <strong>dontSeeElement()</strong> are very similar to the previous methods, but do not look at the
+values of the elements. Instead, they simply check that the elements exist on the page:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="c1">// Check that an element with class &#39;notice&#39; exists</span>
+<span class="nv">$results</span><span class="o">-&gt;</span><span class="na">seeElement</span><span class="p">(</span><span class="s1">&#39;.notice&#39;</span><span class="p">);</span>
+<span class="c1">// Check that an element with id &#39;title&#39; exists</span>
+<span class="nv">$results</span><span class="o">-&gt;</span><span class="na">seeElement</span><span class="p">(</span><span class="s1">&#39;#title&#39;</span><span class="p">)</span>
+<span class="c1">// Verify that an element with id &#39;title&#39; does NOT exist</span>
+<span class="nv">$results</span><span class="o">-&gt;</span><span class="na">dontSeeElement</span><span class="p">(</span><span class="s1">&#39;#title&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You can use <strong>seeLink()</strong> to ensure that a link appears on the page with the specified text:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="c1">// Check that a link exists with &#39;Upgrade Account&#39; as the text::</span>
+<span class="nv">$results</span><span class="o">-&gt;</span><span class="na">seeLink</span><span class="p">(</span><span class="s1">&#39;Upgrade Account&#39;</span><span class="p">);</span>
+<span class="c1">// Check that a link exists with &#39;Upgrade Account&#39; as the text, AND a class of &#39;upsell&#39;</span>
+<span class="nv">$results</span><span class="o">-&gt;</span><span class="na">seeLink</span><span class="p">(</span><span class="s1">&#39;Upgrade Account&#39;</span><span class="p">,</span> <span class="s1">&#39;.upsell&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The <strong>seeInField()</strong> method checks for any input tags exist with the name and value:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="c1">// Check that an input exists named &#39;user&#39; with the value &#39;John Snow&#39;</span>
+<span class="nv">$results</span><span class="o">-&gt;</span><span class="na">seeInField</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;John Snow&#39;</span><span class="p">);</span>
+<span class="c1">// Check a multi-dimensional input</span>
+<span class="nv">$results</span><span class="o">-&gt;</span><span class="na">seeInField</span><span class="p">(</span><span class="s1">&#39;user[name]&#39;</span><span class="p">,</span> <span class="s1">&#39;John Snow&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Finally, you can check if a checkbox exists and is checked with the <strong>seeCheckboxIsChecked()</strong> method:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="c1">// Check if checkbox is checked with class of &#39;foo&#39;</span>
+<span class="nv">$results</span><span class="o">-&gt;</span><span class="na">seeCheckboxIsChecked</span><span class="p">(</span><span class="s1">&#39;.foo&#39;</span><span class="p">);</span>
+<span class="c1">// Check if checkbox with id of &#39;bar&#39; is checked</span>
+<span class="nv">$results</span><span class="o">-&gt;</span><span class="na">seeCheckboxIsChecked</span><span class="p">(</span><span class="s1">&#39;#bar&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -582,7 +649,7 @@ array with the data to insert into the table.</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 08, 2017.
+      Last updated on Oct 10, 2017.
 
     </p>
   </div>
