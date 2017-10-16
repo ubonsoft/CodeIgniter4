@@ -206,18 +206,20 @@ database.</p>
 <li><a class="reference internal" href="#creating-and-dropping-tables" id="id4">Creating and Dropping Tables</a><ul>
 <li><a class="reference internal" href="#adding-fields" id="id5">Adding fields</a></li>
 <li><a class="reference internal" href="#adding-keys" id="id6">Adding Keys</a></li>
-<li><a class="reference internal" href="#creating-a-table" id="id7">Creating a table</a></li>
-<li><a class="reference internal" href="#dropping-a-table" id="id8">Dropping a table</a></li>
-<li><a class="reference internal" href="#renaming-a-table" id="id9">Renaming a table</a></li>
+<li><a class="reference internal" href="#adding-foreign-keys" id="id7">Adding Foreign Keys</a></li>
+<li><a class="reference internal" href="#creating-a-table" id="id8">Creating a table</a></li>
+<li><a class="reference internal" href="#dropping-a-table" id="id9">Dropping a table</a></li>
+<li><a class="reference internal" href="#dropping-a-foreign-key" id="id10">Dropping a Foreign Key</a></li>
+<li><a class="reference internal" href="#renaming-a-table" id="id11">Renaming a table</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#modifying-tables" id="id10">Modifying Tables</a><ul>
-<li><a class="reference internal" href="#adding-a-column-to-a-table" id="id11">Adding a Column to a Table</a></li>
-<li><a class="reference internal" href="#dropping-a-column-from-a-table" id="id12">Dropping a Column From a Table</a></li>
-<li><a class="reference internal" href="#modifying-a-column-in-a-table" id="id13">Modifying a Column in a Table</a></li>
+<li><a class="reference internal" href="#modifying-tables" id="id12">Modifying Tables</a><ul>
+<li><a class="reference internal" href="#adding-a-column-to-a-table" id="id13">Adding a Column to a Table</a></li>
+<li><a class="reference internal" href="#dropping-a-column-from-a-table" id="id14">Dropping a Column From a Table</a></li>
+<li><a class="reference internal" href="#modifying-a-column-in-a-table" id="id15">Modifying a Column in a Table</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#class-reference" id="id14">Class Reference</a></li>
+<li><a class="reference internal" href="#class-reference" id="id16">Class Reference</a></li>
 </ul>
 </li>
 </ul>
@@ -372,8 +374,20 @@ below is for MySQL.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="adding-foreign-keys">
+<h3><a class="toc-backref" href="#id7">Adding Foreign Keys</a><a class="headerlink" href="#adding-foreign-keys" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">addForeignKey</span><span class="p">(</span><span class="s1">&#39;users_id&#39;</span><span class="p">,</span><span class="s1">&#39;users&#39;</span><span class="p">,</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
+<span class="c1">// gives CONSTRAINT `TABLENAME_users_foreign` FOREIGN KEY(`users_id`) REFERENCES `users`(`id`)</span>
+</pre></div>
+</div>
+<p>You can specify the desired action for the “on delete” and “on update” properties of the constraint:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">addForeignKey</span><span class="p">(</span><span class="s1">&#39;users_id&#39;</span><span class="p">,</span><span class="s1">&#39;users&#39;</span><span class="p">,</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="s1">&#39;CASCADE&#39;</span><span class="p">,</span><span class="s1">&#39;CASCADE&#39;</span><span class="p">);</span>
+<span class="c1">// gives CONSTRAINT `TABLENAME_users_foreign` FOREIGN KEY(`users_id`) REFERENCES `users`(`id`) ON DELETE CASCADE ON UPDATE CASCADE</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="creating-a-table">
-<h3><a class="toc-backref" href="#id7">Creating a table</a><a class="headerlink" href="#creating-a-table" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id8">Creating a table</a><a class="headerlink" href="#creating-a-table" title="Permalink to this headline">¶</a></h3>
 <p>After fields and keys have been declared, you can create a new table
 with</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">createTable</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">);</span>
@@ -400,7 +414,7 @@ and <em>DBCollat</em> values, as long as they are not empty (MySQL only).</p>
 </div>
 </div>
 <div class="section" id="dropping-a-table">
-<h3><a class="toc-backref" href="#id8">Dropping a table</a><a class="headerlink" href="#dropping-a-table" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id9">Dropping a table</a><a class="headerlink" href="#dropping-a-table" title="Permalink to this headline">¶</a></h3>
 <p>Execute a DROP TABLE statement and optionally add an IF EXISTS clause.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="c1">// Produces: DROP TABLE table_name</span>
 <span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">dropTable</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">);</span>
@@ -410,8 +424,16 @@ and <em>DBCollat</em> values, as long as they are not empty (MySQL only).</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="dropping-a-foreign-key">
+<h3><a class="toc-backref" href="#id10">Dropping a Foreign Key</a><a class="headerlink" href="#dropping-a-foreign-key" title="Permalink to this headline">¶</a></h3>
+<p>Execute a DROP FOREIGN KEY.</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="c1">// Produces: ALTER TABLE &#39;tablename&#39; DROP FOREIGN KEY &#39;users_foreign&#39;</span>
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">dropForeignKey</span><span class="p">(</span><span class="s1">&#39;tablename&#39;</span><span class="p">,</span><span class="s1">&#39;users_foreign&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="renaming-a-table">
-<h3><a class="toc-backref" href="#id9">Renaming a table</a><a class="headerlink" href="#renaming-a-table" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id11">Renaming a table</a><a class="headerlink" href="#renaming-a-table" title="Permalink to this headline">¶</a></h3>
 <p>Executes a TABLE rename</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">renameTable</span><span class="p">(</span><span class="s1">&#39;old_table_name&#39;</span><span class="p">,</span> <span class="s1">&#39;new_table_name&#39;</span><span class="p">);</span>
 <span class="c1">// gives ALTER TABLE old_table_name RENAME TO new_table_name</span>
@@ -420,9 +442,9 @@ and <em>DBCollat</em> values, as long as they are not empty (MySQL only).</p>
 </div>
 </div>
 <div class="section" id="modifying-tables">
-<h2><a class="toc-backref" href="#id10">Modifying Tables</a><a class="headerlink" href="#modifying-tables" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">Modifying Tables</a><a class="headerlink" href="#modifying-tables" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="adding-a-column-to-a-table">
-<h3><a class="toc-backref" href="#id11">Adding a Column to a Table</a><a class="headerlink" href="#adding-a-column-to-a-table" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id13">Adding a Column to a Table</a><a class="headerlink" href="#adding-a-column-to-a-table" title="Permalink to this headline">¶</a></h3>
 <p><strong>$forge-&gt;addColumn()</strong></p>
 <p>The <code class="docutils literal"><span class="pre">addColumn()</span></code> method is used to modify an existing table. It
 accepts the same field array as above, and can be used for an unlimited
@@ -450,7 +472,7 @@ AFTER and FIRST clauses to position the new column.</p>
 </div>
 </div>
 <div class="section" id="dropping-a-column-from-a-table">
-<h3><a class="toc-backref" href="#id12">Dropping a Column From a Table</a><a class="headerlink" href="#dropping-a-column-from-a-table" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id14">Dropping a Column From a Table</a><a class="headerlink" href="#dropping-a-column-from-a-table" title="Permalink to this headline">¶</a></h3>
 <p><strong>$forge-&gt;dropColumn()</strong></p>
 <p>Used to remove a column from a table.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">dropColumn</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">,</span> <span class="s1">&#39;column_to_drop&#39;</span><span class="p">);</span>
@@ -458,7 +480,7 @@ AFTER and FIRST clauses to position the new column.</p>
 </div>
 </div>
 <div class="section" id="modifying-a-column-in-a-table">
-<h3><a class="toc-backref" href="#id13">Modifying a Column in a Table</a><a class="headerlink" href="#modifying-a-column-in-a-table" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id15">Modifying a Column in a Table</a><a class="headerlink" href="#modifying-a-column-in-a-table" title="Permalink to this headline">¶</a></h3>
 <p><strong>$forge-&gt;modifyColumn()</strong></p>
 <p>The usage of this method is identical to <code class="docutils literal"><span class="pre">add_column()</span></code>, except it
 alters an existing column rather than adding a new one. In order to
@@ -476,7 +498,7 @@ change the name you can add a “name” key into the field defining array.</p>
 </div>
 </div>
 <div class="section" id="class-reference">
-<h2><a class="toc-backref" href="#id14">Class Reference</a><a class="headerlink" href="#class-reference" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id16">Class Reference</a><a class="headerlink" href="#class-reference" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="CodeIgniterDatabaseForge">
 <em class="property">class </em><code class="descname">CodeIgniterDatabaseForge</code><a class="headerlink" href="#CodeIgniterDatabaseForge" title="Permalink to this definition">¶</a></dt>
@@ -746,7 +768,7 @@ change the name you can add a “name” key into the field defining array.</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 08, 2017.
+      Last updated on Oct 16, 2017.
 
     </p>
   </div>
