@@ -326,7 +326,7 @@ actually deleting the row. This can preserve data when it might be referenced el
 can maintain a “recycle bin” of objects that can be restored, or even simply preserve it as
 part of a security trail. If true, the find* methods will only return non-deleted rows, unless
 the withDeleted() method is called prior to calling the find* method.</p>
-<p>This requires an INT or TINYINT field named <code class="docutils literal"><span class="pre">deleted</span></code> to be present in the table.</p>
+<p>This requires an INT or TINYINT field to be present in the table for storing state.The default field name is  <code class="docutils literal"><span class="pre">deleted</span></code> however this name can be configured to any name of your choice by using $deletedField property.</p>
 <p><strong>$allowedFields</strong></p>
 <p>This array should be updated with the field names that can be set during save, insert, or
 update methods. Any field names other than these will be discarded. This helps to protect
@@ -906,7 +906,7 @@ Builder. <strong>data</strong> = unused.</dd>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 08, 2017.
+      Last updated on Oct 18, 2017.
 
     </p>
   </div>
