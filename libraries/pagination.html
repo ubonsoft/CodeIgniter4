@@ -109,8 +109,8 @@
 <li class="toctree-l2"><a class="reference internal" href="cli.html">CLI Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="content_negotiation.html">Content Negotiation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="curlrequest.html">CURLRequest Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="images.html">Image Manipulation Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="files.html">Working with Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html">Image Manipulation Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="incomingrequest.html">IncomingRequest Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="localization.html">Localization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="message.html">HTTP Messages</a></li>
@@ -120,6 +120,7 @@
 <li class="toctree-l2"><a class="reference internal" href="security.html">Security Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sessions.html">Session Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="throttler.html">Throttler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html">Dates and Times</a></li>
 <li class="toctree-l2"><a class="reference internal" href="typography.html">Typography</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uploaded_files.html">Working with Uploaded Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uri.html">Working with URIs</a></li>
@@ -242,7 +243,7 @@ that and assign it to the $pager variable in the view.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&lt;?=</span> <span class="nv">$pager</span><span class="o">-&gt;</span><span class="na">links</span><span class="p">()</span> <span class="cp">?&gt;</span>
 </pre></div>
 </div>
-<p>And that’s all it takes. The Pager class will render a series of links that are compatible with the Boostrap CSS
+<p>And that’s all it takes. The Pager class will render a series of links that are compatible with the Bootstrap CSS
 framework by default. It will have First and Last page links, as well as Next and Previous links for any pages more
 than two pages on either side of the current page.</p>
 <p>If you prefer a simpler output, you can use the <code class="docutils literal"><span class="pre">simpleLinks()</span></code> method, which only uses “Older” and “Newer” links,
@@ -341,8 +342,8 @@ methods:</p>
 <div class="section" id="creating-the-view">
 <h3>Creating the View<a class="headerlink" href="#creating-the-view" title="Permalink to this headline">¶</a></h3>
 <p>When you create a new view, you only need to create the code that is needed for creating the pagination links themselves.
-You should never create unneccessary wrapping divs since it might be used in multiple places and you only limit their
-usefullness. It is easiest to demonstrate creating a new view by showing you the existing default_full template:</p>
+You should never create unnecessary wrapping divs since it might be used in multiple places and you only limit their
+usefulness. It is easiest to demonstrate creating a new view by showing you the existing default_full template:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span> <span class="nv">$pager</span><span class="o">-&gt;</span><span class="na">setSurroundCount</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="cp">?&gt;</span>
 
 <span class="p">&lt;</span><span class="nt">nav</span> <span class="na">aria-label</span><span class="o">=</span><span class="s">&quot;Page navigation&quot;</span><span class="p">&gt;</span>
@@ -439,7 +440,7 @@ title, which is just the number, and a boolean that tells whether the link is th
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 01, 2017.
+      Last updated on Oct 28, 2017.
 
     </p>
   </div>

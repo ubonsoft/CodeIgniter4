@@ -109,8 +109,8 @@
 <li class="toctree-l2"><a class="reference internal" href="cli.html">CLI Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="content_negotiation.html">Content Negotiation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="curlrequest.html">CURLRequest Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="images.html">Image Manipulation Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="files.html">Working with Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html">Image Manipulation Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="incomingrequest.html">IncomingRequest Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="localization.html">Localization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="message.html">HTTP Messages</a></li>
@@ -120,6 +120,7 @@
 <li class="toctree-l2"><a class="reference internal" href="security.html">Security Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sessions.html">Session Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="throttler.html">Throttler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html">Dates and Times</a></li>
 <li class="toctree-l2"><a class="reference internal" href="typography.html">Typography</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Working with Uploaded Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uri.html">Working with URIs</a></li>
@@ -318,9 +319,9 @@ The array returns in a manner that you would expect. With the simplest usage, a 
 <p>In controller:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="nv">$imagefile</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getFiles</span><span class="p">())</span>
 <span class="p">{</span>
-   <span class="k">foreach</span><span class="p">(</span><span class="nv">$imagefile</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">]</span> <span class="k">as</span> <span class="nv">$Im</span><span class="p">)</span>
+   <span class="k">foreach</span><span class="p">(</span><span class="nv">$imagefile</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">]</span> <span class="k">as</span> <span class="nv">$img</span><span class="p">)</span>
    <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="nv">$im</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="o">!</span> <span class="nv">$im</span><span class="o">-&gt;</span><span class="na">hasMoved</span><span class="p">())</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nv">$img</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="o">!</span> <span class="nv">$img</span><span class="o">-&gt;</span><span class="na">hasMoved</span><span class="p">())</span>
       <span class="p">{</span>
            <span class="nv">$newName</span> <span class="o">=</span> <span class="nv">$img</span><span class="o">-&gt;</span><span class="na">getRandomName</span><span class="p">();</span>
            <span class="nv">$img</span><span class="o">-&gt;</span><span class="na">move</span><span class="p">(</span><span class="nx">WRITEPATH</span><span class="o">.</span><span class="s1">&#39;uploads&#39;</span><span class="p">,</span> <span class="nv">$newName</span><span class="p">);</span>
@@ -463,7 +464,7 @@ the <code class="docutils literal"><span class="pre">hasMoved()</span></code> me
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 08, 2017.
+      Last updated on Oct 28, 2017.
 
     </p>
   </div>

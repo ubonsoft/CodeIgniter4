@@ -356,6 +356,14 @@ This must be called before you add the route:</p>
 <h2><a class="toc-backref" href="#id6">Regular Expressions</a><a class="headerlink" href="#regular-expressions" title="Permalink to this headline">¶</a></h2>
 <p>If you prefer you can use regular expressions to define your routing rules. Any valid regular expression
 is allowed, as are back-references.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p>Note: If you use back-references you must use the dollar syntax rather than the double backslash syntax.
+A typical RegEx route might look something like this:</p>
+<div class="last highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;products/([a-z]+)/(\d+)&#39;</span><span class="p">,</span> <span class="s1">&#39;$1::id_$2&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
 <p>In the above example, a URI similar to products/shirts/123 would instead call the “Shirts” controller class
 and the “id_123” method.</p>
 <p>With regular expressions, you can also catch a segment containing a forward slash (‘/’), which would usually
@@ -780,7 +788,7 @@ Routes files should be scanned for within each of the PSR4 namespaces defined in
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 08, 2017.
+      Last updated on Oct 28, 2017.
 
     </p>
   </div>

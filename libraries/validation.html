@@ -109,8 +109,8 @@
 <li class="toctree-l2"><a class="reference internal" href="cli.html">CLI Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="content_negotiation.html">Content Negotiation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="curlrequest.html">CURLRequest Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="images.html">Image Manipulation Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="files.html">Working with Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html">Image Manipulation Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="incomingrequest.html">IncomingRequest Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="localization.html">Localization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="message.html">HTTP Messages</a></li>
@@ -120,6 +120,7 @@
 <li class="toctree-l2"><a class="reference internal" href="security.html">Security Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sessions.html">Session Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="throttler.html">Throttler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html">Dates and Times</a></li>
 <li class="toctree-l2"><a class="reference internal" href="typography.html">Typography</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uploaded_files.html">Working with Uploaded Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uri.html">Working with URIs</a></li>
@@ -395,7 +396,7 @@ this code and save it to your <strong>application/Controllers/</strong> folder:<
 <p>If you submit the form you should simply see the form reload. That’s
 because you haven’t set up any validation rules yet.</p>
 <p><strong>Since you haven’t told the Validation class to validate anything
-yet, it returns false (boolean false) by default. The ``validate()`` method
+yet, it returns false (boolean false) by default. The</strong> <code class="docutils literal"><span class="pre">validate()</span></code> <strong>method
 only returns true if it has successfully applied your rules without any
 of them failing.</strong></p>
 </div>
@@ -481,9 +482,10 @@ data to be validated:</p>
 </div>
 <div class="section" id="validate-1-value">
 <h2><a class="toc-backref" href="#id14">Validate 1 Value</a><a class="headerlink" href="#validate-1-value" title="Permalink to this headline">¶</a></h2>
-<p>Validate one value against a rule.</p>
-<blockquote>
-<div>$validation-&gt;check($value, ‘required’);</div></blockquote>
+<p>Validate one value against a rule:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">check</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="s1">&#39;required&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="saving-sets-of-validation-rules-to-the-config-file">
 <h2><a class="toc-backref" href="#id15">Saving Sets of Validation Rules to the Config File</a><a class="headerlink" href="#saving-sets-of-validation-rules-to-the-config-file" title="Permalink to this headline">¶</a></h2>
@@ -540,15 +542,17 @@ be used for any errors when this group is used:</p>
 <h3><a class="toc-backref" href="#id17">Getting &amp; Setting Rule Groups</a><a class="headerlink" href="#getting-setting-rule-groups" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="get-rule-group">
 <h4><a class="toc-backref" href="#id18">Get Rule Group</a><a class="headerlink" href="#get-rule-group" title="Permalink to this headline">¶</a></h4>
-<p>This method gets a rule group from the validation configuration.</p>
-<blockquote>
-<div>$validation-&gt;getRuleGroup(‘signup’);</div></blockquote>
+<p>This method gets a rule group from the validation configuration:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">getRuleGroup</span><span class="p">(</span><span class="s1">&#39;signup&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="set-rule-group">
 <h4><a class="toc-backref" href="#id19">Set Rule Group</a><a class="headerlink" href="#set-rule-group" title="Permalink to this headline">¶</a></h4>
-<p>This method sets a rule group from the validation configuration to the validation service.</p>
-<blockquote>
-<div>$validation-&gt;setRuleGroup(‘signup’);</div></blockquote>
+<p>This method sets a rule group from the validation configuration to the validation service:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">setRuleGroup</span><span class="p">(</span><span class="s1">&#39;signup&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -1056,7 +1060,7 @@ the field data).</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 08, 2017.
+      Last updated on Oct 28, 2017.
 
     </p>
   </div>

@@ -323,6 +323,12 @@ function will create it.</p>
 for mode options.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
+<p class="last">In order for this function to write data to a file, its permissions must
+be set such that it is writable. If the file does not already exist,
+then the directory containing it must be writable.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
 <p class="last">The path is relative to your main site index.php file, NOT your
 controller or view files. CodeIgniter uses a front controller so paths
 are always relative to the main site index.</p>
@@ -583,7 +589,7 @@ cause an error to be triggered if the path cannot be resolved.</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 01, 2017.
+      Last updated on Oct 28, 2017.
 
     </p>
   </div>

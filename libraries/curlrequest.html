@@ -39,7 +39,7 @@
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="CodeIgniter4 4.0.0-dev documentation" href="../index.html"/>
         <link rel="up" title="Library Reference" href="index.html"/>
-        <link rel="next" title="Image Manipulation Class" href="images.html"/>
+        <link rel="next" title="Working with Files" href="files.html"/>
         <link rel="prev" title="Content Negotiation" href="content_negotiation.html"/> 
 
   
@@ -109,8 +109,8 @@
 <li class="toctree-l2"><a class="reference internal" href="cli.html">CLI Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="content_negotiation.html">Content Negotiation</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">CURLRequest Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="images.html">Image Manipulation Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="files.html">Working with Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html">Image Manipulation Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="incomingrequest.html">IncomingRequest Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="localization.html">Localization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="message.html">HTTP Messages</a></li>
@@ -120,6 +120,7 @@
 <li class="toctree-l2"><a class="reference internal" href="security.html">Security Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sessions.html">Session Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="throttler.html">Throttler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html">Dates and Times</a></li>
 <li class="toctree-l2"><a class="reference internal" href="typography.html">Typography</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uploaded_files.html">Working with Uploaded Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uri.html">Working with URIs</a></li>
@@ -353,7 +354,7 @@ methods. The most commonly used methods let you determine the response itself.</
 <span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">header</span><span class="p">(</span><span class="s1">&#39;Content-type&#39;</span><span class="p">);</span>
 
 <span class="c1">// Get all headers</span>
-<span class="k">foreach</span> <span class="p">(</span><span class="nv">$repsonse</span><span class="o">-&gt;</span><span class="na">headers</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$name</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="p">)</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">headers</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$name</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="p">)</span>
 <span class="p">{</span>
         <span class="k">echo</span> <span class="nv">$name</span> <span class="o">.</span><span class="s1">&#39;: &#39;</span><span class="o">.</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">headerLine</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span> <span class="o">.</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
 <span class="p">}</span>
@@ -400,6 +401,10 @@ allows you to modify how that works.</p>
         <span class="s1">&#39;protocols&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;https&#39;</span><span class="p">]</span> <span class="c1">// Force HTTPS domains only.</span>
 <span class="p">]]);</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Following redirects does not work when PHP is in safe_mode or open_basedir is enabled.</p>
 </div>
 </div>
 <div class="section" id="auth">
@@ -478,6 +483,12 @@ if it’s not already set:</p>
 <span class="p">]);</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><code class="docutils literal"><span class="pre">form_params</span></code> cannot be used with the <code class="docutils literal"><span class="pre">multipart</span></code> option. You will need to use one or the other.
+Use <code class="docutils literal"><span class="pre">form_params</span></code> for <code class="docutils literal"><span class="pre">application/x-www-form-urlencoded</span></code> request, and <code class="docutils literal"><span class="pre">multipart</span></code> for <code class="docutils literal"><span class="pre">multipart/form-data</span></code>
+requests.</p>
+</div>
 </div>
 <div class="section" id="headers">
 <h3>headers<a class="headerlink" href="#headers" title="Permalink to this headline">¶</a></h3>
@@ -517,6 +528,12 @@ this option can be any value that <code class="docutils literal"><span class="pr
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$response</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;PUT&#39;</span><span class="p">,</span> <span class="s1">&#39;/put&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;json&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">]]);</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This option does not allow for any customization of the <code class="docutils literal"><span class="pre">json_encode()</span></code> function, or the Content-Type
+header. If you need that ability, you will need to encode the data manually, passing it through the <code class="docutils literal"><span class="pre">setBody()</span></code>
+method of CURLRequest, and set the Content-Type header with the <code class="docutils literal"><span class="pre">setHeader()</span></code> method.</p>
+</div>
 </div>
 <div class="section" id="multipart">
 <h3>multipart<a class="headerlink" href="#multipart" title="Permalink to this headline">¶</a></h3>
@@ -529,6 +546,12 @@ has been disabled. Any files that you want to send must be passed as instances o
         <span class="s1">&#39;userfile&#39;</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nx">CURLFile</span><span class="p">(</span><span class="s1">&#39;/path/to/file.txt&#39;</span><span class="p">)</span>
 <span class="p">];</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><code class="docutils literal"><span class="pre">multipart</span></code> cannot be used with the <code class="docutils literal"><span class="pre">form_params</span></code> option. You can only use one or the other. Use
+<code class="docutils literal"><span class="pre">form_params</span></code> for <code class="docutils literal"><span class="pre">application/x-www-form-urlencoded</span></code> requests, and <code class="docutils literal"><span class="pre">multipart</span></code> for <code class="docutils literal"><span class="pre">multipart/form-data</span></code>
+requests.</p>
 </div>
 </div>
 <div class="section" id="query">
@@ -587,7 +610,7 @@ or 1.1, 2.0 is currently unsupported.):</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="images.html" class="btn btn-neutral float-right" title="Image Manipulation Class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="files.html" class="btn btn-neutral float-right" title="Working with Files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="content_negotiation.html" class="btn btn-neutral" title="Content Negotiation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -600,7 +623,7 @@ or 1.1, 2.0 is currently unsupported.):</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 08, 2017.
+      Last updated on Oct 28, 2017.
 
     </p>
   </div>

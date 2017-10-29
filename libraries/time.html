@@ -37,7 +37,10 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="CodeIgniter4 4.0.0-dev documentation" href="../index.html"/> 
+    <link rel="top" title="CodeIgniter4 4.0.0-dev documentation" href="../index.html"/>
+        <link rel="up" title="Library Reference" href="index.html"/>
+        <link rel="next" title="Typography" href="typography.html"/>
+        <link rel="prev" title="Throttler" href="throttler.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -98,8 +101,32 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../general/index.html">General Topics</a></li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="index.html">Library Reference</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Library Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api_responses.html">API Response Trait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="benchmark.html">Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="caching.html">Caching Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curlrequest.html">CURLRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html">Working with Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html">Image Manipulation Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization.html">Localization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message.html">HTTP Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pagination.html">Pagination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="request.html">Request Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Security Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sessions.html">Session Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="throttler.html">Throttler</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Dates and Times</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uploaded_files.html">Working with Uploaded Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html">Working with URIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation.html">Validation</a></li>
+</ul>
+</li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../database/index.html">Database Reference</a></li>
@@ -153,6 +180,8 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
+          <li><a href="index.html">Library Reference</a> &raquo;</li>
+        
       <li>Dates and Times</li>
     
     
@@ -174,7 +203,7 @@
 <h1>Dates and Times<a class="headerlink" href="#dates-and-times" title="Permalink to this headline">¶</a></h1>
 <p>CodeIgniter provides a fully-localized, immutable, date/time class that is built on PHP’s DateTime object, but uses the Intl
 extension’s features to convert times across timezones and display the output correctly for different locales. This class
-is the <strong>Time</strong> class and lives in the <strong>CodeIgniterI18n</strong> namespace.</p>
+is the <strong>Time</strong> class and lives in the <strong>CodeIgniter\I18n</strong> namespace.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Since the Time class extends DateTime, if there are features that you need that this class doesn’t provide,
@@ -299,9 +328,9 @@ for the timezone and locale in the second and third parameters:</p>
 <p>Given separate inputs for <strong>year</strong>, <strong>month</strong>, and <strong>day</strong>, will return a new instance. If any of these parameters
 are not provided, it will use the current value to fill it in. Accepts strings for the timezone and locale in the
 fourth and fifth parameters:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$today</span> <span class="o">=</span> <span class="nx">Time</span><span class="o">::</span><span class="na">createFromDate</span><span class="p">();</span>            <span class="c1">// Uses current year, month, and day</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$today</span>       <span class="o">=</span> <span class="nx">Time</span><span class="o">::</span><span class="na">createFromDate</span><span class="p">();</span>            <span class="c1">// Uses current year, month, and day</span>
 <span class="nv">$anniversary</span> <span class="o">=</span> <span class="nx">Time</span><span class="o">::</span><span class="na">createFromDate</span><span class="p">(</span><span class="mi">2018</span><span class="p">);</span>  <span class="c1">// Uses current month and day</span>
-<span class="nv">$date</span> <span class="o">=</span> <span class="nx">Time</span><span class="o">::</span><span class="na">createFromDate</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="s1">&#39;America/Chicago&#39;</span><span class="p">,</span> <span class="s1">&#39;en_US&#39;</span><span class="p">);</span>
+<span class="nv">$date</span>        <span class="o">=</span> <span class="nx">Time</span><span class="o">::</span><span class="na">createFromDate</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="s1">&#39;America/Chicago&#39;</span><span class="p">,</span> <span class="s1">&#39;en_US&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -310,9 +339,9 @@ fourth and fifth parameters:</p>
 <p>Like <strong>createFromDate</strong> except it is only concerned with the <strong>hours</strong>, <strong>minutes</strong>, and <strong>seconds</strong>. Uses the
 current day for the date portion of the Time instance. Accepts strings for the timezone and locale in the
 fourth and fifth parameters:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$lunch</span> <span class="o">=</span> <span class="nx">Time</span><span class="o">::</span><span class="na">createFromTime</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>       <span class="c1">// 11:30 am today</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$lunch</span>  <span class="o">=</span> <span class="nx">Time</span><span class="o">::</span><span class="na">createFromTime</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>       <span class="c1">// 11:30 am today</span>
 <span class="nv">$dinner</span> <span class="o">=</span> <span class="nx">Time</span><span class="o">::</span><span class="na">createFromTime</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mo">00</span><span class="p">,</span> <span class="mo">00</span><span class="p">)</span>  <span class="c1">// 6:00 pm today</span>
-<span class="nv">$time</span> <span class="o">=</span> <span class="nx">Time</span><span class="o">::</span><span class="na">createFromTime</span><span class="p">(</span><span class="nv">$hour</span><span class="p">,</span> <span class="nv">$minutes</span><span class="p">,</span> <span class="nv">$seconds</span><span class="p">,</span> <span class="nv">$timezone</span><span class="p">,</span> <span class="nv">$locale</span><span class="p">);</span>
+<span class="nv">$time</span>   <span class="o">=</span> <span class="nx">Time</span><span class="o">::</span><span class="na">createFromTime</span><span class="p">(</span><span class="nv">$hour</span><span class="p">,</span> <span class="nv">$minutes</span><span class="p">,</span> <span class="nv">$seconds</span><span class="p">,</span> <span class="nv">$timezone</span><span class="p">,</span> <span class="nv">$locale</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -345,7 +374,7 @@ and returns a <strong>Time</strong> instance, instead of DateTime:</p>
 <p>When working with other libraries that provide a DateTime instance, you can use this method to convert that
 to a Time instance, optionally setting the locale. The timezone will be automatically determined from the DateTime
 instance passed in:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$dt</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DateTime</span><span class="p">(</span><span class="s1">&#39;now&#39;</span><span class="p">);</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$dt</span>   <span class="o">=</span> <span class="k">new</span> <span class="nx">DateTime</span><span class="p">(</span><span class="s1">&#39;now&#39;</span><span class="p">);</span>
 <span class="nv">$time</span> <span class="o">=</span> <span class="nx">Time</span><span class="o">::</span><span class="na">instance</span><span class="p">(</span><span class="nv">$dt</span><span class="p">,</span> <span class="s1">&#39;en_US&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -370,11 +399,10 @@ to display localized versions of the value, though.</p>
 <p>This is the localized version of DateTime’s format() method. Instead of using the values you might be familiar with, though,
 you must use values acceptable to the <a class="reference external" href="http://php.net/manual/en/class.intldateformatter.php">IntlDateFormatter</a> class.
 A full listing of values can be found <a class="reference external" href="http://www.icu-project.org/apiref/icu4c/classSimpleDateFormat.html#details">here</a>.</p>
-<dl class="docutils">
-<dt>::</dt>
-<dd>$time = Time::parse(‘March 9, 2016 12:00:00’, ‘America/Chicago’);
-echo $time-&gt;toLocalizedString(‘MMM d, yyyy’);   // March 9, 2016</dd>
-</dl>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$time</span> <span class="o">=</span> <span class="nx">Time</span><span class="o">::</span><span class="na">parse</span><span class="p">(</span><span class="s1">&#39;March 9, 2016 12:00:00&#39;</span><span class="p">,</span> <span class="s1">&#39;America/Chicago&#39;</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nv">$time</span><span class="o">-&gt;</span><span class="na">toLocalizedString</span><span class="p">(</span><span class="s1">&#39;MMM d, yyyy&#39;</span><span class="p">);</span>   <span class="c1">// March 9, 2016</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="todatetimestring">
 <h3><a class="toc-backref" href="#id18">toDateTimeString()</a><a class="headerlink" href="#todatetimestring" title="Permalink to this headline">¶</a></h3>
@@ -542,7 +570,7 @@ thrown.</p>
 <div class="section" id="settimezone">
 <h3><a class="toc-backref" href="#id31">setTimezone()</a><a class="headerlink" href="#settimezone" title="Permalink to this headline">¶</a></h3>
 <p>Converts the time from it’s current timezone into the new one:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$time</span> <span class="o">=</span> <span class="nx">Time</span><span class="o">::</span><span class="na">parse</span><span class="p">(</span><span class="s1">&#39;May 10, 2017&#39;</span><span class="p">,</span> <span class="s1">&#39;America/Chicago&#39;</span><span class="p">);</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$time</span>  <span class="o">=</span> <span class="nx">Time</span><span class="o">::</span><span class="na">parse</span><span class="p">(</span><span class="s1">&#39;May 10, 2017&#39;</span><span class="p">,</span> <span class="s1">&#39;America/Chicago&#39;</span><span class="p">);</span>
 <span class="nv">$time2</span> <span class="o">=</span> <span class="nv">$time</span><span class="o">-&gt;</span><span class="na">setTimezone</span><span class="p">(</span><span class="s1">&#39;Europe/London&#39;</span><span class="p">);</span>           <span class="c1">// Returns new instance converted to new timezone</span>
 
 <span class="k">echo</span> <span class="nv">$time</span><span class="o">-&gt;</span><span class="na">timezoneName</span><span class="p">;</span>   <span class="c1">// American/Chicago</span>
@@ -717,13 +745,22 @@ $time &lt; 1 minute                 Now</p>
           </div>
           <footer>
   
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="typography.html" class="btn btn-neutral float-right" title="Typography" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="throttler.html" class="btn btn-neutral" title="Throttler" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 01, 2017.
+      Last updated on Oct 28, 2017.
 
     </p>
   </div>

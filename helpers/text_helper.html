@@ -418,7 +418,7 @@ alias for <code class="docutils literal"><span class="pre">stripslashes()</span>
 </tr>
 </tbody>
 </table>
-<p>Reduces multiple instances of a particular character occuring directly
+<p>Reduces multiple instances of a particular character occurring directly
 after each other. Example:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$string</span> <span class="o">=</span> <span class="s2">&quot;Fred, Bill,, Joe, Jimmy&quot;</span><span class="p">;</span>
 <span class="nv">$string</span> <span class="o">=</span> <span class="nx">reduce_multiples</span><span class="p">(</span><span class="nv">$string</span><span class="p">,</span><span class="s2">&quot;,&quot;</span><span class="p">);</span> <span class="c1">//results in &quot;Fred, Bill, Joe, Jimmy&quot;</span>
@@ -590,6 +590,31 @@ the normal range (like accented characters).</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$string</span> <span class="o">=</span> <span class="nx">ascii_to_entities</span><span class="p">(</span><span class="nv">$string</span><span class="p">);</span>
 </pre></div>
 </div>
+</dd></dl>
+
+<dl class="function">
+<dt id="entities_to_ascii">
+<code class="descname">entities_to_ascii</code><span class="sig-paren">(</span><em>$str</em><span class="optional">[</span>, <em>$all = TRUE</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#entities_to_ascii" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>$str</strong> (<em>string</em>) – Input string</li>
+<li><strong>$all</strong> (<em>bool</em>) – Whether to convert unsafe entities as well</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A string with HTML entities converted to ASCII characters</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">string</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function does the opposite of <a class="reference internal" href="#ascii_to_entities" title="ascii_to_entities"><code class="xref php php-func docutils literal"><span class="pre">ascii_to_entities()</span></code></a>.
+It turns character entities back into ASCII.</p>
 </dd></dl>
 
 <dl class="function">
@@ -896,7 +921,7 @@ at the end.</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 08, 2017.
+      Last updated on Oct 28, 2017.
 
     </p>
   </div>
