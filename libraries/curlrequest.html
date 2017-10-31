@@ -218,7 +218,7 @@ will provide it, so please check with your host to verify if you run into proble
 <h2>Loading the Library<a class="headerlink" href="#loading-the-library" title="Permalink to this headline">¶</a></h2>
 <p>The library can be loaded either manually or through the <a class="reference internal" href="../concepts/services.html"><span class="doc">Services class</span></a>.</p>
 <p>To load with the Services class call the <code class="docutils literal"><span class="pre">curlrequest()</span></code> method:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$client</span> <span class="o">=</span> <span class="nx">\CodeIgniter\HTTP\Services</span><span class="o">::</span><span class="na">curlrequest</span><span class="p">();</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$client</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">curlrequest</span><span class="p">();</span>
 </pre></div>
 </div>
 <p>You can pass in an array of default options as the first parameter to modify how cURL will handle the request.
@@ -236,7 +236,7 @@ parameter is a Response object. The fourth parameter is the optional <code class
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\CodeIgniter\HTTP\CURLRequest</span><span class="p">(</span>
         <span class="k">new</span> <span class="nx">\Config\App</span><span class="p">(),</span>
         <span class="k">new</span> <span class="nx">\CodeIgniter\HTTP\URI</span><span class="p">(),</span>
-        <span class="k">new</span> <span class="nx">\CodeIgniter\HTTP\Response</span><span class="p">(),</span>
+        <span class="k">new</span> <span class="nx">\CodeIgniter\HTTP\Response</span><span class="p">(</span><span class="k">new</span> <span class="nx">\Config\App</span><span class="p">()),</span>
         <span class="nv">$options</span>
 <span class="p">);</span>
 </pre></div>
@@ -251,7 +251,7 @@ you have complete control over how the information is handled.</p>
 <h3>Making Requests<a class="headerlink" href="#making-requests" title="Permalink to this headline">¶</a></h3>
 <p>Most communication is done through the <code class="docutils literal"><span class="pre">request()</span></code> method, which fires off the request, and then returns
 a Response instance to you. This takes the HTTP method, the url and an array of options as the parameters.</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$client</span> <span class="o">=</span> <span class="nx">Services</span><span class="o">::</span><span class="na">curlrequest</span><span class="p">();</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$client</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">curlrequest</span><span class="p">();</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;https://api.github.com/user&#39;</span><span class="p">,</span> <span class="p">[</span>
         <span class="s1">&#39;auth&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;pass&#39;</span><span class="p">]</span>
@@ -260,9 +260,9 @@ a Response instance to you. This takes the HTTP method, the url and an array of 
 </div>
 <p>Since the response is an instance of <code class="docutils literal"><span class="pre">CodeIgniter\HTTP\Response</span></code> you have all of the normal information
 available to you:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">statusCode</span><span class="p">();</span>
-<span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">body</span><span class="p">();</span>
-<span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">header</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">);</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getStatusCode</span><span class="p">();</span>
+<span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">();</span>
+<span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getHeader</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">);</span>
 <span class="nv">$language</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">negotiateLanguage</span><span class="p">([</span><span class="s1">&#39;en&#39;</span><span class="p">,</span> <span class="s1">&#39;fr&#39;</span><span class="p">]);</span>
 </pre></div>
 </div>
@@ -282,7 +282,7 @@ each take the URL as the first parameter and an array of options as the second:<
 <p>A <code class="docutils literal"><span class="pre">base_uri</span></code> can be set as one of the options during the instantiation of the class. This allows you to
 set a base URI, and then make all requests with that client using relative URLs. This is especially handy
 when working with APIs:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$client</span> <span class="o">=</span> <span class="nx">Services</span><span class="o">::</span><span class="na">curlrequest</span><span class="p">([</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$client</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">curlrequest</span><span class="p">([</span>
         <span class="s1">&#39;base_uri&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;https://example.com/api/v1/&#39;</span>
 <span class="p">]);</span>
 
@@ -345,28 +345,28 @@ examples of how the combinations are resolved.</p>
 <p>Each <code class="docutils literal"><span class="pre">request()</span></code> call returns a Response object that contains a lot of useful information and some helpful
 methods. The most commonly used methods let you determine the response itself.</p>
 <p>You can get the status code and reason phrase of the response:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$code</span>   <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">statusCode</span><span class="p">();</span>    <span class="c1">// 200</span>
-<span class="nv">$reason</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">reason</span><span class="p">();</span>      <span class="c1">// OK</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$code</span>   <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getStatusCode</span><span class="p">();</span>    <span class="c1">// 200</span>
+<span class="nv">$reason</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getReason</span><span class="p">();</span>      <span class="c1">// OK</span>
 </pre></div>
 </div>
 <p>You can retrieve headers from the response:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="c1">// Get a header</span>
-<span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">header</span><span class="p">(</span><span class="s1">&#39;Content-type&#39;</span><span class="p">);</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="c1">// Get a header line</span>
+<span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getHeaderLine</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">);</span>
 
 <span class="c1">// Get all headers</span>
-<span class="k">foreach</span> <span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">headers</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$name</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="p">)</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getHeaders</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$name</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="p">)</span>
 <span class="p">{</span>
-        <span class="k">echo</span> <span class="nv">$name</span> <span class="o">.</span><span class="s1">&#39;: &#39;</span><span class="o">.</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">headerLine</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span> <span class="o">.</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+        <span class="k">echo</span> <span class="nv">$name</span> <span class="o">.</span><span class="s1">&#39;: &#39;</span><span class="o">.</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getHeaderLine</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span> <span class="o">.</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The body can be retrieved using the <code class="docutils literal"><span class="pre">body()</span></code> method:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$body</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">body</span><span class="p">();</span>
+<p>The body can be retrieved using the <code class="docutils literal"><span class="pre">getBody()</span></code> method:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$body</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">();</span>
 </pre></div>
 </div>
 <p>The body is the raw body provided by the remote getServer. If the content type requires formatting, you will need
 to ensure that your script handles that:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nb">strpos</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">header</span><span class="p">(</span><span class="s1">&#39;content-type&#39;</span><span class="p">),</span> <span class="s1">&#39;application/json&#39;</span><span class="p">)</span> <span class="o">!==</span> <span class="k">false</span><span class="p">)</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nb">strpos</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getHeader</span><span class="p">(</span><span class="s1">&#39;content-type&#39;</span><span class="p">),</span> <span class="s1">&#39;application/json&#39;</span><span class="p">)</span> <span class="o">!==</span> <span class="k">false</span><span class="p">)</span>
 <span class="p">{</span>
         <span class="nv">$body</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$body</span><span class="p">);</span>
 <span class="p">}</span>
@@ -515,7 +515,7 @@ further headers arrays or calls to <code class="docutils literal"><span class="p
 <span class="c1">// Will fail verbosely</span>
 
 <span class="nv">$res</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;/status/500&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;http_errors&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">]);</span>
-<span class="k">echo</span> <span class="nv">$res</span><span class="o">-&gt;</span><span class="na">statusCode</span><span class="p">();</span>
+<span class="k">echo</span> <span class="nv">$res</span><span class="o">-&gt;</span><span class="na">getStatusCode</span><span class="p">();</span>
 <span class="c1">// 500</span>
 </pre></div>
 </div>
@@ -623,7 +623,7 @@ or 1.1, 2.0 is currently unsupported.):</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 28, 2017.
+      Last updated on Oct 30, 2017.
 
     </p>
   </div>
