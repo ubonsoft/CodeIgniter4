@@ -766,7 +766,7 @@ engines, that you can use:</p>
 <p>By default, the <a class="reference internal" href="#files-driver">Files Driver</a> will be used when a session is initialized,
 because it is the most safe choice and is expected to work everywhere
 (virtually every environment has a file system).</p>
-<p>However, any other driver may be selected via the <code class="docutils literal"><span class="pre">$config['sessionDriver']</span></code>
+<p>However, any other driver may be selected via the <code class="docutils literal"><span class="pre">public</span> <span class="pre">$sessionDriver</span></code>
 line in your <strong>application/Config/App.php</strong> file, if you chose to do so.
 Have it in mind though, every driver has different caveats, so be sure to
 get yourself familiar with them (below) before you make that choice.</p>
@@ -780,7 +780,7 @@ mind that it is in fact not the same code and it has some limitations
 <p>To be more specific, it doesn’t support PHP’s <a class="reference external" href="http://php.net/manual/en/session.configuration.php#ini.session.save-path">directory level and mode
 formats used in session.save_path</a>,
 and it has most of the options hard-coded for safety. Instead, only
-absolute paths are supported for <code class="docutils literal"><span class="pre">$config['sess_save_path']</span></code>.</p>
+absolute paths are supported for <code class="docutils literal"><span class="pre">public</span> <span class="pre">$sessionSavePath</span></code>.</p>
 <p>Another important thing that you should know, is to make sure that you
 don’t use a publicly-readable or shared directory for storing your session
 files. Make sure that <em>only you</em> have access to see the contents of your
@@ -997,7 +997,7 @@ separate the multiple server paths with commas:</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 28, 2017.
+      Last updated on Nov 07, 2017.
 
     </p>
   </div>
