@@ -109,8 +109,8 @@
 <li class="toctree-l2"><a class="reference internal" href="cli.html">CLI Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="content_negotiation.html">Content Negotiation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="curlrequest.html">CURLRequest Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="images.html">Image Manipulation Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="files.html">Working with Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html">Image Manipulation Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="incomingrequest.html">IncomingRequest Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="localization.html">Localization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="message.html">HTTP Messages</a></li>
@@ -120,6 +120,7 @@
 <li class="toctree-l2"><a class="reference internal" href="security.html">Security Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sessions.html">Session Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="throttler.html">Throttler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html">Dates and Times</a></li>
 <li class="toctree-l2"><a class="reference internal" href="typography.html">Typography</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uploaded_files.html">Working with Uploaded Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uri.html">Working with URIs</a></li>
@@ -421,7 +422,7 @@ code of the error. The <code class="docutils literal"><span class="pre">messages
 
 <dl class="method">
 <dt id="failUnauthorized">
-<code class="descname">failUnauthorized</code><span class="sig-paren">(</span><em>string $description</em><span class="optional">[</span>, <em>string $code=null</em><span class="optional">[</span>, <em>string $message = ''</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#failUnauthorized" title="Permalink to this definition">¶</a></dt>
+<code class="descname">failUnauthorized</code><span class="sig-paren">(</span><em>string $description = 'Unauthorized'</em><span class="optional">[</span>, <em>string $code=null</em><span class="optional">[</span>, <em>string $message = ''</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#failUnauthorized" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -447,7 +448,7 @@ or has incorrect authorization. Status code is 401.</p>
 
 <dl class="method">
 <dt id="failForbidden">
-<code class="descname">failForbidden</code><span class="sig-paren">(</span><em>string $description</em><span class="optional">[</span>, <em>string $code=null</em><span class="optional">[</span>, <em>string $message = ''</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#failForbidden" title="Permalink to this definition">¶</a></dt>
+<code class="descname">failForbidden</code><span class="sig-paren">(</span><em>string $description = 'Forbidden'</em><span class="optional">[</span>, <em>string $code=null</em><span class="optional">[</span>, <em>string $message = ''</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#failForbidden" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -474,7 +475,7 @@ the client should not try again because it won’t help. Status code is 403.</p>
 
 <dl class="method">
 <dt id="failNotFound">
-<code class="descname">failNotFound</code><span class="sig-paren">(</span><em>string $description</em><span class="optional">[</span>, <em>string $code=null</em><span class="optional">[</span>, <em>string $message = ''</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#failNotFound" title="Permalink to this definition">¶</a></dt>
+<code class="descname">failNotFound</code><span class="sig-paren">(</span><em>string $description = 'Not Found'</em><span class="optional">[</span>, <em>string $code=null</em><span class="optional">[</span>, <em>string $message = ''</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#failNotFound" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -497,7 +498,7 @@ the client should not try again because it won’t help. Status code is 403.</p>
 
 <dl class="method">
 <dt id="failValidationError">
-<code class="descname">failValidationError</code><span class="sig-paren">(</span><em>string $description</em><span class="optional">[</span>, <em>string $code=null</em><span class="optional">[</span>, <em>string $message = ''</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#failValidationError" title="Permalink to this definition">¶</a></dt>
+<code class="descname">failValidationError</code><span class="sig-paren">(</span><em>string $description = 'Bad Request'</em><span class="optional">[</span>, <em>string $code=null</em><span class="optional">[</span>, <em>string $message = ''</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#failValidationError" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -523,7 +524,7 @@ Status code is typically 400.</p>
 
 <dl class="method">
 <dt id="failResourceExists">
-<code class="descname">failResourceExists</code><span class="sig-paren">(</span><em>string $description</em><span class="optional">[</span>, <em>string $code=null</em><span class="optional">[</span>, <em>string $message = ''</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#failResourceExists" title="Permalink to this definition">¶</a></dt>
+<code class="descname">failResourceExists</code><span class="sig-paren">(</span><em>string $description = 'Conflict'</em><span class="optional">[</span>, <em>string $code=null</em><span class="optional">[</span>, <em>string $message = ''</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#failResourceExists" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -549,7 +550,7 @@ Status code is typically 409.</p>
 
 <dl class="method">
 <dt id="failResourceGone">
-<code class="descname">failResourceGone</code><span class="sig-paren">(</span><em>string $description</em><span class="optional">[</span>, <em>string $code=null</em><span class="optional">[</span>, <em>string $message = ''</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#failResourceGone" title="Permalink to this definition">¶</a></dt>
+<code class="descname">failResourceGone</code><span class="sig-paren">(</span><em>string $description = 'Gone'</em><span class="optional">[</span>, <em>string $code=null</em><span class="optional">[</span>, <em>string $message = ''</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#failResourceGone" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -575,7 +576,7 @@ is no longer available. Status code is typically 410.</p>
 
 <dl class="method">
 <dt id="failTooManyRequests">
-<code class="descname">failTooManyRequests</code><span class="sig-paren">(</span><em>string $description</em><span class="optional">[</span>, <em>string $code=null</em><span class="optional">[</span>, <em>string $message = ''</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#failTooManyRequests" title="Permalink to this definition">¶</a></dt>
+<code class="descname">failTooManyRequests</code><span class="sig-paren">(</span><em>string $description = 'Too Many Requests'</em><span class="optional">[</span>, <em>string $code=null</em><span class="optional">[</span>, <em>string $message = ''</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#failTooManyRequests" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -601,7 +602,7 @@ This might be due to some form of throttling or rate limiting. Status code is ty
 
 <dl class="method">
 <dt id="failServerError">
-<code class="descname">failServerError</code><span class="sig-paren">(</span><em>string $description</em><span class="optional">[</span>, <em>string $code = null</em><span class="optional">[</span>, <em>string $message = ''</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#failServerError" title="Permalink to this definition">¶</a></dt>
+<code class="descname">failServerError</code><span class="sig-paren">(</span><em>string $description = 'Internal Server Error'</em><span class="optional">[</span>, <em>string $code = null</em><span class="optional">[</span>, <em>string $message = ''</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#failServerError" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -651,7 +652,7 @@ This might be due to some form of throttling or rate limiting. Status code is ty
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 08, 2017.
+      Last updated on Nov 08, 2017.
 
     </p>
   </div>
