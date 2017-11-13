@@ -40,7 +40,7 @@
     <link rel="top" title="CodeIgniter4 4.0.0-dev documentation" href="../index.html"/>
         <link rel="up" title="Library Reference" href="index.html"/>
         <link rel="next" title="Localization" href="localization.html"/>
-        <link rel="prev" title="Working with Files" href="files.html"/> 
+        <link rel="prev" title="Image Manipulation Class" href="images.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -109,8 +109,8 @@
 <li class="toctree-l2"><a class="reference internal" href="cli.html">CLI Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="content_negotiation.html">Content Negotiation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="curlrequest.html">CURLRequest Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="images.html">Image Manipulation Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="files.html">Working with Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html">Image Manipulation Class</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">IncomingRequest Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="localization.html">Localization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="message.html">HTTP Messages</a></li>
@@ -120,6 +120,7 @@
 <li class="toctree-l2"><a class="reference internal" href="security.html">Security Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sessions.html">Session Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="throttler.html">Throttler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html">Dates and Times</a></li>
 <li class="toctree-l2"><a class="reference internal" href="typography.html">Typography</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uploaded_files.html">Working with Uploaded Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uri.html">Working with URIs</a></li>
@@ -340,9 +341,10 @@ arrays, pass in <code class="docutils literal"><span class="pre">true</span></co
 <p>The second and third parameters match up to the <code class="docutils literal"><span class="pre">depth</span></code> and <code class="docutils literal"><span class="pre">options</span></code> arguments of the
 <a class="reference external" href="http://php.net/manual/en/function.json-decode.php">json_decode</a> PHP function.</p>
 <p><strong>Retrieving Raw data (PUT, PATCH, DELETE)</strong></p>
-<p>Finally, you can grab the contents of php://input as a raw stream with <code class="docutils literal"><span class="pre">getRawInput()</span></code>.</p>
-<blockquote>
-<div>$data = $request-&gt;getRawInput();</div></blockquote>
+<p>Finally, you can grab the contents of php://input as a raw stream with <code class="docutils literal"><span class="pre">getRawInput()</span></code>:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$data</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getRawInput</span><span class="p">();</span>
+</pre></div>
+</div>
 <p>This will retrieve data and convert it to an array. Like this:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nb">var_dump</span><span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getRawInput</span><span class="p">());</span>
 
@@ -396,7 +398,7 @@ specified header object in a case-insensitive manner if it exists. If not, then 
 </pre></div>
 </div>
 <p>If you need the value of header as a string with all values on one line, you can use the <code class="docutils literal"><span class="pre">getHeaderLine()</span></code> method:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span>    <span class="c1">// Accept-Encoding: gzip, deflate, sdch</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="c1">// Accept-Encoding: gzip, deflate, sdch</span>
 <span class="k">echo</span> <span class="s1">&#39;Accept-Encoding: &#39;</span><span class="o">.</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getHeaderLine</span><span class="p">(</span><span class="s1">&#39;accept-encoding&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -837,7 +839,7 @@ as an array.</p>
         <a href="localization.html" class="btn btn-neutral float-right" title="Localization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="files.html" class="btn btn-neutral" title="Working with Files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="images.html" class="btn btn-neutral" title="Image Manipulation Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -847,7 +849,7 @@ as an array.</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 08, 2017.
+      Last updated on Nov 12, 2017.
 
     </p>
   </div>

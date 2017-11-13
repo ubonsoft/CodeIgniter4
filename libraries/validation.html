@@ -510,7 +510,7 @@ rules. As shown earlier, the validation array will have this prototype:</p>
 </pre></div>
 </div>
 <p>You can specify the group to use when you call the <code class="docutils literal"><span class="pre">run()</span></code> method:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span> <span class="nv">$signup</span><span class="p">);</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$validation</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span> <span class="s1">&#39;signup&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>You can also store custom error messages in this configuration file by naming the
@@ -579,7 +579,7 @@ instance. If not custom error message is provided, the default value will be use
 </pre></div>
 </div>
 <p>Here is a more practical example:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$rules</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$messages</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
         <span class="s1">&#39;required&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;All accounts must have usernames provided&#39;</span><span class="p">,</span>
     <span class="p">],</span>
@@ -592,7 +592,7 @@ instance. If not custom error message is provided, the default value will be use
         <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|is_unique[users.username]&#39;</span><span class="p">,</span>
         <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|min_length[10]&#39;</span>
     <span class="p">],</span>
-    <span class="nv">$rules</span>
+    <span class="nv">$messages</span>
 <span class="p">);</span>
 </pre></div>
 </div>
@@ -948,13 +948,19 @@ column and value to ignore, useful when updating records to ignore itself.</td>
 <td>Fails if field does not contain a valid URL.</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>valid_cc_number</td>
+<tr class="row-odd"><td>valid_date</td>
+<td>No</td>
+<td>Fails if field does not contain a valid date. Accepts an optional parameter
+to matches a date format.</td>
+<td>valid_date[d/m/Y]</td>
+</tr>
+<tr class="row-even"><td>valid_cc_number</td>
 <td>Yes</td>
 <td>Verifies that the credit card number matches the format used by the specified provider.
 Current supported providers are: American Express (amex), China Unionpay (unionpay),
 Diners Club CarteBlance (carteblanche), Diners Club (dinersclub), Discover Card (discover),
 Interpayment (interpayment), JCB (jcb), Maestro (maestro), Dankort (dankort), NSPK MIR (mir),
-MasterCard (mastercard), Visa (visa), UATP (uatp), Verve (verve),
+Troy (troy), MasterCard (mastercard), Visa (visa), UATP (uatp), Verve (verve),
 CIBC Convenience Card (cibc), Royal Bank of Canada Client Card (rbc),
 TD Canada Trust Access Card (tdtrust), Scotiabank Scotia Card (scotia), BMO ABM Card (bmoabm),
 HSBC Canada Card (hsbc)</td>
@@ -1060,7 +1066,7 @@ the field data).</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 28, 2017.
+      Last updated on Nov 12, 2017.
 
     </p>
   </div>

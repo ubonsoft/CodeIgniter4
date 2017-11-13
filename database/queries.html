@@ -379,13 +379,17 @@ you.</p>
 <p>Instead of using the question mark to mark the location of the bound values,
 you can name the bindings, allowing the keys of the values passed in to match
 placeholders in the query:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM some_table WHERE id = :id AND status = :status AND author = :name&quot;</span><span class="p">;</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM some_table WHERE id = :id: AND status = :status: AND author = :name:&quot;</span><span class="p">;</span>
 <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="nv">$sql</span><span class="p">,</span> <span class="p">[</span>
         <span class="s1">&#39;id&#39;</span>     <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
         <span class="s1">&#39;status&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;live&#39;</span><span class="p">,</span>
         <span class="s1">&#39;name&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;Rick&#39;</span>
 <span class="p">]);</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Each name in the query MUST be surrounded by colons.</p>
 </div>
 </div>
 </div>
@@ -593,7 +597,7 @@ parameter is the value you want it replaced with:</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 28, 2017.
+      Last updated on Nov 12, 2017.
 
     </p>
   </div>

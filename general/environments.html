@@ -236,16 +236,16 @@ in order for it to show up under the <cite>$_SERVER</cite> variable. This allows
 virtual-host level, instead of using <cite>env</cite> to set it for the entire server, though that
 would work fine on a dedicated server. You would then modify your server config to something
 like:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nx">server</span> <span class="p">{</span>
-    <span class="nx">server_name</span> <span class="nx">localhost</span><span class="p">;</span>
-    <span class="k">include</span>     <span class="nx">conf</span><span class="o">/</span><span class="nx">defaults</span><span class="o">.</span><span class="nx">conf</span><span class="p">;</span>
-    <span class="nx">root</span>        <span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="nx">www</span><span class="p">;</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span>server {
+    server_name localhost;
+    include     conf/defaults.conf;
+    root        /var/www;
 
-    <span class="nx">location</span>    <span class="o">~*</span> <span class="s2">&quot;\.php$&quot;</span> <span class="p">{</span>
-        <span class="nx">fastcgi_param</span> <span class="nx">CI_ENVIRONMENT</span> <span class="s2">&quot;production&quot;</span><span class="p">;</span>
-        <span class="k">include</span> <span class="nx">conf</span><span class="o">/</span><span class="nx">fastcgi</span><span class="o">-</span><span class="nx">php</span><span class="o">.</span><span class="nx">conf</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+    location    ~* \.php$ {
+        fastcgi_param CI_ENVIRONMENT &quot;production&quot;;
+        include conf/fastcgi-php.conf;
+    }
+}
 </pre></div>
 </div>
 <p>Alternative methods are available for nginx and other servers, or you can
@@ -317,7 +317,7 @@ more detail in the Handling Different Environments section of the
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 28, 2017.
+      Last updated on Nov 12, 2017.
 
     </p>
   </div>

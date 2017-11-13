@@ -214,17 +214,15 @@ you just need to take advantage of any new functionality and you’re good to go
 error-resistant.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">It is recommended to only create services within controllers. Other files, like models</p>
+<p class="last">It is recommended to only create services within controllers. Other files, like models and libraries should have the dependencies either passed into the constructor or through a setter method.</p>
 </div>
-<p>and libraries should have the dependencies either passed into the constructor or through a
-setter method.</p>
 <div class="section" id="convenience-functions">
 <h3>Convenience Functions<a class="headerlink" href="#convenience-functions" title="Permalink to this headline">¶</a></h3>
 <p>Two functions have been provided for getting a service. These functions are always available.</p>
 <p>The first is <code class="docutils literal"><span class="pre">service()</span></code> which returns a new instance of the requested service. The only
 required parameter is the service name. This is the same as the method name within the Services
-file..Always returns a SHARED instance of the class, so calling the function multiple times should
-always return the same instance.:</p>
+file always returns a SHARED instance of the class, so calling the function multiple times should
+always return the same instance:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$logger</span> <span class="o">=</span> <span class="nx">service</span><span class="p">(</span><span class="s1">&#39;logger&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -234,8 +232,9 @@ always return the same instance.:</p>
 </div>
 <p>The second function, <code class="docutils literal"><span class="pre">single_service()</span></code> works just like <code class="docutils literal"><span class="pre">service()</span></code> but returns a new instance of
 the class:</p>
-<blockquote>
-<div>$logger = single_service(‘logger’);</div></blockquote>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$logger</span> <span class="o">=</span> <span class="nx">single_service</span><span class="p">(</span><span class="s1">&#39;logger&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="defining-services">
@@ -330,7 +329,7 @@ within the class, and, if not, creates a new one. All of the factory methods pro
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 08, 2017.
+      Last updated on Nov 12, 2017.
 
     </p>
   </div>
