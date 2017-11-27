@@ -350,6 +350,43 @@ If $data is an array, then it loops over it, escaping each ‘value’ of the ke
 </dd></dl>
 
 <dl class="function">
+<dt id="old">
+<code class="descname">old</code><span class="sig-paren">(</span><em>$key</em><span class="optional">[</span>, <em>$default</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#old" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>$key</strong> (<em>string</em>) – The name of the old form data to check for.</li>
+<li><strong>$default</strong> (<em>mixed</em>) – The default value to return if $key doesn’t exist.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The value of the defined key, or the default value.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">mixed</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Provides a simple way to access “old input data” from submitting a form.</p>
+<p>Example:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="c1">// in controller, checking form submittal</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$model</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$user</span><span class="p">))</span>
+<span class="p">{</span>
+        <span class="c1">// &#39;withInput&#39; is what specifies &quot;old data&quot;</span>
+        <span class="c1">// should be saved.</span>
+        <span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">back</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">withInput</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// In the view</span>
+<span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;email&quot;</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;email&quot;</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;&lt;?= old(&#39;email&#39;) ?&gt;&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
 <dt id="session">
 <code class="descname">session</code><span class="sig-paren">(</span><span class="optional">[</span><em>$key</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#session" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
@@ -852,7 +889,7 @@ instance every time.</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Oct 05, 2017.
+      Last updated on Nov 26, 2017.
 
     </p>
   </div>
