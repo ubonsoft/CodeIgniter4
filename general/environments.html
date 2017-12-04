@@ -216,8 +216,8 @@ the value provided in <code class="docutils literal"><span class="pre">$_SERVER[
 ‘production’. This can be set in several ways depending on your server setup.</p>
 <div class="section" id="env">
 <h3>.env<a class="headerlink" href="#env" title="Permalink to this headline">¶</a></h3>
-<p>The simplest method to set the variable is in your <a class="reference internal" href="configuration.html"><span class="doc">.env file</span></a>:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nx">CI_ENVIRONMENT</span> <span class="o">=</span> <span class="nx">development</span>
+<p>The simplest method to set the variable is in your <a class="reference internal" href="configuration.html"><span class="doc">.env file</span></a>.</p>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="na">CI_ENVIRONMENT</span> <span class="o">=</span> <span class="s">development</span>
 </pre></div>
 </div>
 </div>
@@ -225,7 +225,7 @@ the value provided in <code class="docutils literal"><span class="pre">$_SERVER[
 <h3>Apache<a class="headerlink" href="#apache" title="Permalink to this headline">¶</a></h3>
 <p>This server variable can be set in your <code class="docutils literal"><span class="pre">.htaccess</span></code> file, or Apache
 config using <a class="reference external" href="https://httpd.apache.org/docs/2.2/mod/mod_env.html#setenv">SetEnv</a>.</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nx">SetEnv</span> <span class="nx">CI_ENVIRONMENT</span> <span class="nx">development</span>
+<div class="highlight-apache"><div class="highlight"><pre><span></span><span class="nb">SetEnv</span> CI_ENVIRONMENT development
 </pre></div>
 </div>
 </div>
@@ -236,16 +236,16 @@ in order for it to show up under the <cite>$_SERVER</cite> variable. This allows
 virtual-host level, instead of using <cite>env</cite> to set it for the entire server, though that
 would work fine on a dedicated server. You would then modify your server config to something
 like:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span>server {
-    server_name localhost;
-    include     conf/defaults.conf;
-    root        /var/www;
+<div class="highlight-nginx"><div class="highlight"><pre><span></span><span class="k">server</span> <span class="p">{</span>
+    <span class="kn">server_name</span> <span class="s">localhost</span><span class="p">;</span>
+    <span class="kn">include</span>     <span class="s">conf/defaults.conf</span><span class="p">;</span>
+    <span class="kn">root</span>        <span class="s">/var/www</span><span class="p">;</span>
 
-    location    ~* \.php$ {
-        fastcgi_param CI_ENVIRONMENT &quot;production&quot;;
-        include conf/fastcgi-php.conf;
-    }
-}
+    <span class="kn">location</span>    <span class="p">~</span><span class="sr">*</span> <span class="s">\.php</span>$ <span class="p">{</span>
+        <span class="kn">fastcgi_param</span> <span class="s">CI_ENVIRONMENT</span> <span class="s">&quot;production&quot;</span><span class="p">;</span>
+        <span class="kn">include</span> <span class="s">conf/fastcgi-php.conf</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Alternative methods are available for nginx and other servers, or you can
@@ -317,7 +317,7 @@ more detail in the Handling Different Environments section of the
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Nov 12, 2017.
+      Last updated on Dec 03, 2017.
 
     </p>
   </div>
