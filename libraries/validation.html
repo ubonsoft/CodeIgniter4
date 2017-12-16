@@ -939,9 +939,20 @@ for rules like <code class="docutils literal"><span class="pre">require_with</sp
 <td>Fails if field does not match the regular expression.</td>
 <td>regex_match[/regex/]</td>
 </tr>
+<tr class="row-odd"><td>if_exist</td>
+<td>No</td>
+<td>If this rule is present, validation will only return possible errors if the field key exists,
+regardless of its value.</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>permit_empty</td>
+<td>No</td>
+<td>Allows the field to receive an empty array, empty string, null or false.</td>
+<td>&#160;</td>
+</tr>
 <tr class="row-odd"><td>required</td>
 <td>No</td>
-<td>Fails if the field is empty.</td>
+<td>Fails if the field is an empty array, empty string, null or false.</td>
 <td>&#160;</td>
 </tr>
 <tr class="row-even"><td>required_with</td>
@@ -1109,7 +1120,7 @@ the field data).</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Nov 15, 2017.
+      Last updated on Dec 15, 2017.
 
     </p>
   </div>
