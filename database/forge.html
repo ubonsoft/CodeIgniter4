@@ -354,8 +354,9 @@ Primary Key.</p>
 <div class="section" id="adding-keys">
 <h3><a class="toc-backref" href="#id6">Adding Keys</a><a class="headerlink" href="#adding-keys" title="Permalink to this headline">¶</a></h3>
 <p>Generally speaking, you’ll want your table to have Keys. This is
-accomplished with $forge-&gt;addKey(‘field’). An optional second
-parameter set to TRUE will make it a primary key. Note that addKey()
+accomplished with $forge-&gt;addKey(‘field’). The optional second
+parameter set to TRUE will make it a primary key and the third
+parameter set to TRUE will make it a unique key. Note that addKey()
 must be followed by a call to createTable().</p>
 <p>Multiple column non-primary keys must be sent as an array. Sample output
 below is for MySQL.</p>
@@ -371,6 +372,18 @@ below is for MySQL.</p>
 
 <span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">addKey</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;blog_name&#39;</span><span class="p">,</span> <span class="s1">&#39;blog_label&#39;</span><span class="p">));</span>
 <span class="c1">// gives KEY `blog_name_blog_label` (`blog_name`, `blog_label`)</span>
+
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">addKey</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;blog_id&#39;</span><span class="p">,</span> <span class="s1">&#39;uri&#39;</span><span class="p">),</span> <span class="k">FALSE</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
+<span class="c1">// gives UNIQUE KEY `blog_id_uri` (`blog_id`, `uri`)</span>
+</pre></div>
+</div>
+<p>To make code reading more objective it is also possible to add primary
+and unique keys with specific methods:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">addPrimaryKey</span><span class="p">(</span><span class="s1">&#39;blog_id&#39;</span><span class="p">);</span>
+<span class="c1">// gives PRIMARY KEY `blog_id` (`blog_id`)</span>
+
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">addUniqueKey</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;blog_id&#39;</span><span class="p">,</span> <span class="s1">&#39;uri&#39;</span><span class="p">));</span>
+<span class="c1">// gives UNIQUE KEY `blog_id_uri` (`blog_id`, `uri`)</span>
 </pre></div>
 </div>
 </div>
@@ -551,14 +564,15 @@ change the name you can add a “name” key into the field defining array.</p>
 
 <dl class="method">
 <dt id="CodeIgniterDatabaseForge::addKey">
-<code class="descname">addKey</code><span class="sig-paren">(</span><em>$key</em><span class="optional">[</span>, <em>$primary = FALSE</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniterDatabaseForge::addKey" title="Permalink to this definition">¶</a></dt>
+<code class="descname">addKey</code><span class="sig-paren">(</span><em>$key</em><span class="optional">[</span>, <em>$primary = FALSE</em><span class="optional">[</span>, <em>$unique = FALSE</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniterDatabaseForge::addKey" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>$key</strong> (<em>array</em>) – Name of a key field</li>
+<li><strong>$key</strong> (<em>mixed</em>) – Name of a key field or an array of fields</li>
 <li><strong>$primary</strong> (<em>bool</em>) – Set to TRUE if it should be a primary key or a regular one</li>
+<li><strong>$unique</strong> (<em>bool</em>) – Set to TRUE if it should be a unique key or a regular one</li>
 </ul>
 </td>
 </tr>
@@ -571,6 +585,52 @@ change the name you can add a “name” key into the field defining array.</p>
 </tbody>
 </table>
 <p>Adds a key to the set that will be used to create a table. Usage:  See <a class="reference internal" href="#adding-keys">Adding Keys</a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CodeIgniterDatabaseForge::addPrimaryKey">
+<code class="descname">addPrimaryKey</code><span class="sig-paren">(</span><em>$key</em><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniterDatabaseForge::addPrimaryKey" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>$key</strong> (<em>mixed</em>) – Name of a key field or an array of fields</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">CodeIgniterDatabaseForge instance (method chaining)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">CodeIgniterDatabaseForge</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Adds a primary key to the set that will be used to create a table. Usage:  See <a class="reference internal" href="#adding-keys">Adding Keys</a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CodeIgniterDatabaseForge::addUniqueKey">
+<code class="descname">addUniqueKey</code><span class="sig-paren">(</span><em>$key</em><span class="sig-paren">)</span><a class="headerlink" href="#CodeIgniterDatabaseForge::addUniqueKey" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>$key</strong> (<em>mixed</em>) – Name of a key field or an array of fields</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">CodeIgniterDatabaseForge instance (method chaining)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">CodeIgniterDatabaseForge</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Adds an unique key to the set that will be used to create a table. Usage:  See <a class="reference internal" href="#adding-keys">Adding Keys</a>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -767,8 +827,8 @@ change the name you can add a “name” key into the field defining array.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014-2017 British Columbia Institute of Technology.
-      Last updated on Dec 30, 2017.
+        &copy; Copyright 2014-2018 British Columbia Institute of Technology.
+      Last updated on Jan 10, 2018.
 
     </p>
   </div>
