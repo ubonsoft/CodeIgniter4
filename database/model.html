@@ -748,8 +748,8 @@ use the same callback in multiple events:</p>
 passed to each event:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="12%" />
-<col width="88%" />
+<col width="13%" />
+<col width="87%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Event</th>
@@ -758,32 +758,22 @@ passed to each event:</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>beforeInsert</td>
-<td><dl class="first last docutils">
-<dt><strong>data</strong> = the key/value pairs that are being inserted. If an object or Entity class is passed to the insert</dt>
-<dd>method, it is first converted to an array.</dd>
-</dl>
-</td>
+<td><strong>data</strong> = the key/value pairs that are being inserted. If an object or Entity class is passed to the
+insert method, it is first converted to an array.</td>
 </tr>
 <tr class="row-odd"><td>afterInsert</td>
-<td><dl class="first last docutils">
-<dt><strong>data</strong> = the original key/value pairs being inserted. <strong>result</strong> = the results of the insert() method</dt>
-<dd>used through the Query Builder.</dd>
-</dl>
-</td>
+<td><strong>data</strong> = the original key/value pairs being inserted.
+<strong>result</strong> = the results of the insert() method used through the Query Builder.</td>
 </tr>
 <tr class="row-even"><td>beforeUpdate</td>
-<td><dl class="first last docutils">
-<dt><strong>id</strong> = the primary key of the row being updated. <strong>data</strong> = the key/value pairs that are being</dt>
-<dd>inserted. If an object or Entity class is passed to the insert method, it is first converted to an array.</dd>
-</dl>
-</td>
+<td><strong>id</strong> = the primary key of the row being updated.
+<strong>data</strong> = the key/value pairs that are being inserted. If an object or Entity class is passed to the
+insert method, it is first converted to an array.</td>
 </tr>
 <tr class="row-odd"><td>afterUpdate</td>
-<td><dl class="first last docutils">
-<dt><strong>id</strong> = the primary key of the row being updated. <strong>data</strong> = the original key/value pairs being updated.</dt>
-<dd><strong>result</strong> = the results of the update() method used through the Query Builder.</dd>
-</dl>
-</td>
+<td><strong>id</strong> = the primary key of the row being updated.
+<strong>data</strong> = the original key/value pairs being updated.
+<strong>result</strong> = the results of the update() method used through the Query Builder.</td>
 </tr>
 <tr class="row-even"><td>afterFind</td>
 <td>Varies by find* method. See the following:</td>
@@ -792,11 +782,8 @@ passed to each event:</p>
 <li>find()</li>
 </ul>
 </td>
-<td><dl class="first last docutils">
-<dt><strong>id</strong> = the primary key of the row being searched for. <strong>data</strong> = The resulting row of data, or null if</dt>
-<dd>no result found.</dd>
-</dl>
-</td>
+<td><strong>id</strong> = the primary key of the row being searched for.
+<strong>data</strong> = The resulting row of data, or null if no result found.</td>
 </tr>
 <tr class="row-even"><td><ul class="first last simple">
 <li>findWhere()</li>
@@ -808,11 +795,9 @@ passed to each event:</p>
 <li>findAll()</li>
 </ul>
 </td>
-<td><dl class="first last docutils">
-<dt><strong>data</strong> = the resulting rows of data, or null if no result found. <strong>limit</strong> = the number of rows to find.</dt>
-<dd><strong>offset</strong> = the number of rows to skip during the search.</dd>
-</dl>
-</td>
+<td><strong>data</strong> = the resulting rows of data, or null if no result found.
+<strong>limit</strong> = the number of rows to find.
+<strong>offset</strong> = the number of rows to skip during the search.</td>
 </tr>
 <tr class="row-even"><td><ul class="first last simple">
 <li>first()</li>
@@ -820,29 +805,43 @@ passed to each event:</p>
 </td>
 <td><strong>data</strong> = the resulting row found during the search, or null if none found.</td>
 </tr>
-<tr class="row-odd"><td>afterDelete</td>
+<tr class="row-odd"><td>beforeDelete</td>
 <td>Varies by delete* method. See the following:</td>
 </tr>
 <tr class="row-even"><td><ul class="first last simple">
 <li>delete()</li>
 </ul>
 </td>
-<td><dl class="first last docutils">
-<dt><strong>id</strong> = primary key of row being deleted. <strong>purge</strong> boolean whether soft-delete rows should be</dt>
-<dd>hard deleted. <strong>result</strong> = the result of the delete() call on the Query Builder. <strong>data</strong> = unused.</dd>
-</dl>
-</td>
+<td><strong>id</strong> = primary key of row being deleted.
+<strong>purge</strong> = boolean whether soft-delete rows should be hard deleted.</td>
 </tr>
 <tr class="row-odd"><td><ul class="first last simple">
 <li>deleteWhere()</li>
 </ul>
 </td>
-<td><dl class="first last docutils">
-<dt><strong>key</strong>/<strong>value</strong> = the key/value pair used to search for rows to delete. <strong>purge</strong> boolean whether</dt>
-<dd>soft-delete rows should be hard deleted. <strong>result</strong> = the result of the delete() call on the Query
-Builder. <strong>data</strong> = unused.</dd>
-</dl>
+<td><strong>key</strong>/<strong>value</strong> = the key/value pair used to search for rows to delete.
+<strong>purge</strong> = boolean whether soft-delete rows should be hard deleted.</td>
+</tr>
+<tr class="row-even"><td>afterDelete</td>
+<td>Varies by delete* method. See the following:</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>delete()</li>
+</ul>
 </td>
+<td><strong>id</strong> = primary key of row being deleted.
+<strong>purge</strong> = boolean whether soft-delete rows should be hard deleted.
+<strong>result</strong> = the result of the delete() call on the Query Builder.
+<strong>data</strong> = unused.</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>deleteWhere()</li>
+</ul>
+</td>
+<td><strong>key</strong>/<strong>value</strong> = the key/value pair used to search for rows to delete.
+<strong>purge</strong> boolean whether soft-delete rows should be hard deleted.
+<strong>result</strong> = the result of the delete() call on the Query Builder.
+<strong>data</strong> = unused.</td>
 </tr>
 </tbody>
 </table>
@@ -873,7 +872,7 @@ Builder. <strong>data</strong> = unused.</dd>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014-2018 British Columbia Institute of Technology.
-      Last updated on Jan 10, 2018.
+      Last updated on Jan 17, 2018.
 
     </p>
   </div>
